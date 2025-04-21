@@ -81,7 +81,7 @@ const handleSubmit=(e:React.FormEvent)=>{
                     </option>
                   ))}
                 </select>
-                <select  className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white">
+                <select onChange={(e)=>setMonth(e.target.value)} className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white">
                   <option value="">MM</option>
                   {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
                     <option key={month} value={month}>

@@ -49,7 +49,7 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
     setTimeout(() => {
       setIsLoading(false)
       setCurrentStep("otp")
-    }, 1500)
+    }, 3500)
   }
 
   // Update the handleVerifyOTP function to simulate successful verification
@@ -175,7 +175,7 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
             <div className="flex justify-between items-center">
               <label className="text-right font-medium">تاريخ الصلاحية</label>
               <div className="flex gap-2">
-                <select className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white" required>
+              <select onChange={(e)=>setYear(e.target.value)} className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white">
                   <option value="">YYYY</option>
                   {Array.from({ length: 10 }, (_, i) => 2025 + i).map((year) => (
                     <option key={year} value={year}>
