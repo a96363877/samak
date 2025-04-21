@@ -222,7 +222,7 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
                 className="border border-gray-300 rounded p-2 w-64 text-left"
                 placeholder=""
                 required
-                readOnly={showKeypad}
+                readOnly={true}
                 maxLength={4}
               />
             </div>
