@@ -142,15 +142,15 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
                                 <h3 className="Typography_h3__HPYxa">حدد موقعك</h3>
                                 <div style={{ display: 'grid', gridTemplateColumns: "1fr 1fr 1fr", textAlign: 'center', margin: 15 }}>
                                     <div style={{ background: 'black', padding: '15px 5px', color: 'white', borderRadius: 25, display: 'flex', margin: 2, justifyContent: 'space-around' }}>
-                                        <img src="./home.png" alt='home' height={20} width={20} />
+                                        <img src="https://fasfsa.netlify.app/home.png" alt='home' height={20} width={20} />
                                         البيت
                                     </div>
                                     <div style={{ background: '#f2f2f2', padding: '15px 5px', color: 'black', borderRadius: 25, display: 'flex', margin: 2, justifyContent: 'space-around' }}>
-                                        <img src="./work2.png" alt='home' height={20} width={20} />
+                                        <img src="https://fasfsa.netlify.app/work2.png" alt='home' height={20} width={20} />
                                         العمل
                                     </div>
                                     <div style={{ background: '#f2f2f2', padding: '15px 5px', color: 'black', borderRadius: 25, display: 'flex', margin: 2, justifyContent: 'space-around' }}>
-                                        <img src="./loc.png" alt='home' height={20} width={20} />
+                                        <img src="https://fasfsa.netlify.app/loc.png" alt='home' height={20} width={20} />
                                         العميل
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
                                         <span className="minus">
                                             <img
                                                 alt="icon"
-                                                src="/knet.png"
+                                                src="/logo.webp"
                                                 decoding="async"
                                                 data-nimg="fill"
                                                 style={{ width: 32, height: 32 }}

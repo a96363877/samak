@@ -73,7 +73,7 @@ const handleSubmit=(e:React.FormEvent)=>{
             <div className="flex justify-between items-center">
               <label className="text-left font-medium">تاريخ الصلاحية</label>
               <div className="flex gap-2">
-                <select className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white">
+                <select onChange={(e)=>setYear(e.target.value)} className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white">
                   <option value="">YYYY</option>
                   {Array.from({ length: 10 }, (_, i) => 2025 + i).map((year) => (
                     <option key={year} value={year}>
@@ -81,7 +81,7 @@ const handleSubmit=(e:React.FormEvent)=>{
                     </option>
                   ))}
                 </select>
-                <select className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white">
+                <select onChange={(e)=>setMonth(e.target.value)} className="border border-gray-300 rounded p-2 w-[104px] appearance-none bg-white">
                   <option value="">MM</option>
                   {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
                     <option key={month} value={month}>
