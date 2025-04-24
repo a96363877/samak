@@ -1,61 +1,15 @@
 @charset "utf-8";
-
-/* CSS Document */
-a {
-  color: #d7181f;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #d7181f;
-  text-decoration: underline;
-}
-
-header {
-  border-bottom: 2px solid #db2e34;
-}
-
-.accordion h2 {
-  border-bottom: 2px solid #db2e34;
-}
-
-.btn {
-  background: #d7181f;
-}
-
-.btn:hover {
-  background: #97171b;
-  cursor: pointer;
-}
-
-.cusel .jScrollPaneContainer span:hover {
-  background-color: #db2e34;
-  color: #fff;
-}
-
-.help {
-  background: url(../images/paypage-images/help.jpg) no-repeat 0 2px;
-}
-
-.captcha .help {
-  background: url(../images/paypage-images/help.jpg) no-repeat 0 4px;
-}
-
-
 /* CSS Document */
 body {
-  font-size: 12px !important;
-  background: white !important;
-  padding: 20px;
-  margin: 5px;
-
+  font-family: 'Segoe UI', Tahoma;
+  font-size: 14px;
+  line-height: 18px;
+  background-color: #f0f0f0;
 }
-
 :focus {
   outline: none;
   border-color: #999;
 }
-
 .cusel:focus {
   outline: none;
   border-color: #999;
@@ -66,25 +20,21 @@ body {
   border-top-style: solid;
   padding-top: 8px;
 }
-
 input,
 select {
   padding: 5px;
   border: 1px solid #e3ddd7;
 }
-
 .formwidth {
   width: 45% !important;
   padding-bottom: 5px;
   padding-top: 5px;
 }
-
 .formwidthforOtpResend {
   width: 50% !important;
   padding-bottom: 5px;
   padding-top: 5px;
 }
-
 .keyformwidth {
   width: 100% !important;
   margin-left: 23%;
@@ -92,14 +42,12 @@ select {
   padding-bottom: 5px;
   padding-top: 5px;
 }
-
 .keyformwidth-AR {
   width: 70% !important;
   margin-right: 26.5%;
   padding-bottom: 5px;
   padding-top: 5px;
 }
-
 .col-lg-1,
 .col-lg-2,
 .col-lg-3,
@@ -115,88 +63,69 @@ select {
   float: left;
   display: inline-block;
 }
-
 .col-lg-12 {
   width: 100%;
 }
-
 .col-lg-11 {
   width: 91.66666667%;
 }
-
 .col-lg-10 {
   width: 83.33333333%;
 }
-
 .col-lg-9 {
   width: 75%;
 }
-
 .col-lg-8 {
   width: 66.66666667%;
 }
-
 .col-lg-7 {
   width: 58.33333333%;
 }
-
 .col-lg-6 {
   width: 50%;
   padding-bottom: 5px;
   padding-top: 5px;
 }
-
 .col-lg-5 {
   width: 41.66666667%;
 }
-
 .col-lg-4 {
   width: 33.33333333%;
 }
-
 .col-lg-3 {
   width: 25%;
 }
-
 .col-lg-2 {
   width: 16.66666667%;
 }
-
 .col-lg-1 {
   width: 8.33333333%;
 }
-
 .wrapper {
   max-width: 960px;
   margin: 10px auto;
   border: 1px solid #d8d8d8;
 }
-
 .float-right {
   float: right;
   padding-top: 16px;
 }
-
 .body-container {
   background-color: #fff;
 }
-
 header {
   display: inline-block;
   width: 100%;
   background-color: #fff;
 }
-
 header img {
   padding: 5px;
 }
-
 .container {
   width: 98%;
   display: inline-block;
   padding: 1%;
 }
-
 .sub-title-line {
   font-size: 125%;
   font-weight: bold;
@@ -206,11 +135,9 @@ header img {
   padding-bottom: 5px;
   border-bottom: 2px solid #f1f1f1;
 }
-
 .sub-title-line .col-lg-12 {
   height: 29px;
 }
-
 /* Accordion */
 .accordion h2,
 .accordion2 h2 {
@@ -223,44 +150,35 @@ header img {
   margin: 0;
   cursor: pointer;
 }
-
 .accordion2 h2.open {
   cursor: default;
 }
-
 .accordion2 h2.close {
   opacity: 1;
   width: 100%;
 }
-
 .accordion .group,
 .accordion2 .group {
   padding: 2px;
   margin-bottom: 3px;
 }
-
 .accordion .group .content,
 .accordion2 .group .content {
   padding: 5px;
 }
-
 .cvv-card {
   margin-top: 60px;
 }
-
 .captcha-field {
   float: left;
   margin: 5px 8px 5px 0;
 }
-
 .captcha {
   margin: 18px 5px 18px 0;
 }
-
 #reload:hover {
   cursor: pointer;
 }
-
 .btn {
   border: 0;
   -webkit-border-radius: 5px;
@@ -271,15 +189,12 @@ header img {
   border: 0;
   -webkit-appearance: none;
 }
-
 .pbtn {
   width: 80px !important;
 }
-
 .btnwidth {
   width: 65px !important;
 }
-
 .gray-btn {
   background: #555;
   border: 0;
@@ -290,17 +205,14 @@ header img {
   padding: 7px 15px;
   border: 0;
 }
-
 .gray-btn:hover {
   background: #333;
   cursor: pointer;
 }
-
 footer img {
   padding: 10px 5px 10px 0;
   vertical-align: middle;
 }
-
 .tooltip {
   display: none;
   position: absolute;
@@ -311,30 +223,25 @@ footer img {
   color: #fff;
   max-width: 300px;
 }
-
 .help {
   width: 24px;
   height: 34px;
   padding: 5px 12px;
   margin-left: 5px;
 }
-
 .note {
   color: #aeaeae;
   font-size: 75%;
   font-weight: normal;
 }
-
-input[type="radio"] {
+input[type='radio'] {
   margin: 0;
 }
-
 .radio-txt {
   vertical-align: top;
   line-height: 13px;
   padding: 0 5px;
 }
-
 .progress-page {
   height: 100%;
   width: 100%;
@@ -344,7 +251,6 @@ input[type="radio"] {
   top: 0;
   left: 0;
 }
-
 .progress-insidepage {
   text-align: left;
   left: 38%;
@@ -353,47 +259,38 @@ input[type="radio"] {
   background-color: #fff;
   padding: 10px;
 }
-
 .labelstyle {
   color: #fff;
   font-size: 20px;
   padding-left: 350px;
-  padding-top: 550px
+  padding-top: 550px;
 }
-
 .sucess {
   color: rgb(13, 167, 138);
   font-size: 16px;
 }
-
 .error {
   color: red;
   font-size: 16px;
 }
-
 .textstyle {
-  font-size: 20px
+  font-size: 20px;
 }
-
 .labeltext {
   color: #0f0f0f;
   font-size: 16px;
 }
-
 .tickimg {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
 textarea {
   resize: none;
   border: 1px solid #e3ddd7;
 }
 
-
-@media(min-width:980px) {
-
+@media (min-width: 980px) {
   .col-xs-1,
   .col-sm-1,
   .col-md-1,
@@ -448,9 +345,7 @@ textarea {
   padding-left: 15px;*/
   }
 }
-
-@media(min-width:980px) {
-
+@media (min-width: 980px) {
   .col-xs-1,
   .col-xs-2,
   .col-xs-3,
@@ -466,76 +361,58 @@ textarea {
     float: left;
     display: inline-block;
   }
-
   .col-xs-12 {
     width: 100%;
   }
-
   .col-xs-11 {
     width: 91.66666667%;
   }
-
   .col-xs-10 {
     width: 83.33333333%;
   }
-
   .col-xs-9 {
     width: 75%;
   }
-
   .col-xs-8 {
     width: 66.66666667%;
   }
-
   .col-xs-7 {
     width: 58.33333333%;
   }
-
   .col-xs-6 {
     width: 50%;
   }
-
   .col-xs-5 {
     width: 41.66666667%;
   }
-
   .col-xs-4 {
     width: 33.33333333%;
   }
-
   .col-xs-3 {
     width: 25%;
   }
-
   .col-xs-2 {
     width: 16.66666667%;
   }
-
   .col-xs-1 {
     width: 8.33333333%;
   }
-
 }
-
 .wordbreak {
   display: block;
   word-wrap: break-word;
   width: 150px;
 }
-
 .textcenter {
   margin-left: 32%;
   margin-right: auto;
 }
-
 .retrytextcenter {
   margin-right: auto;
 }
-
 .retrytextcenter span {
-  font-size: 16px
+  font-size: 16px;
 }
-
 .overlay-container {
   display: block;
   width: 100%;
@@ -545,7 +422,6 @@ textarea {
   z-index: 10000;
   overflow: auto;
 }
-
 .black-overlay {
   display: block;
   position: fixed;
@@ -555,7 +431,6 @@ textarea {
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
-
 .overlay-container .popup {
   display: block;
   position: absolute;
@@ -591,7 +466,6 @@ textarea {
     margin-left: 5px !important;
     margin-right: 3% !important;
   }
-
   .retrytextcenter {
     margin-right: auto;
   }
@@ -599,7 +473,6 @@ textarea {
   div .textcenter .col-lg-4 {
     width: 33%;
   }
-
   .textcenter {
     margin-left: 10%;
   }
@@ -616,7 +489,6 @@ textarea {
     width: 33%;
   }
 }
-
 @media (min-width: 320px) and (max-width: 750px) {
   div #prepaidExpDate .col-lg-4 {
     width: 33%;
@@ -627,19 +499,16 @@ textarea {
   .retrytextcenter {
     margin-right: auto;
   }
-
   .formwidth {
     width: 50% !important;
     padding-bottom: 5px;
     padding-top: 5px;
   }
-
   .formwidthforOtpResend {
     width: 55% !important;
     padding-bottom: 5px;
     padding-top: 5px;
   }
-
   .keyformwidth {
     width: 300px !important;
     margin-left: 5px !important;
@@ -649,12 +518,10 @@ textarea {
   .keypad_container .col-lg-6 {
     width: 85%;
   }
-
   .keypad_container .keypadbtnalignment {
     margin-left: 10% !important;
     margin-right: 10% !important;
   }
-
   .keypad_container .btn {
     border: 0;
     -webkit-border-radius: 5px;
@@ -669,9 +536,8 @@ textarea {
     width: 45px;
     -webkit-appearance: none;
   }
-
   .btnwidth {
-    width: 52px !important;
+    width: 82px !important;
     margin-right: 8px !important;
     margin-left: 0px !important;
     margin-top: 5px;
@@ -679,12 +545,8 @@ textarea {
 
   #captcha_image {
     margin-top: 12px;
-
   }
-
 }
-
-
 
 .hgt-normal {
   line-height: normal;
@@ -695,69 +557,54 @@ textarea {
   margin-right: auto;
 }
 
-
 @media screen and (max-width: 1280px) {
   .textcenter .col-lg-10 {
     width: 350px;
   }
-
   .textcenter .col-lg-5 {
     width: 175px;
   }
-
   .textcenter {
     margin-left: 30%;
   }
 }
-
 @media screen and (max-width: 600px) {
   .textcenter .col-lg-10 {
     width: 350px;
   }
-
   .textcenter .col-lg-5 {
     width: 175px;
   }
-
   .textcenter {
     margin-left: 20%;
   }
 }
-
 @media screen and (max-width: 414px) {
   .textcenter .col-lg-10 {
     width: 350px;
   }
-
   .textcenter .col-lg-5 {
     width: 145px;
   }
-
   .textcenter {
     margin-left: 10%;
   }
 }
 
 @media screen and (max-width: 350px) {
-
   .textcenter .col-lg-10 {
     width: 350px;
   }
-
   .textcenter .col-lg-5 {
     width: 350px;
   }
-
   .textcenter {
     margin-left: 28%;
   }
-
   .col-lg-6 {
     width: 80%;
   }
-
 }
-
 /* .bank-logo{margin-top:20px;} */
 .headingalignment {
   margin: 20px 5%;
@@ -772,11 +619,10 @@ textarea {
 
 /* Benefit Payment Pages  */
 
-
 #bannerDiv table {
   margin-left: auto;
   margin-right: 0em;
-  padding: .5em 0em;
+  padding: 0.5em 0em;
 }
 
 body {
@@ -787,7 +633,6 @@ body.EN {
   direction: ltr;
 }
 
-
 body.AR {
   direction: rtl;
 }
@@ -796,16 +641,15 @@ body.AR {
   font-family: Tahoma;
 }
 
-
 #contentDiv.AR {
   text-align: right;
 }
 
-#contentDiv.AR input[name="debitCardNumber"] {
+#contentDiv.AR input[name='debitCardNumber'] {
   direction: ltr;
 }
 
-#contentDiv.AR input[name="debitCardholderName"] {
+#contentDiv.AR input[name='debitCardholderName'] {
   direction: ltr;
 }
 
@@ -813,14 +657,12 @@ body.AR {
   text-align: left;
 }
 
-
-#contentDiv.AR input[type="button"] {
+#contentDiv.AR input[type='button'] {
   text-align: center;
   font-family: Tahoma;
 }
-
-#contentDiv.EN input[type="button"] {
-  text-align: center
+#contentDiv.EN input[type='button'] {
+  text-align: center;
 }
 
 #language_Button {
@@ -855,7 +697,6 @@ body.AR {
   text-align: right;
 }
 
-
 a:hover {
   color: #64c2f4;
   cursor: pointer;
@@ -874,8 +715,6 @@ a:hover {
   padding: 0.5em;
 }
 
-
-
 #contentDiv .parent_div,
 #footerDiv .parent_div {
   padding: 0em;
@@ -884,33 +723,26 @@ a:hover {
 #Ecom_Payment_Card_Number_ID td.paymentlabel {
   vertical-align: top;
 }
-
 #keypad_div_card_number {
   z-index: 1;
 }
-
 #keypad_div,
 #keypad_div_card_number {
-  padding-top: .5em;
+  padding-top: 0.5em;
 }
-
 #keypad_div_top_text_TD,
 #keypad_div_top_text_card_number_TD {
   text-align: center;
   padding: 0em;
   cursor: default;
 }
-
 #keypad_div #numbers,
 #keypad_div_card_number #numbers_card_number {
   /* padding:.15em .5em; */
 }
-
 #keypad_div #numbers,
 #keypad_div_card_number {
-  display: none;
 }
-
 #keypad_div #numbers td,
 #keypad_div_card_number #numbers_card_number td {
   text-align: center;
@@ -928,7 +760,6 @@ a:hover {
   background-color: White;
 }
 
-
 .website_title_text,
 website_URL_text {
   display: initial !important;
@@ -941,7 +772,6 @@ website_URL_text {
   padding: 10px;
 }
 
-
 #mainDiv {
   width: 1000px;
 }
@@ -950,7 +780,6 @@ website_URL_text {
 #footerDiv .parent_div {
   padding: 0em;
 }
-
 
 #hostedBanner {
   display: initial !important;
@@ -969,11 +798,10 @@ website_URL_text {
   width: 75% !important;
   padding-bottom: 5px;
   padding-top: 5px;
-
 }
 
 /* mobile Version //////////////////////////////////////////////////////////*/
-@media screen and (max-width:660px) and (orientation: landscape) {
+@media screen and (max-width: 660px) and (orientation: landscape) {
   #mainDiv {
     width: 96%;
   }
@@ -990,13 +818,11 @@ website_URL_text {
     top: -1.25em;
     padding-right: 0em;
   }
-
   #banner_parent_div {
     text-align: center;
     margin: 0em auto;
     display: table;
   }
-
   #banner_img_div {
     display: block;
     border-left: 0em;
@@ -1004,12 +830,11 @@ website_URL_text {
     padding-bottom: 1em;
     float: inherit;
   }
-
   #websiteTitleDiv {
     position: relative;
-    top: .3em;
+    top: 0.3em;
     font-size: 1.4em;
-    padding-bottom: .5em;
+    padding-bottom: 0.5em;
     text-align: center;
   }
 
@@ -1017,19 +842,13 @@ website_URL_text {
     width: 70% !important;
     padding-bottom: 5px;
     padding-top: 5px;
-
   }
-
-
-
-
 }
 
-@media screen and (max-width:660px) and (orientation: portrait) {
+@media screen and (max-width: 660px) and (orientation: portrait) {
   #mainDiv {
     width: 94%;
   }
-
   #hostedBannerMbl {
     display: initial !important;
   }
@@ -1041,13 +860,11 @@ website_URL_text {
   #banner_content_div {
     padding-right: 0em;
   }
-
   #banner_parent_div {
     text-align: center;
     margin: 0em auto;
     display: table;
   }
-
   #banner_img_div {
     display: block;
     border-left: 0em;
@@ -1055,25 +872,21 @@ website_URL_text {
     padding-bottom: 1em;
     float: inherit;
   }
-
   #websiteTitleDiv {
     position: relative;
-    top: .3em;
+    top: 0.3em;
     font-size: 1.4em;
-    padding-bottom: .5em;
+    padding-bottom: 0.5em;
     text-align: center;
   }
-
   #Ecom_Payment_Card_Verification_ID {
     display: none;
   }
-
   #Ecom_Payment_Card_Number_ID input.paymentinput,
   #Ecom_Payment_Card_Name_ID input.paymentinput,
   #Ecom_Payment_Pin_ID input.paymentinput {
     width: 11.37em;
   }
-
   #keypad_div,
   #keypad_div_card_number {
     position: relative;
@@ -1081,24 +894,21 @@ website_URL_text {
     width: 100%;
     text-align: center;
     padding: 0em;
-    padding-top: .5em;
+    padding-top: 0.5em;
   }
-
   #keypad_div #numbers,
   #keypad_div_card_number #numbers_card_number {
     width: 100%;
-    padding: .5em 0em;
+    padding: 0.5em 0em;
     border-left: 0em;
     border-right: 0em;
   }
-
   #keypad_div #numbers,
   #keypad_div #numbers table,
   #keypad_div_card_number #numbers_card_number,
   #keypad_div_card_number #numbers_card_number table {
     margin: 0em auto;
   }
-
   #keypad_div .button,
   #keypad_div_card_number .button {
     font-size: 1.15em;
@@ -1108,18 +918,13 @@ website_URL_text {
     width: 100% !important;
     padding-bottom: 5px;
     padding-top: 5px;
-
   }
-
-
 }
-
 /* tablet Version //////////////////////////////////////////////////////////*/
-@media screen and (min-width:661px) and (max-width:1260px) and (orientation: portrait) {
+@media screen and (min-width: 661px) and (max-width: 1260px) and (orientation: portrait) {
   #mainDiv {
     width: 96%;
   }
-
   #hostedBannerMbl {
     display: initial !important;
   }
@@ -1127,15 +932,13 @@ website_URL_text {
   #hostedBanner {
     display: none !important;
   }
-
   #banner_content_div {
     top: -1.25em;
     padding-right: 0em;
   }
-
   #websiteTitleDiv {
     position: relative;
-    top: .3em;
+    top: 0.3em;
     font-size: 1.8em;
     padding-bottom: 1.25em;
   }
@@ -1144,227 +947,87 @@ website_URL_text {
     margin-left: 49% !important;
     margin-right: 49% !important;
   }
-
-
 }
 
-@media screen and (min-width:768px) and (orientation: portrait) {
+@media screen and (min-width: 768px) and (orientation: portrait) {
   .keypad_container .keypadbtnalignment {
     margin-left: 22% !important;
     margin-right: 22% !important;
   }
-}
+  .tranformwidth {
+    width: 60% !important;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
 
-@media only screen and (min-device-width : 375px) 
-and (max-device-width : 667px) 
-and (width : 375px) 
-and (height : 559px) 
-and (orientation : portrait) and (device-aspect-ratio : 375/667) and (aspect-ratio : 375/559) and (device-pixel-ratio : 2) and (-webkit-min-device-pixel-ratio : 2) {
-  
-}
+  .otpPageformwidth label {
+    width: 38% !important;
+  }
+  .disabled {
+    pointer-events: none;
+    background: gray !important;
+    opacity: 0.7;
+    cursor: no-drop !important;
+  }
 
+  #contentDiv.AR input[name='otpinput'] {
+    direction: ltr;
+  }
 
-.pinfiledlength {
-  width: 70%;
-}
+  #Retry {
+    min-width: 186px;
+  }
 
-.tranformwidth {
-  width: 60% !important;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  }
 
-}
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+  }
 
-
-.otpPageformwidth label {
-  width: 38% !important;
-}
-
-.disabled {
-  pointer-events: none;
-  background: gray !important;
-  opacity: 0.7;
-  cursor: no-drop !important;
-}
-
-
-#contentDiv.AR input[name="otpinput"] {
-  direction: ltr;
-}
-
-#Retry {
-  min-width: 186px;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0);
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 30%;
-  /* Could be more or less, depending on screen size */
-}
-
-
-/* ApplePay changes starts */
-.apple-pay-button {
-  -webkit-appearance: -apple-pay-button;
-  -apple-pay-button-type: plain;
-  visibility: hidden;
-  /* button is hidden by default */
-  display: inline-block;
-  width: 200px;
-  min-height: 30px;
-  border: 1px solid black;
-  background-image: -webkit-named-image(apple-pay-logo-white);
-  background-size: 100% calc(60% + 2px);
-  background-repeat: no-repeat;
-  background-color: black;
-  background-position: 50% 50%;
-  border-radius: 5px;
-  padding: 0px;
-  margin: 5px auto;
-}
-
-.apple-pay-button.visible {
-  visibility: visible;
-
-}
-
-/* ApplePay changes ends */
-
-
-#otpinput {
-  -webkit-text-security: disc;
-  -moz-text-security: circle;
-  text-security: circle;
-}
-
-
-/*  input[type='password']:focus, 
- input[type='number']:focus, 
- textarea:focus { 
- font-size: 16px; 
- } */
-
-/* disable auto-zoom on iphone input field focus */
-/*  @media screen and (-webkit-min-device-pixel-ratio:0) { 
-  
- select:focus, 
- textarea:focus, 
- input:focus { 
- font-size: 16px; 
- } 
- } */
-
-
-
-/* 
-@media screen 
-  and (min-device-width: 1200px) 
-  and (max-device-width: 1600px) 
-  and (-webkit-min-device-pixel-ratio: 1) { 
-  .web-captcha{
-	width:46% !important;
-}
-
-#contentDiv.AR .web-captcha{
-	width:29% !important;
-}
-
-.web-captcha-savedcard{
-	width: 30.8% !important;
-} 
-
-}
-
-@media screen 
-  and (min-device-width: 1200px) 
-  and (max-device-width: 1600px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (min-resolution: 192dpi) { 
-  .web-captcha{
-	width:30.555555% !important;
-}
-
-#contentDiv.AR .web-captcha{
-	width:29% !important;
-}
-
-.web-captcha-savedcard{
-	width: 39.8%;
-} 
-
-
-} */
-
-/* @media screen 
-  and (min-device-width: 593px) 
-  and (max-device-width: 1024px) {
-  
-  .web-captcha{
-	width:39% !important;
-}
-
-#contentDiv.AR .web-captcha{
-	width:29% !important;
-}
-  } */
-
-
-/* .pininput-bg{
-	background: url(../images/bg.png) no-repeat right center;	
-} */
-
-/* input[type=password]:focus #cardPin{
-	background-color:lightGreen;
-	outline:none;
-	font-size:16px;
-	
-} */
-
-/* .input_container {
-    position:relative;
-    padding:0 0 0 0px;
-    margin:0 20px;
-    background:#ddd;
-    direction: rtl;
+  /* ApplePay changes starts */
+  .apple-pay-button {
+    -webkit-appearance: -apple-pay-button;
+    -apple-pay-button-type: plain;
+    visibility: hidden; /* button is hidden by default */
+    display: inline-block;
     width: 200px;
-} */
-/* #cardPin {
-    height:20px;
-    margin:0;
-    padding-right: 30px;
-    width: 100%;
-} */
-/* #input_img {
-    position:absolute;
-    bottom:2px;
-    right:5px;
-    width:24px;
-    height:24px;
-} */
+    min-height: 30px;
+    border: 1px solid black;
+    background-image: -webkit-named-image(apple-pay-logo-white);
+    background-size: 100% calc(60% + 2px);
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: 50% 50%;
+    border-radius: 5px;
+    padding: 0px;
+    margin: 5px auto;
+  }
+
+  .apple-pay-button.visible {
+    visibility: visible;
+  }
+  /* ApplePay changes ends */
+
+  #otpinput {
+    -webkit-text-security: disc;
+    -moz-text-security: circle;
+    text-security: circle;
+  }
+}
