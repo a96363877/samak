@@ -356,9 +356,11 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
                                 </div>
                                 <button
                                     type="submit"
+
                                     className="Button_button Button_primary Button_wide__XK76o"
+
                                 >
-                                    <span className="Button_content">
+                                    <span className="Button_content"  style={{padding:15,background:"#025380",color:'white'}}>
                                         متابعة الدفع<p>(   {isCheked === 'payfull' ? total : 0.5}د.ب)</p>
                                     </span>
                                 </button>

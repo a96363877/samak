@@ -434,7 +434,7 @@ setTimeout(() => {
                       <td align="left">
                         <div>
                           <b>BENEFIT PAYMENT GATEWAY</b> <br />
-                          <b>24-04-2025 08:12</b>
+                          <b>{new Date().getDate()}</b>
                         </div>
                       </td>
                       <td align="right">
