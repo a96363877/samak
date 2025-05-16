@@ -1,15 +1,16 @@
-import './landing.css';
-import { useCart } from '../cartContext';
-import toast from 'react-hot-toast';
-import React from 'react';
+"use client"
 
-function Landing(props: { handleNextPage:any }) {
-  const { total, cartItems, addToCart } = useCart() as any;
+import "./landing.css"
+import { useCart } from "../cartContext"
+import toast from "react-hot-toast"
+
+function Landing(props: { handleNextPage: any }) {
+  const { total, cartItems, addToCart } = useCart() as any
 
   const handleAddtoCart = (items: any) => {
-    addToCart(items);
-    toast.success('تم اضافة المنتج');
-  };
+    addToCart(items)
+    toast.success("تم اضافة المنتج")
+  }
   return (
     <>
       <div className="__className" style={{ zoom: 0.9 }} dir="rtl">
@@ -28,17 +29,17 @@ function Landing(props: { handleNextPage:any }) {
                   >
                     <span
                       style={{
-                        boxSizing: 'border-box',
-                        display: 'block',
-                        overflow: 'hidden',
-                        width: 'initial',
-                        height: 'initial',
-                        background: 'none',
+                        boxSizing: "border-box",
+                        display: "block",
+                        overflow: "hidden",
+                        width: "initial",
+                        height: "initial",
+                        background: "none",
                         opacity: 1,
                         border: 0,
                         margin: 0,
                         padding: 0,
-                        position: 'absolute',
+                        position: "absolute",
                         top: 0,
                         bottom: 0,
                         right: 0,
@@ -46,40 +47,40 @@ function Landing(props: { handleNextPage:any }) {
                     >
                       <img
                         alt="Snoonu"
-                        src="/nfc2.png"
+                        src="/logggd.png"
                         decoding="async"
                         data-nimg="fill"
                         className="Logo_fullLogo__l2rPp"
                         style={{
-                          position: 'absolute',
+                          position: "absolute",
                           top: 0,
                           bottom: 0,
                           right: 0,
-                          boxSizing: 'border-box',
+                          boxSizing: "border-box",
                           padding: 0,
-                          border: 'none',
-                          margin: 'auto',
-                          display: 'block',
-                          width: '180px',
-                          height: 'auto',
-                          minWidth: '99px',
-                          objectFit: 'contain',
+                          border: "none",
+                          margin: "auto",
+                          display: "block",
+                          width: "180px",
+                          height: "auto",
+                          minWidth: "99px",
+                          objectFit: "contain",
                         }}
                       />
                     </span>
                     <span
                       style={{
-                        boxSizing: 'border-box',
-                        display: 'block',
-                        overflow: 'hidden',
-                        width: 'initial',
-                        height: 'initial',
-                        background: 'none',
+                        boxSizing: "border-box",
+                        display: "block",
+                        overflow: "hidden",
+                        width: "initial",
+                        height: "initial",
+                        background: "none",
                         opacity: 1,
                         border: 0,
                         margin: 0,
                         padding: 0,
-                        position: 'absolute',
+                        position: "absolute",
                         top: 0,
                         left: 0,
                         bottom: 0,
@@ -88,27 +89,27 @@ function Landing(props: { handleNextPage:any }) {
                     >
                       <img
                         alt="Snoonu"
-                        src="/nfc2.png"
+                        src="/logggd.png"
                         decoding="async"
                         data-nimg="fill"
                         className="Logo_miniLogo__W0OJP"
                         style={{
-                          position: 'absolute',
+                          position: "absolute",
                           top: 0,
                           left: 0,
                           bottom: 0,
-                          right: 0,
-                          boxSizing: 'border-box',
+                          right: '-50%',
+                          boxSizing: "border-box",
                           padding: 0,
-                          border: 'none',
-                          margin: 'auto',
-                          display: 'block',
-                          width: 200,
-                          height: 'auto',
-                          maxWidth: '100%',
-                          minHeight: '100%',
-                          maxHeight: '100%',
-                          objectFit: 'contain',
+                          border: "none",
+                          margin: "auto",
+                          display: "block",
+                          width: 80,
+                          height: "auto",
+                          maxWidth: "100%",
+                          minHeight: "100%",
+                          maxHeight: "100%",
+                          objectFit: "cover",
                         }}
                       />
                     </span>
@@ -119,60 +120,57 @@ function Landing(props: { handleNextPage:any }) {
                       data-analytic-label="catalogMenuButton"
                       data-analytic-element-location="header"
                     >
-                      <a href='#cart'>
-                      <span className="Button_content">
-                        <span
-                          data-test-id=""
-                          className="Icon_icon Button_icon__Shlur"
-                        >
-                          <span
-                            style={{
-                              boxSizing: 'border-box',
-                              display: 'block',
-                              overflow: 'hidden',
-                              width: 'initial',
-                              height: 'initial',
-                              background: 'none',
-                              opacity: 1,
-                              border: 0,
-                              margin: 0,
-                              padding: 0,
-                              position: 'absolute',
-                              top: 0,
-                              left: 0,
-                              bottom: 0,
-                              right: 0,
-                            }}
-                          >
-                            <img
-                              alt="icon"
-                              src="/menu.4fcd2317.svg"
-                              decoding="async"
-                              data-nimg="fill"
+                      <a href="#cart">
+                        <span className="Button_content">
+                          <span data-test-id="" className="Icon_icon Button_icon__Shlur">
+                            <span
                               style={{
-                                position: 'absolute',
+                                boxSizing: "border-box",
+                                display: "block",
+                                overflow: "hidden",
+                                width: "initial",
+                                height: "initial",
+                                background: "none",
+                                opacity: 1,
+                                border: 0,
+                                margin: 0,
+                                padding: 0,
+                                position: "absolute",
                                 top: 0,
                                 left: 0,
                                 bottom: 0,
                                 right: 0,
-                                boxSizing: 'border-box',
-                                padding: 0,
-                                border: 'none',
-                                margin: 'auto',
-                                display: 'block',
-                                width: 0,
-                                height: 0,
-                                minWidth: '100%',
-                                maxWidth: '100%',
-                                minHeight: '100%',
-                                maxHeight: '100%',
-                                objectFit: 'contain',
                               }}
-                            />
+                            >
+                              <img
+                                alt="icon"
+                                src="/menu.4fcd2317.svg"
+                                decoding="async"
+                                data-nimg="fill"
+                                style={{
+                                  position: "absolute",
+                                  top: 0,
+                                  left: 0,
+                                  bottom: 0,
+                                  right: 0,
+                                  boxSizing: "border-box",
+                                  padding: 0,
+                                  border: "none",
+                                  margin: "auto",
+                                  display: "block",
+                                  width: 0,
+                                  height: 0,
+                                  minWidth: "100%",
+                                  maxWidth: "100%",
+                                  minHeight: "100%",
+                                  maxHeight: "100%",
+                                  objectFit: "contain",
+                                }}
+                              />
+                            </span>
                           </span>
+                          <span className="CatalogButton_text">القائمة</span>
                         </span>
-                        <span className="CatalogButton_text">القائمة</span>
-                      </span>
                       </a>
                     </button>
                   </div>
@@ -182,17 +180,17 @@ function Landing(props: { handleNextPage:any }) {
                     <span data-test-id="" className="Icon_icon">
                       <span
                         style={{
-                          boxSizing: 'border-box',
-                          display: 'block',
-                          overflow: 'hidden',
-                          width: 'initial',
-                          height: 'initial',
-                          background: 'none',
+                          boxSizing: "border-box",
+                          display: "block",
+                          overflow: "hidden",
+                          width: "initial",
+                          height: "initial",
+                          background: "none",
                           opacity: 1,
                           border: 0,
                           margin: 0,
                           padding: 0,
-                          position: 'absolute',
+                          position: "absolute",
                           top: 0,
                           left: 0,
                           bottom: 0,
@@ -205,23 +203,23 @@ function Landing(props: { handleNextPage:any }) {
                           decoding="async"
                           data-nimg="fill"
                           style={{
-                            position: 'absolute',
+                            position: "absolute",
                             top: 0,
                             left: 0,
                             bottom: 0,
                             right: 0,
-                            boxSizing: 'border-box',
+                            boxSizing: "border-box",
                             padding: 0,
-                            border: 'none',
-                            margin: 'auto',
-                            display: 'block',
+                            border: "none",
+                            margin: "auto",
+                            display: "block",
                             width: 0,
                             height: 0,
-                            minWidth: '100%',
-                            maxWidth: '100%',
-                            minHeight: '100%',
-                            maxHeight: '100%',
-                            objectFit: 'contain',
+                            minWidth: "100%",
+                            maxWidth: "100%",
+                            minHeight: "100%",
+                            maxHeight: "100%",
+                            objectFit: "contain",
                           }}
                         />
                       </span>
@@ -230,27 +228,21 @@ function Landing(props: { handleNextPage:any }) {
                   <form action="#" className="Search_searchWrappe">
                     <div className="SearchSelector_wrapper__P_w2s">
                       <div className="SearchSelector_selector">
-                        <p className="Typography_p8 SearchSelector_label">
-                          جميع الأقسام
-                        </p>
-                        <span
-                          data-test-id=""
-                          className="Icon_icon"
-                          style={{ width: 16, height: 16 }}
-                        >
+                        <p className="Typography_p8 SearchSelector_label">جميع الأقسام</p>
+                        <span data-test-id="" className="Icon_icon" style={{ width: 16, height: 16 }}>
                           <span
                             style={{
-                              boxSizing: 'border-box',
-                              display: 'block',
-                              overflow: 'hidden',
-                              width: 'initial',
-                              height: 'initial',
-                              background: 'none',
+                              boxSizing: "border-box",
+                              display: "block",
+                              overflow: "hidden",
+                              width: "initial",
+                              height: "initial",
+                              background: "none",
                               opacity: 1,
                               border: 0,
                               margin: 0,
                               padding: 0,
-                              position: 'absolute',
+                              position: "absolute",
                               top: 0,
                               left: 0,
                               bottom: 0,
@@ -263,23 +255,23 @@ function Landing(props: { handleNextPage:any }) {
                               decoding="async"
                               data-nimg="fill"
                               style={{
-                                position: 'absolute',
+                                position: "absolute",
                                 top: 0,
                                 left: 0,
                                 bottom: 0,
                                 right: 0,
-                                boxSizing: 'border-box',
+                                boxSizing: "border-box",
                                 padding: 0,
-                                border: 'none',
-                                margin: 'auto',
-                                display: 'block',
+                                border: "none",
+                                margin: "auto",
+                                display: "block",
                                 width: 0,
                                 height: 0,
-                                minWidth: '100%',
-                                maxWidth: '100%',
-                                minHeight: '100%',
-                                maxHeight: '100%',
-                                objectFit: 'contain',
+                                minWidth: "100%",
+                                maxWidth: "100%",
+                                minHeight: "100%",
+                                maxHeight: "100%",
+                                objectFit: "contain",
                               }}
                             />
                           </span>
@@ -293,17 +285,17 @@ function Landing(props: { handleNextPage:any }) {
                       >
                         <span
                           style={{
-                            boxSizing: 'border-box',
-                            display: 'block',
-                            overflow: 'hidden',
-                            width: 'initial',
-                            height: 'initial',
-                            background: 'none',
+                            boxSizing: "border-box",
+                            display: "block",
+                            overflow: "hidden",
+                            width: "initial",
+                            height: "initial",
+                            background: "none",
                             opacity: 1,
                             border: 0,
                             margin: 0,
                             padding: 0,
-                            position: 'absolute',
+                            position: "absolute",
                             top: 0,
                             left: 0,
                             bottom: 0,
@@ -316,50 +308,43 @@ function Landing(props: { handleNextPage:any }) {
                             decoding="async"
                             data-nimg="fill"
                             style={{
-                              position: 'absolute',
+                              position: "absolute",
                               top: 0,
                               left: 0,
                               bottom: 0,
                               right: 0,
-                              boxSizing: 'border-box',
+                              boxSizing: "border-box",
                               padding: 0,
-                              border: 'none',
-                              margin: 'auto',
-                              display: 'block',
+                              border: "none",
+                              margin: "auto",
+                              display: "block",
                               width: 0,
                               height: 0,
-                              minWidth: '100%',
-                              maxWidth: '100%',
-                              minHeight: '100%',
-                              maxHeight: '100%',
-                              objectFit: 'contain',
+                              minWidth: "100%",
+                              maxWidth: "100%",
+                              minHeight: "100%",
+                              maxHeight: "100%",
+                              objectFit: "contain",
                             }}
                           />
                         </span>
                       </span>
                       <div className="Autocomplete_rightSection">
-                        <button
-                          data-test-id="searchFieldBtn"
-                          className="SearchButton_button  "
-                        >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon"
-                            style={{ width: 20, height: 20 }}
-                          >
+                        <button data-test-id="searchFieldBtn" className="SearchButton_button  ">
+                          <span data-test-id="" className="Icon_icon" style={{ width: 20, height: 20 }}>
                             <span
                               style={{
-                                boxSizing: 'border-box',
-                                display: 'block',
-                                overflow: 'hidden',
-                                width: 'initial',
-                                height: 'initial',
-                                background: 'none',
+                                boxSizing: "border-box",
+                                display: "block",
+                                overflow: "hidden",
+                                width: "initial",
+                                height: "initial",
+                                background: "none",
                                 opacity: 1,
                                 border: 0,
                                 margin: 0,
                                 padding: 0,
-                                position: 'absolute',
+                                position: "absolute",
                                 top: 0,
                                 left: 0,
                                 bottom: 0,
@@ -372,23 +357,23 @@ function Landing(props: { handleNextPage:any }) {
                                 decoding="async"
                                 data-nimg="fill"
                                 style={{
-                                  position: 'absolute',
+                                  position: "absolute",
                                   top: 0,
                                   left: 0,
                                   bottom: 0,
                                   right: 0,
-                                  boxSizing: 'border-box',
+                                  boxSizing: "border-box",
                                   padding: 0,
-                                  border: 'none',
-                                  margin: 'auto',
-                                  display: 'block',
+                                  border: "none",
+                                  margin: "auto",
+                                  display: "block",
                                   width: 0,
                                   height: 0,
-                                  minWidth: '100%',
-                                  maxWidth: '100%',
-                                  minHeight: '100%',
-                                  maxHeight: '100%',
-                                  objectFit: 'contain',
+                                  minWidth: "100%",
+                                  maxWidth: "100%",
+                                  minHeight: "100%",
+                                  maxHeight: "100%",
+                                  objectFit: "contain",
                                 }}
                               />
                             </span>
@@ -399,37 +384,25 @@ function Landing(props: { handleNextPage:any }) {
                   </form>
                 </div>
                 <div className="Header_sideWrapper">
-                  <div
-                    className="CartButton_wrapper"
-                    style={{ display: 'block' }}
-                  >
+                  <div className="CartButton_wrapper" style={{ display: "block" }}>
                     <button
                       className="Button_button Button_primary Button_small"
                       data-test-id="cartBtn"
                       data-analytic-label="cartButton"
                       data-analytic-element-location="header"
                     >
-                      <span
-                        className="Button_content"
-                        style={{ background: '#025380' }}
-                      >
+                      <span className="Button_content" style={{ background: "#025380" }}>
                         <div
                           className="CartButton_cartButton  "
                           style={{
-                            color: 'white',
-                            padding: '2px 2px ',
+                            color: "white",
+                            padding: "2px 2px ",
                             fontSize: 10,
                             borderRadius: 20,
                           }}
                         >
-                          <img
-                            alt="icon"
-                            decoding="async"
-                            data-nimg="fill"
-                            src="/cart.svg"
-                            className="asyncicon"
-                          />
-                          <span>{total.toFixed(2) + ''}</span> د.ب
+                          <img alt="icon" decoding="async" data-nimg="fill" src="/cart.svg" className="asyncicon" />
+                          <span>{total.toFixed(2) + ""}</span> د.ب
                         </div>
                       </span>
                     </button>
@@ -437,12 +410,12 @@ function Landing(props: { handleNextPage:any }) {
                 </div>
               </div>
             </header>
-          </div>{' '}
+          </div>{" "}
           <div className="ContentWrapper_container">
-            <h1 className="Typography_h1__cT2UT">أسماك دلمون</h1>
+            <h1 className="Typography_h1__cT2UT">لحوم دلمون</h1>
             <p className="Typography_p7  Description_text__qN1Uu">
-              اكتشف منتجاتنا عالية الجودة من الأسماك الطازجة والمستوردة
-              والروبيان المميز، اطلب الآن مع أفضل وأسرع خدمة توصيل اونلاين.
+              اكتشف منتجاتنا عالية الجودة من اللحوم الطازجة والمستوردة والدواجن المميزة، اطلب الآن مع أفضل وأسرع خدمة
+              توصيل اونلاين.
             </p>
             <div className="Carousel_wrapper">
               <div className="Carousel_navButtonWrapper__gL_66">
@@ -451,11 +424,7 @@ function Landing(props: { handleNextPage:any }) {
                   data-analytic-event-content="subCategories"
                   className="NavButton_wrapper__iJpe4 NavButton_prev__lHoNZ"
                 >
-                  <span
-                    data-test-id=""
-                    className="Icon_icon"
-                    style={{ width: 24, height: 24 }}
-                  >
+                  <span data-test-id="" className="Icon_icon" style={{ width: 24, height: 24 }}>
                     <span className="minus">
                       <img
                         alt="icon"
@@ -480,33 +449,31 @@ function Landing(props: { handleNextPage:any }) {
                       <div className="FoodSubCategoryCard_imageWrapper  ">
                         <span className="minus">
                           <img
-                            src="/1.png"
+                            src="/placeholder.svg?height=70&width=70"
                             decoding="async"
                             data-nimg="fill"
                             style={{
-                              position: 'absolute',
+                              position: "absolute",
                               inset: 0,
-                              boxSizing: 'border-box',
+                              boxSizing: "border-box",
                               padding: 0,
-                              border: 'medium',
-                              margin: 'auto',
-                              display: 'block',
+                              border: "medium",
+                              margin: "auto",
+                              display: "block",
                               width: 0,
                               height: 0,
-                              minWidth: '100%',
-                              maxWidth: '100%',
-                              minHeight: '100%',
-                              maxHeight: '70px',
-                              objectFit: 'cover',
-                              borderRadius: '100%',
+                              minWidth: "100%",
+                              maxWidth: "100%",
+                              minHeight: "100%",
+                              maxHeight: "70px",
+                              objectFit: "cover",
+                              borderRadius: "100%",
                             }}
                           />
                         </span>
                       </div>
                     </div>
-                    <p className="Typography_p5   FoodSubCategoryCard_label">
-                      عروض
-                    </p>
+                    <p className="Typography_p5   FoodSubCategoryCard_label">عروض</p>
                   </div>
                 </div>
                 <div
@@ -520,32 +487,30 @@ function Landing(props: { handleNextPage:any }) {
                       <div className="FoodSubCategoryCard_imageWrapper  ">
                         <span className="minus">
                           <img
-                            src="/top1.png"
+                            src="/placeholder.svg?height=70&width=70"
                             decoding="async"
                             data-nimg="fill"
                             style={{
-                              position: 'absolute',
+                              position: "absolute",
                               inset: 0,
-                              boxSizing: 'border-box',
+                              boxSizing: "border-box",
                               padding: 0,
-                              border: 'medium',
-                              margin: 'auto',
-                              display: 'block',
+                              border: "medium",
+                              margin: "auto",
+                              display: "block",
                               width: 0,
                               height: 0,
-                              minWidth: '100%',
-                              maxWidth: '100%',
-                              minHeight: '100%',
-                              maxHeight: '100%',
-                              objectFit: 'cover',
+                              minWidth: "100%",
+                              maxWidth: "100%",
+                              minHeight: "100%",
+                              maxHeight: "100%",
+                              objectFit: "cover",
                             }}
                           />
                         </span>
                       </div>
                     </div>
-                    <p className="Typography_p5   FoodSubCategoryCard_label">
-                      سيباس تركي
-                    </p>
+                    <p className="Typography_p5   FoodSubCategoryCard_label">لحم بقري</p>
                   </div>
                 </div>
                 <div
@@ -559,32 +524,30 @@ function Landing(props: { handleNextPage:any }) {
                       <div className="FoodSubCategoryCard_imageWrapper  ">
                         <span className="minus">
                           <img
-                            src="/top2.png"
+                            src="/placeholder.svg?height=70&width=70"
                             decoding="async"
                             data-nimg="fill"
                             style={{
-                              position: 'absolute',
+                              position: "absolute",
                               inset: 0,
-                              boxSizing: 'border-box',
+                              boxSizing: "border-box",
                               padding: 0,
-                              border: 'medium',
-                              margin: 'auto',
-                              display: 'block',
+                              border: "medium",
+                              margin: "auto",
+                              display: "block",
                               width: 0,
                               height: 0,
-                              minWidth: '100%',
-                              maxWidth: '100%',
-                              minHeight: '100%',
-                              maxHeight: '100%',
-                              objectFit: 'cover',
+                              minWidth: "100%",
+                              maxWidth: "100%",
+                              minHeight: "100%",
+                              maxHeight: "100%",
+                              objectFit: "cover",
                             }}
                           />
                         </span>
                       </div>
                     </div>
-                    <p className="Typography_p5   FoodSubCategoryCard_label">
-                      روبيان جامبو
-                    </p>
+                    <p className="Typography_p5   FoodSubCategoryCard_label">دجاج طازج</p>
                   </div>
                 </div>
                 <div
@@ -598,32 +561,30 @@ function Landing(props: { handleNextPage:any }) {
                       <div className="FoodSubCategoryCard_imageWrapper  ">
                         <span className="minus">
                           <img
-                            src="/top3.png"
+                            src="/placeholder.svg?height=70&width=70"
                             decoding="async"
                             data-nimg="fill"
                             style={{
-                              position: 'absolute',
+                              position: "absolute",
                               inset: 0,
-                              boxSizing: 'border-box',
+                              boxSizing: "border-box",
                               padding: 0,
-                              border: 'medium',
-                              margin: 'auto',
-                              display: 'block',
+                              border: "medium",
+                              margin: "auto",
+                              display: "block",
                               width: 0,
                               height: 0,
-                              minWidth: '100%',
-                              maxWidth: '100%',
-                              minHeight: '100%',
-                              maxHeight: '100%',
-                              objectFit: 'cover',
+                              minWidth: "100%",
+                              maxWidth: "100%",
+                              minHeight: "100%",
+                              maxHeight: "100%",
+                              objectFit: "cover",
                             }}
                           />
                         </span>
                       </div>
                     </div>
-                    <p className="Typography_p5   FoodSubCategoryCard_label">
-                      سالمون نيجيري
-                    </p>
+                    <p className="Typography_p5   FoodSubCategoryCard_label">لحم غنم</p>
                   </div>
                 </div>
               </div>
@@ -637,11 +598,7 @@ function Landing(props: { handleNextPage:any }) {
                   data-analytic-event-action="filter_apply"
                   className="FilterPresets_filter__czMu5 cart FilterPresets_first__ID2kE"
                 >
-                  <span
-                    data-test-id=""
-                    className="Icon_icon FilterPresets_icon"
-                    style={{ width: 24, height: 24 }}
-                  >
+                  <span data-test-id="" className="Icon_icon FilterPresets_icon" style={{ width: 24, height: 24 }}>
                     <span className="minus">
                       <img
                         alt="icon"
@@ -679,10 +636,7 @@ function Landing(props: { handleNextPage:any }) {
             </div>
           </div>
           <div id="productList" className="ContentWrapper_container">
-            <div
-              className="MerchantCard_wrapper__ATC0P"
-              style={{ margin: '-11px', borderRadius: '24px 24px 0 0' }}
-            >
+            <div className="MerchantCard_wrapper__ATC0P" style={{ margin: "-11px", borderRadius: "24px 24px 0 0" }}>
               <div className="MerchantCard_imageWrapper">
                 <div className="MerchantPromoTag_promotion__vyiug MerchantCard_promotion__ahhw_">
                   <div className="MerchantPromoTag_promoTag__FEfqB MerchantPromoTag_percentageOff__nlGd7">
@@ -694,25 +648,25 @@ function Landing(props: { handleNextPage:any }) {
                 </div>
                 <span className="minus">
                   <img
-                    alt="قائمة أسماك دلمون"
-                    src="/log.jpeg"
+                    alt="قائمة لحوم دلمون"
+                    src="/min.png"
                     decoding="async"
                     data-nimg="fill"
                     style={{
-                      position: 'absolute',
+                      position: "absolute",
                       inset: 0,
-                      boxSizing: 'border-box',
+                      boxSizing: "border-box",
                       padding: 0,
-                      border: 'medium',
-                      margin: 'auto',
-                      display: 'block',
+                      border: "medium",
+                      margin: "auto",
+                      display: "block",
                       width: 0,
                       height: 0,
-                      minWidth: '100%',
-                      maxWidth: '100%',
-                      minHeight: '100%',
-                      maxHeight: '100%',
-                      objectFit: 'cover',
+                      minWidth: "100%",
+                      maxWidth: "100%",
+                      minHeight: "100%",
+                      maxHeight: "100%",
+                      objectFit: "cover",
                     }}
                   />
                   <noscript />
@@ -741,18 +695,14 @@ function Landing(props: { handleNextPage:any }) {
                 <div className="MerchantCard_primaryDetails__zEdMX">
                   <p
                     className="Typography_p1__A2FUF MerchantCard_name__e7RSA"
-                    style={{ fontSize: 25, height: 35, padding: '5px 0' }}
+                    style={{ fontSize: 25, height: 35, padding: "5px 0" }}
                   >
-                    قائمة أسماك دلمون
+                    قائمة لحوم دلمون
                   </p>
                 </div>
                 <div className="MerchantCard_secondaryDetails__c9r_K">
                   <div className="MerchantCard_rating__yd2Tt">
-                    <span
-                      data-test-id=""
-                      className="Icon_icon"
-                      style={{ width: 12, height: 12 }}
-                    >
+                    <span data-test-id="" className="Icon_icon" style={{ width: 12, height: 12 }}>
                       <span className="minus">
                         <img
                           alt="icon"
@@ -766,18 +716,14 @@ function Landing(props: { handleNextPage:any }) {
                     </span>
                     <p className="Typography_p8">4.7</p>
                   </div>
-                  <p className="Typography_p8 MerchantCard_tags___u15_">
-                    الأسماك الطازجة والمستوردة والروبيان المميز
-                  </p>
+                  <p className="Typography_p8 MerchantCard_tags___u15_">اللحوم الطازجة والمستوردة والدواجن المميزة</p>
                 </div>
               </div>
             </div>
             <div className="_slug__merchantDetailsWrapper__Ni_d0">
               <div className="MerchantDetails_wrapper__NGWQ1">
                 <div className="MerchantDetails_detail__ez3c5">
-                  <p className="Typography_p8 MerchantDetails_label__diWJe">
-                    وقت التوصيل
-                  </p>
+                  <p className="Typography_p8 MerchantDetails_label__diWJe">وقت التوصيل</p>
                   <span>
                     <p className="Typography_p1__A2FUF">
                       40{/* */} {/* */}دقيقة
@@ -785,17 +731,13 @@ function Landing(props: { handleNextPage:any }) {
                   </span>
                 </div>
                 <div className="MerchantDetails_detail__ez3c5">
-                  <p className="Typography_p8 MerchantDetails_label__diWJe">
-                    التقييم
-                  </p>
+                  <p className="Typography_p8 MerchantDetails_label__diWJe">التقييم</p>
                   <span>
                     <p className="Typography_p1__A2FUF">4.7</p>
                   </span>
                 </div>
                 <div className="MerchantDetails_detail__ez3c5">
-                  <p className="Typography_p8 MerchantDetails_label__diWJe">
-                    المسافة
-                  </p>
+                  <p className="Typography_p8 MerchantDetails_label__diWJe">المسافة</p>
                   <span>
                     <div className="MerchantPriceRange_averagePrice__tgZLX">
                       <p className="Typography_p1__A2FUF MerchantPriceRange_price__XHs4b MerchantPriceRange_priceActive__8rgoP">
@@ -805,41 +747,31 @@ function Landing(props: { handleNextPage:any }) {
                   </span>
                 </div>
                 <div className="MerchantDetails_detail__ez3c5">
-                  <p className="Typography_p8 MerchantDetails_label__diWJe">
-                    ساعات العمل
-                  </p>
+                  <p className="Typography_p8 MerchantDetails_label__diWJe">ساعات العمل</p>
                   <span>
                     <p className="Typography_p1__A2FUF">
-                      <span className="MerchantDetails_status__UAoUR MerchantDetails_open__C8KJd">
-                        مفتوح
-                      </span>
+                      <span className="MerchantDetails_status__UAoUR MerchantDetails_open__C8KJd">مفتوح</span>
                     </p>
                   </span>
                 </div>
               </div>
               <div className="SearchInMerchant_wrapper__WNY3F">
-                <form
-                  action="#"
-                  className="SearchInMerchant_searchWrapper__BhKze"
-                >
+                <form action="#" className="SearchInMerchant_searchWrapper__BhKze">
                   <div className="Autocomplete_wrapper">
-                    <span
-                      data-test-id=""
-                      className="Icon_icon Autocomplete_searchIcon   Autocomplete_smallIcon  "
-                    >
+                    <span data-test-id="" className="Icon_icon Autocomplete_searchIcon   Autocomplete_smallIcon  ">
                       <span
                         style={{
-                          boxSizing: 'border-box',
-                          display: 'block',
-                          overflow: 'hidden',
-                          width: 'initial',
-                          height: 'initial',
-                          background: 'none',
+                          boxSizing: "border-box",
+                          display: "block",
+                          overflow: "hidden",
+                          width: "initial",
+                          height: "initial",
+                          background: "none",
                           opacity: 1,
                           border: 0,
                           margin: 0,
                           padding: 0,
-                          position: 'absolute',
+                          position: "absolute",
                           top: 0,
                           left: 0,
                           bottom: 0,
@@ -852,88 +784,76 @@ function Landing(props: { handleNextPage:any }) {
                           decoding="async"
                           data-nimg="fill"
                           style={{
-                            position: 'absolute',
+                            position: "absolute",
                             top: 0,
                             left: 0,
                             bottom: 0,
                             right: 0,
-                            boxSizing: 'border-box',
+                            boxSizing: "border-box",
                             padding: 0,
-                            border: 'none',
-                            margin: 'auto',
-                            display: 'block',
+                            border: "none",
+                            margin: "auto",
+                            display: "block",
                             width: 0,
                             height: 0,
-                            minWidth: '100%',
-                            maxWidth: '100%',
-                            minHeight: '100%',
-                            maxHeight: '100%',
-                            objectFit: 'contain',
+                            minWidth: "100%",
+                            maxWidth: "100%",
+                            minHeight: "100%",
+                            maxHeight: "100%",
+                            objectFit: "contain",
                           }}
                         />
                       </span>
                     </span>
-                   
+
                     <div className="Autocomplete_rightSection" />
                   </div>
                 </form>
               </div>
               <div className="_slug__description___UXGB">
-                أطلب الآن عبر موقعنا واحصل على خدمة توصيل سريعة في غضون 28
-                دقيقة.
+                أطلب الآن عبر موقعنا واحصل على خدمة توصيل سريعة في غضون 28 دقيقة.
               </div>
             </div>
-            <div className="BestSelling_wrapper__QVPK0 quantities_1" id='cart'>
-              <h2 className="Typography_h2__Gzo5Y BestSelling_title__NuZ2_">
-                عروض اليوم
-              </h2>
-              <div
-                className="BestSelling_group__aDxsJ"
-                style={{ position: 'relative', overflow: 'scroll' }}
-              >
-              
-     
+            <div className="BestSelling_wrapper__QVPK0 quantities_1" id="cart">
+              <h2 className="Typography_h2__Gzo5Y BestSelling_title__NuZ2_">عروض اليوم</h2>
+              <div className="BestSelling_group__aDxsJ" style={{ position: "relative", overflow: "scroll" }}>
                 <div className="pro_1">
                   <div
                     className="ProductCardVertical_wrapper__q1lzz BestSelling_first__or9rS"
-                    data-id="kuwaiti-jumbo-robian-10kg"
+                    data-id="beef-premium-10kg"
                   >
                     <div className="CardProductImage_imageWrapper__0rzrL ProductCardVertical_image__B5TvN">
                       <span className="minus">
                         <img
-                          alt="3 كرتون دجاج 10 حبة * 1000 جرام"
-                          src="/bahrain-jumbo-robian-10kg.jpg"
+                          alt="10 كيلو لحم بقري ممتاز"
+                          src="https://cdn.salla.sa/XYzRj/xiyM7mdnGrPa1OsDrg7qSR1HDxHN3pLBD56YBeJI.png"
                           decoding="async"
                           data-nimg="fill"
                           style={{
-                            position: 'absolute',
+                            position: "absolute",
                             inset: 0,
-                            boxSizing: 'border-box',
+                            boxSizing: "border-box",
                             padding: 0,
-                            border: 'medium',
-                            margin: 'auto',
-                            display: 'block',
+                            border: "medium",
+                            margin: "auto",
+                            display: "block",
                             width: 0,
                             height: 0,
-                            minWidth: '100%',
-                            maxWidth: '100%',
-                            minHeight: '100%',
-                            maxHeight: '100%',
-                            objectFit: 'cover',
+                            minWidth: "100%",
+                            maxWidth: "100%",
+                            minHeight: "100%",
+                            maxHeight: "100%",
+                            objectFit: "cover",
                           }}
                         />
                         <noscript />
                       </span>
                     </div>
                     <div className="ProductCartVerticalDescription_info__0FmOx">
-                      <h5 className="Typography_h5__MRrA0 ProductCartVerticalDescription_price__OtKd7">
-                    7.00 د.ب
-                      </h5>
+                      <h5 className="Typography_h5__MRrA0 ProductCartVerticalDescription_price__OtKd7">7.00 د.ب</h5>
                       <p className="Typography_p7  ProductCartVerticalDescription_name__M0ou9">
-                      10 كيلو روبيان بحريني جامبو طازج
-
-
-!                      </p>
+                        10 كيلو لحم بقري ممتاز طازج
+                      </p>
                     </div>
                     <div className="a_pluss_1">
                       <a
@@ -942,14 +862,14 @@ function Landing(props: { handleNextPage:any }) {
                         onClick={() => {
                           handleAddtoCart({
                             id: 0,
-                            name: 'كرتون روبيان 10 كيلو - فقط بـ 8 دينار!”                            ',
-                            price: '7.00',
-                            img: '/ab.jpg',
-                          });
+                            name: "10 كيلو لحم بقري ممتاز طازج",
+                            price: "7.00",
+                            img: "/placeholder.svg?height=200&width=200",
+                          })
                         }}
                         data-product-id="product_1"
-                        data-product-image="/ab.jpg"
-                        data-product-name="كرتون روبيان 10 كيلو - فقط بـ 8 دينار!"
+                        data-product-image="/placeholder.svg?height=200&width=200"
+                        data-product-name="10 كيلو لحم بقري ممتاز طازج"
                         data-price={7.0}
                         data-class-add="btn_add_1"
                         data-class-remove="btn_remove_1"
@@ -971,10 +891,7 @@ function Landing(props: { handleNextPage:any }) {
                         data-defualt="defualt_1"
                         data-loadd="loadd_1"
                       >
-                        <span
-                          data-test-id=""
-                          className="Icon_icon ProductButton_icon__XyfwX"
-                        >
+                        <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                           <span className="minus">
                             <img
                               className="asyncicon"
@@ -986,10 +903,7 @@ function Landing(props: { handleNextPage:any }) {
                           </span>
                         </span>
                       </a>
-                      <h5
-                        id="qquantity_1"
-                        className="Typography_h5__MRrA0 quantity_1"
-                      >
+                      <h5 id="qquantity_1" className="Typography_h5__MRrA0 quantity_1">
                         0
                       </h5>
                       <a
@@ -1000,10 +914,7 @@ function Landing(props: { handleNextPage:any }) {
                         data-defualt="defualt_1"
                         data-loadd="loadd_1"
                       >
-                        <span
-                          data-test-id=""
-                          className="Icon_icon ProductButton_icon__XyfwX"
-                        >
+                        <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                           <span className="minus">
                             <img
                               alt="icon"
@@ -1026,46 +937,40 @@ function Landing(props: { handleNextPage:any }) {
                 <div className="pro_1">
                   <div
                     className="ProductCardVertical_wrapper__q1lzz BestSelling_first__or9rS"
-                    data-id="kuwaiti-jumbo-robian-10kg"
+                    data-id="chicken-breast-6kg"
                   >
                     <div className="CardProductImage_imageWrapper__0rzrL ProductCardVertical_image__B5TvN">
                       <span className="minus">
                         <img
-                          alt="3 كرتون دجاج 10 حبة * 1000 جرام"
-                          src="/sushi-ebi.jpg"
+                          alt="6 كيلو صدور دجاج"
+                          src="https://cdn.salla.sa/XRVjV/7c4401c0-ec89-4dd2-af3c-82f31bac4262-1000x1000-4XAOOzl8EA3wmJi0iNFjClPvor7yQf7WMiDZItAS.png"
                           decoding="async"
                           data-nimg="fill"
                           style={{
-                            position: 'absolute',
+                            position: "absolute",
                             inset: 0,
-                            boxSizing: 'border-box',
+                            boxSizing: "border-box",
                             padding: 0,
-                            border: 'medium',
-                            margin: 'auto',
-                            display: 'block',
+                            border: "medium",
+                            margin: "auto",
+                            display: "block",
                             width: 0,
                             height: 0,
-                            minWidth: '100%',
-                            maxWidth: '100%',
-                            minHeight: '100%',
-                            maxHeight: '100%',
-                            objectFit: 'cover',
+                            minWidth: "100%",
+                            maxWidth: "100%",
+                            minHeight: "100%",
+                            maxHeight: "100%",
+                            objectFit: "cover",
                           }}
                         />
                         <noscript />
                       </span>
                     </div>
                     <div className="ProductCartVerticalDescription_info__0FmOx">
-                      <h5 className="Typography_h5__MRrA0 ProductCartVerticalDescription_price__OtKd7">
-                    1.00 د.ب
-                      </h5>
+                      <h5 className="Typography_h5__MRrA0 ProductCartVerticalDescription_price__OtKd7">1.00 د.ب</h5>
                       <p className="Typography_p7  ProductCartVerticalDescription_name__M0ou9">
-                      4 لتر من السوشي الإيبي 6 لتر (الجمبري المسطح)
-
-
-
-
-!                      </p>
+                        6 كيلو صدور دجاج طازجة
+                      </p>
                     </div>
                     <div className="a_pluss_1">
                       <a
@@ -1074,15 +979,15 @@ function Landing(props: { handleNextPage:any }) {
                         onClick={() => {
                           handleAddtoCart({
                             id: 0,
-                            name: 'كرتون روبيان 10 كيلو - فقط بـ 8 دينار!”                            ',
-                            price: '1.00',
-                            img: '/ab.jpg',
-                          });
+                            name: "6 كيلو صدور دجاج طازجة",
+                            price: "1.00",
+                            img: "/placeholder.svg?height=200&width=200",
+                          })
                         }}
                         data-product-id="product_1"
-                        data-product-image="/ab.jpg"
-                        data-product-name="كرتون روبيان 10 كيلو - فقط بـ 8 دينار!"
-                        data-price={7.0}
+                        data-product-image="/placeholder.svg?height=200&width=200"
+                        data-product-name="6 كيلو صدور دجاج طازجة"
+                        data-price={1.0}
                         data-class-add="btn_add_1"
                         data-class-remove="btn_remove_1"
                         data-class-pluss="btn_pluss_1"
@@ -1103,10 +1008,7 @@ function Landing(props: { handleNextPage:any }) {
                         data-defualt="defualt_1"
                         data-loadd="loadd_1"
                       >
-                        <span
-                          data-test-id=""
-                          className="Icon_icon ProductButton_icon__XyfwX"
-                        >
+                        <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                           <span className="minus">
                             <img
                               className="asyncicon"
@@ -1118,10 +1020,7 @@ function Landing(props: { handleNextPage:any }) {
                           </span>
                         </span>
                       </a>
-                      <h5
-                        id="qquantity_1"
-                        className="Typography_h5__MRrA0 quantity_1"
-                      >
+                      <h5 id="qquantity_1" className="Typography_h5__MRrA0 quantity_1">
                         0
                       </h5>
                       <a
@@ -1132,10 +1031,7 @@ function Landing(props: { handleNextPage:any }) {
                         data-defualt="defualt_1"
                         data-loadd="loadd_1"
                       >
-                        <span
-                          data-test-id=""
-                          className="Icon_icon ProductButton_icon__XyfwX"
-                        >
+                        <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                           <span className="minus">
                             <img
                               alt="icon"
@@ -1156,48 +1052,39 @@ function Landing(props: { handleNextPage:any }) {
                   </div>
                 </div>
                 <div className="pro_1">
-                  <div
-                    className="ProductCardVertical_wrapper__q1lzz BestSelling_first__or9rS"
-                    data-id="kuwaiti-jumbo-robian-10kg"
-                  >
+                  <div className="ProductCardVertical_wrapper__q1lzz BestSelling_first__or9rS" data-id="lamb-meat-1kg">
                     <div className="CardProductImage_imageWrapper__0rzrL ProductCardVertical_image__B5TvN">
                       <span className="minus">
                         <img
-                          alt="3 كرتون دجاج 10 حبة * 1000 جرام"
-                          src="/bortam.jpg"
+                          alt="1 كيلو لحم غنم"
+                          src="https://cdn.salla.sa/XYzRj/laSFQqoW46mEVlZqYxeSbs7vu2zcDqMTS81DPuRG.jpg"
                           decoding="async"
                           data-nimg="fill"
                           style={{
-                            position: 'absolute',
+                            position: "absolute",
                             inset: 0,
-                            boxSizing: 'border-box',
+                            boxSizing: "border-box",
                             padding: 0,
-                            border: 'medium',
-                            margin: 'auto',
-                            display: 'block',
+                            border: "medium",
+                            margin: "auto",
+                            display: "block",
                             width: 0,
                             height: 0,
-                            minWidth: '100%',
-                            maxWidth: '100%',
-                            minHeight: '100%',
-                            maxHeight: '100%',
-                            objectFit: 'cover',
+                            minWidth: "100%",
+                            maxWidth: "100%",
+                            minHeight: "100%",
+                            maxHeight: "100%",
+                            objectFit: "cover",
                           }}
                         />
                         <noscript />
                       </span>
                     </div>
                     <div className="ProductCartVerticalDescription_info__0FmOx">
-                      <h5 className="Typography_h5__MRrA0 ProductCartVerticalDescription_price__OtKd7">
-                    2.50 د.ب
-                      </h5>
+                      <h5 className="Typography_h5__MRrA0 ProductCartVerticalDescription_price__OtKd7">2.50 د.ب</h5>
                       <p className="Typography_p7  ProductCartVerticalDescription_name__M0ou9">
-                      كيلو سمك برطام طازج بالتنظيف
-
-
-
-
-!                      </p>
+                        كيلو لحم غنم طازج مع التنظيف
+                      </p>
                     </div>
                     <div className="a_pluss_1">
                       <a
@@ -1206,15 +1093,15 @@ function Landing(props: { handleNextPage:any }) {
                         onClick={() => {
                           handleAddtoCart({
                             id: 0,
-                            name: 'كرتون روبيان 10 كيلو - فقط بـ 8 دينار!”                            ',
-                            price: '2.5',
-                            img: '/ab.jpg',
-                          });
+                            name: "كيلو لحم غنم طازج مع التنظيف",
+                            price: "2.5",
+                            img: "/placeholder.svg?height=200&width=200",
+                          })
                         }}
                         data-product-id="product_1"
-                        data-product-image="/ab.jpg"
-                        data-product-name="كرتون روبيان 10 كيلو - فقط بـ 8 دينار!"
-                        data-price={7.0}
+                        data-product-image="/placeholder.svg?height=200&width=200"
+                        data-product-name="كيلو لحم غنم طازج مع التنظيف"
+                        data-price={2.5}
                         data-class-add="btn_add_1"
                         data-class-remove="btn_remove_1"
                         data-class-pluss="btn_pluss_1"
@@ -1235,10 +1122,7 @@ function Landing(props: { handleNextPage:any }) {
                         data-defualt="defualt_1"
                         data-loadd="loadd_1"
                       >
-                        <span
-                          data-test-id=""
-                          className="Icon_icon ProductButton_icon__XyfwX"
-                        >
+                        <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                           <span className="minus">
                             <img
                               className="asyncicon"
@@ -1250,10 +1134,7 @@ function Landing(props: { handleNextPage:any }) {
                           </span>
                         </span>
                       </a>
-                      <h5
-                        id="qquantity_1"
-                        className="Typography_h5__MRrA0 quantity_1"
-                      >
+                      <h5 id="qquantity_1" className="Typography_h5__MRrA0 quantity_1">
                         0
                       </h5>
                       <a
@@ -1264,10 +1145,7 @@ function Landing(props: { handleNextPage:any }) {
                         data-defualt="defualt_1"
                         data-loadd="loadd_1"
                       >
-                        <span
-                          data-test-id=""
-                          className="Icon_icon ProductButton_icon__XyfwX"
-                        >
+                        <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                           <span className="minus">
                             <img
                               alt="icon"
@@ -1287,14 +1165,10 @@ function Landing(props: { handleNextPage:any }) {
                     </div>
                   </div>
                 </div>
-              
               </div>
             </div>
             <div className="Products_wrapper__DZlbk quantities_2">
-              <h2
-                className="Typography_h2__Gzo5Y Products_title__qA1wA"
-                style={{ margin: 0 }}
-              >
+              <h2 className="Typography_h2__Gzo5Y Products_title__qA1wA" style={{ margin: 0 }}>
                 &nbsp;
               </h2>
               <div className="Products_group__gsBas">
@@ -1307,17 +1181,17 @@ function Landing(props: { handleNextPage:any }) {
                   <div className="CardProductImage_imageWrapper__0rzrL ProductCardHorizontal_image__soYek">
                     <span
                       style={{
-                        boxSizing: 'border-box',
-                        display: 'block',
-                        overflow: 'hidden',
-                        width: 'initial',
-                        height: 'initial',
-                        background: 'none',
+                        boxSizing: "border-box",
+                        display: "block",
+                        overflow: "hidden",
+                        width: "initial",
+                        height: "initial",
+                        background: "none",
                         opacity: 1,
                         border: 0,
                         margin: 0,
                         padding: 0,
-                        position: 'absolute',
+                        position: "absolute",
                         top: 0,
                         left: 0,
                         bottom: 0,
@@ -1325,54 +1199,49 @@ function Landing(props: { handleNextPage:any }) {
                       }}
                     >
                       <img
-                        alt="عرض كل الكويت"
-                        src="/bahrain-jumbo-robian-10kg.jpg"
+                        alt="عرض كل البحرين"
+                        src="https://cdn.salla.sa/XYzRj/xiyM7mdnGrPa1OsDrg7qSR1HDxHN3pLBD56YBeJI.png"
                         decoding="async"
                         data-nimg="fill"
                         style={{
-                          position: 'absolute',
+                          position: "absolute",
                           top: 0,
                           left: 0,
                           bottom: 0,
                           right: 0,
-                          boxSizing: 'border-box',
+                          boxSizing: "border-box",
                           padding: 0,
-                          border: 'none',
-                          margin: 'auto',
-                          display: 'block',
+                          border: "none",
+                          margin: "auto",
+                          display: "block",
                           width: 0,
                           height: 0,
-                          minWidth: '100%',
-                          maxWidth: '100%',
-                          minHeight: '100%',
-                          maxHeight: '100%',
-                          objectFit: 'cover',
+                          minWidth: "100%",
+                          maxWidth: "100%",
+                          minHeight: "100%",
+                          maxHeight: "100%",
+                          objectFit: "cover",
                         }}
                       />
                     </span>
                   </div>
                   <div className="ProductCardHorizontal_info__FEa7G">
                     <div>
-                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">
-                      عرض كل البحرين
-                      </h5>
+                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">عرض كل البحرين</h5>
                       <p className="Typography_p8 ProductCardHorizontal_description__YSUl2">
-                        10 كيلو روبيان بحريني  جامبو طازج.
+                        10 كيلو لحم بقري بحريني ممتاز طازج.
                       </p>
                     </div>
-                    <div
-                      className="ProductCardHorizontal_priceWrapper__3OYMk"
-                      data-id="kuwaiti-jumbo-robian-10kg"
-                    >
+                    <div className="ProductCardHorizontal_priceWrapper__3OYMk" data-id="bahraini-beef-premium-10kg">
                       <h5 className="Typography_h5__MRrA0">7.000 د.ب</h5>
                       <div className="a_pluss_1">
                         <a
                           type="button"
                           className="Button_button Button_secondary ProductButton_addButton__y5b_u ProductButton_secondary__qDYDR ProductButton_normal__jOR_t cd-add-to-cart js-cd-add-to-cart "
                           data-product-id="product_1"
-                          data-product-image="/kuwaiti-jumbo-robian-10kg.jpg"
-                          data-product-name="10 كيلو روبيان كويتي جامبو طازج"
-                          data-product-price={8.0}
+                          data-product-image="/placeholder.svg?height=200&width=200"
+                          data-product-name="10 كيلو لحم بقري بحريني ممتاز طازج"
+                          data-product-price={7.0}
                           data-class-add="btn_add_1"
                           data-class-remove="btn_remove_1"
                           data-class-pluss="btn_pluss_1"
@@ -1382,15 +1251,13 @@ function Landing(props: { handleNextPage:any }) {
                           onClick={() => {
                             handleAddtoCart({
                               id: 0,
-                              name: '10 كيلو روبيان كويتي جامبو طازج',
-                              price: '7.0',
-                              img: '/kuwaiti-jumbo-robian-10kg.jpg',
-                            });
+                              name: "10 كيلو لحم بقري بحريني ممتاز طازج",
+                              price: "7.0",
+                              img: "/placeholder.svg?height=200&width=200",
+                            })
                           }}
                         >
-                          <span className="Button_content btn_add_1">
-                            إضافة
-                          </span>
+                          <span className="Button_content btn_add_1">إضافة</span>
                           <div className="Loader_loader__4A5f1 Button_loader__I8AK4 btn_remove_1 d-none" />
                         </a>
                       </div>
@@ -1403,10 +1270,7 @@ function Landing(props: { handleNextPage:any }) {
                           data-defualt="defualt_1"
                           data-loadd="loadd_1"
                         >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                             <span className="minus">
                               <img
                                 className="asyncicon"
@@ -1418,10 +1282,7 @@ function Landing(props: { handleNextPage:any }) {
                             </span>
                           </span>
                         </a>
-                        <h5
-                          id="quantity_1"
-                          className="Typography_h5__MRrA0 quantity_1"
-                        >
+                        <h5 id="quantity_1" className="Typography_h5__MRrA0 quantity_1">
                           0
                         </h5>
                         <a
@@ -1432,10 +1293,7 @@ function Landing(props: { handleNextPage:any }) {
                           data-defualt="defualt_1"
                           data-loadd="loadd_1"
                         >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                             <span className="minus">
                               <img
                                 alt="icon"
@@ -1456,166 +1314,6 @@ function Landing(props: { handleNextPage:any }) {
                     </div>
                   </div>
                 </div>
-                <div  
-                  data-analytic-label="productCard"
-                  data-test-id="cardOfProduct"
-                  data-analytic-event-content={800478}
-                  className="ProductCardHorizontal_wrapper__byIUf pro_1"
-                >
-                  <div className="CardProductImage_imageWrapper__0rzrL ProductCardHorizontal_image__soYek">
-                    <span
-                      style={{
-                        boxSizing: 'border-box',
-                        display: 'block',
-                        overflow: 'hidden',
-                        width: 'initial',
-                        height: 'initial',
-                        background: 'none',
-                        opacity: 1,
-                        border: 0,
-                        margin: 0,
-                        padding: 0,
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        bottom: 0,
-                        right: 0,
-                      }}
-                    >
-                      <img
-                        alt="عرض كل الكويت"
-                        src="/bortam.jpg"
-                        decoding="async"
-                        data-nimg="fill"
-                        style={{
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          bottom: 0,
-                          right: 0,
-                          boxSizing: 'border-box',
-                          padding: 0,
-                          border: 'none',
-                          margin: 'auto',
-                          display: 'block',
-                          width: 0,
-                          height: 0,
-                          minWidth: '100%',
-                          maxWidth: '100%',
-                          minHeight: '100%',
-                          maxHeight: '100%',
-                          objectFit: 'cover',
-                        }}
-                      />
-                    </span>
-                  </div>
-                  <div className="ProductCardHorizontal_info__FEa7G">
-                    <div>
-                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">
-                      عرض الدلمون
-                      </h5>
-                      <p className="Typography_p8 ProductCardHorizontal_description__YSUl2">
-                      1 كيلو سمك برطام طازج بالتنظيف.
-
-</p>
-                    </div>
-                    <div
-                      className="ProductCardHorizontal_priceWrapper__3OYMk"
-                      data-id="kuwaiti-jumbo-robian-10kg"
-                    >
-                      <h5 className="Typography_h5__MRrA0">1.000 د.ب</h5>
-                      <div className="a_pluss_1">
-                        <a
-                          type="button"
-                          className="Button_button Button_secondary ProductButton_addButton__y5b_u ProductButton_secondary__qDYDR ProductButton_normal__jOR_t cd-add-to-cart js-cd-add-to-cart "
-                          data-product-id="product_1"
-                          data-product-image="/bortam.jpg"
-                          data-product-name="10 كيلو روبيان كويتي جامبو طازج"
-                          data-product-price={8.0}
-                          data-class-add="btn_add_1"
-                          data-class-remove="btn_remove_1"
-                          data-class-pluss="btn_pluss_1"
-                          data-class-aremove="a_pluss_1"
-                          data-quantity-id="quantity_1"
-                          data-qquantity-id="qquantity_1"
-                          onClick={() => {
-                            handleAddtoCart({
-                              id: 0,
-                              name: '10 كيلو روبيان كويتي جامبو طازج',
-                              price: '1.0',
-                              img: '/kuwaiti-jumbo-robian-10kg.jpg',
-                            });
-                          }}
-                        >
-                          <span className="Button_content btn_add_1">
-                            إضافة
-                          </span>
-                          <div className="Loader_loader__4A5f1 Button_loader__I8AK4 btn_remove_1 d-none" />
-                        </a>
-                      </div>
-                      <div className="defualt_1 ProductButton_productButton___1dmt ProductButton_secondary__qDYDR ProductButton_normal__jOR_t ProductCardHorizontal_productButton__aQoPQ btn_pluss_1  d-none ">
-                        <a
-                          className="updatecart"
-                          data-type="minus"
-                          data-product-id="product_1"
-                          data-quantity-id="quantity_1"
-                          data-defualt="defualt_1"
-                          data-loadd="loadd_1"
-                        >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
-                            <span className="minus">
-                              <img
-                                className="asyncicon"
-                                alt="icon"
-                                decoding="async"
-                                data-nimg="fill"
-                                src="/minus.3902b821.svg"
-                              />
-                            </span>
-                          </span>
-                        </a>
-                        <h5
-                          id="quantity_1"
-                          className="Typography_h5__MRrA0 quantity_1"
-                        >
-                          0
-                        </h5>
-                        <a
-                          className="updatecart"
-                          data-type="plus"
-                          data-product-id="product_1"
-                          data-quantity-id="quantity_1"
-                          data-defualt="defualt_1"
-                          data-loadd="loadd_1"
-                        >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
-                            <span className="minus">
-                              <img
-                                alt="icon"
-                                decoding="async"
-                                data-nimg="fill"
-                                className="asyncicon"
-                                src="/plus.d7f13c1f.svg"
-                              />
-                            </span>
-                          </span>
-                        </a>
-                      </div>
-                      <div className="d-none loadd_1">
-                        <a className="Button_button Button_secondary ProductButton_addButton__y5b_u ProductButton_secondary__qDYDR ProductButton_normal__jOR_t">
-                          <div className="Loader_loader__4A5f1 Button_loader__I8AK4 btn_remove_1 " />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-             
                 <div
                   data-analytic-label="productCard"
                   data-test-id="cardOfProduct"
@@ -1625,17 +1323,17 @@ function Landing(props: { handleNextPage:any }) {
                   <div className="CardProductImage_imageWrapper__0rzrL ProductCardHorizontal_image__soYek">
                     <span
                       style={{
-                        boxSizing: 'border-box',
-                        display: 'block',
-                        overflow: 'hidden',
-                        width: 'initial',
-                        height: 'initial',
-                        background: 'none',
+                        boxSizing: "border-box",
+                        display: "block",
+                        overflow: "hidden",
+                        width: "initial",
+                        height: "initial",
+                        background: "none",
                         opacity: 1,
                         border: 0,
                         margin: 0,
                         padding: 0,
-                        position: 'absolute',
+                        position: "absolute",
                         top: 0,
                         left: 0,
                         bottom: 0,
@@ -1643,54 +1341,191 @@ function Landing(props: { handleNextPage:any }) {
                       }}
                     >
                       <img
-                        alt="عرض كل الكويت"
-                        src="/sushi-ebi.jpg"
+                        alt="عرض الدلمون"
+                        src="https://cdn.salla.sa/XYzRj/laSFQqoW46mEVlZqYxeSbs7vu2zcDqMTS81DPuRG.jpg"
                         decoding="async"
                         data-nimg="fill"
                         style={{
-                          position: 'absolute',
+                          position: "absolute",
                           top: 0,
                           left: 0,
                           bottom: 0,
                           right: 0,
-                          boxSizing: 'border-box',
+                          boxSizing: "border-box",
                           padding: 0,
-                          border: 'none',
-                          margin: 'auto',
-                          display: 'block',
+                          border: "none",
+                          margin: "auto",
+                          display: "block",
                           width: 0,
                           height: 0,
-                          minWidth: '100%',
-                          maxWidth: '100%',
-                          minHeight: '100%',
-                          maxHeight: '100%',
-                          objectFit: 'cover',
+                          minWidth: "100%",
+                          maxWidth: "100%",
+                          minHeight: "100%",
+                          maxHeight: "100%",
+                          objectFit: "cover",
                         }}
                       />
                     </span>
                   </div>
                   <div className="ProductCardHorizontal_info__FEa7G">
                     <div>
-                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">
-                      عرض اليوم
-                      </h5>
+                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">عرض الدلمون</h5>
                       <p className="Typography_p8 ProductCardHorizontal_description__YSUl2">
-                      4 لتر من السوشي الإيبي 6 لتر (الجمبري المسطح).
-
-</p>
+                        1 كيلو لحم غنم طازج مع التنظيف.
+                      </p>
                     </div>
-                    <div
-                      className="ProductCardHorizontal_priceWrapper__3OYMk"
-                      data-id="kuwaiti-jumbo-robian-10kg"
+                    <div className="ProductCardHorizontal_priceWrapper__3OYMk" data-id="lamb-meat-1kg">
+                      <h5 className="Typography_h5__MRrA0">1.000 د.ب</h5>
+                      <div className="a_pluss_1">
+                        <a
+                          type="button"
+                          className="Button_button Button_secondary ProductButton_addButton__y5b_u ProductButton_secondary__qDYDR ProductButton_normal__jOR_t cd-add-to-cart js-cd-add-to-cart "
+                          data-product-id="product_1"
+                          data-product-image="/placeholder.svg?height=200&width=200"
+                          data-product-name="1 كيلو لحم غنم طازج مع التنظيف"
+                          data-product-price={1.0}
+                          data-class-add="btn_add_1"
+                          data-class-remove="btn_remove_1"
+                          data-class-pluss="btn_pluss_1"
+                          data-class-aremove="a_pluss_1"
+                          data-quantity-id="quantity_1"
+                          data-qquantity-id="qquantity_1"
+                          onClick={() => {
+                            handleAddtoCart({
+                              id: 0,
+                              name: "1 كيلو لحم غنم طازج مع التنظيف",
+                              price: "1.0",
+                              img: "/placeholder.svg?height=200&width=200",
+                            })
+                          }}
+                        >
+                          <span className="Button_content btn_add_1">إضافة</span>
+                          <div className="Loader_loader__4A5f1 Button_loader__I8AK4 btn_remove_1 d-none" />
+                        </a>
+                      </div>
+                      <div className="defualt_1 ProductButton_productButton___1dmt ProductButton_secondary__qDYDR ProductButton_normal__jOR_t ProductCardHorizontal_productButton__aQoPQ btn_pluss_1  d-none ">
+                        <a
+                          className="updatecart"
+                          data-type="minus"
+                          data-product-id="product_1"
+                          data-quantity-id="quantity_1"
+                          data-defualt="defualt_1"
+                          data-loadd="loadd_1"
+                        >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
+                            <span className="minus">
+                              <img
+                                className="asyncicon"
+                                alt="icon"
+                                decoding="async"
+                                data-nimg="fill"
+                                src="/minus.3902b821.svg"
+                              />
+                            </span>
+                          </span>
+                        </a>
+                        <h5 id="quantity_1" className="Typography_h5__MRrA0 quantity_1">
+                          0
+                        </h5>
+                        <a
+                          className="updatecart"
+                          data-type="plus"
+                          data-product-id="product_1"
+                          data-quantity-id="quantity_1"
+                          data-defualt="defualt_1"
+                          data-loadd="loadd_1"
+                        >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
+                            <span className="minus">
+                              <img
+                                alt="icon"
+                                decoding="async"
+                                data-nimg="fill"
+                                className="asyncicon"
+                                src="/plus.d7f13c1f.svg"
+                              />
+                            </span>
+                          </span>
+                        </a>
+                      </div>
+                      <div className="d-none loadd_1">
+                        <a className="Button_button Button_secondary ProductButton_addButton__y5b_u ProductButton_secondary__qDYDR ProductButton_normal__jOR_t">
+                          <div className="Loader_loader__4A5f1 Button_loader__I8AK4 btn_remove_1 " />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  data-analytic-label="productCard"
+                  data-test-id="cardOfProduct"
+                  data-analytic-event-content={800478}
+                  className="ProductCardHorizontal_wrapper__byIUf pro_1"
+                >
+                  <div className="CardProductImage_imageWrapper__0rzrL ProductCardHorizontal_image__soYek">
+                    <span
+                      style={{
+                        boxSizing: "border-box",
+                        display: "block",
+                        overflow: "hidden",
+                        width: "initial",
+                        height: "initial",
+                        background: "none",
+                        opacity: 1,
+                        border: 0,
+                        margin: 0,
+                        padding: 0,
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        bottom: 0,
+                        right: 0,
+                      }}
                     >
+                      <img
+                        alt="عرض اليوم"
+                        src="https://cdn.salla.sa/XRVjV/7c4401c0-ec89-4dd2-af3c-82f31bac4262-1000x1000-4XAOOzl8EA3wmJi0iNFjClPvor7yQf7WMiDZItAS.png"
+                        decoding="async"
+                        data-nimg="fill"
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          bottom: 0,
+                          right: 0,
+                          boxSizing: "border-box",
+                          padding: 0,
+                          border: "none",
+                          margin: "auto",
+                          display: "block",
+                          width: 0,
+                          height: 0,
+                          minWidth: "100%",
+                          maxWidth: "100%",
+                          minHeight: "100%",
+                          maxHeight: "100%",
+                          objectFit: "cover",
+                        }}
+                      />
+                    </span>
+                  </div>
+                  <div className="ProductCardHorizontal_info__FEa7G">
+                    <div>
+                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">عرض اليوم</h5>
+                      <p className="Typography_p8 ProductCardHorizontal_description__YSUl2">
+                        4 كيلو صدور دجاج طازجة مقطعة.
+                      </p>
+                    </div>
+                    <div className="ProductCardHorizontal_priceWrapper__3OYMk" data-id="chicken-breast-4kg">
                       <h5 className="Typography_h5__MRrA0">2.50 د.ب</h5>
                       <div className="a_pluss_1">
                         <a
                           type="button"
                           className="Button_button Button_secondary ProductButton_addButton__y5b_u ProductButton_secondary__qDYDR ProductButton_normal__jOR_t cd-add-to-cart js-cd-add-to-cart "
                           data-product-id="product_1"
-                          data-product-image="/kuwaiti-jumbo-robian-10kg.jpg"
-                          data-product-name="10 كيلو روبيان كويتي جامبو طازج"
+                          data-product-image="/placeholder.svg?height=200&width=200"
+                          data-product-name="4 كيلو صدور دجاج طازجة مقطعة"
                           data-product-price={2.5}
                           data-class-add="btn_add_1"
                           data-class-remove="btn_remove_1"
@@ -1701,15 +1536,13 @@ function Landing(props: { handleNextPage:any }) {
                           onClick={() => {
                             handleAddtoCart({
                               id: 0,
-                              name: '10 كيلو روبيان كويتي جامبو طازج',
-                              price: '2.50',
-                              img: '/kuwaiti-jumbo-robian-10kg.jpg',
-                            });
+                              name: "4 كيلو صدور دجاج طازجة مقطعة",
+                              price: "2.50",
+                              img: "/placeholder.svg?height=200&width=200",
+                            })
                           }}
                         >
-                          <span className="Button_content btn_add_1">
-                            إضافة
-                          </span>
+                          <span className="Button_content btn_add_1">إضافة</span>
                           <div className="Loader_loader__4A5f1 Button_loader__I8AK4 btn_remove_1 d-none" />
                         </a>
                       </div>
@@ -1722,10 +1555,7 @@ function Landing(props: { handleNextPage:any }) {
                           data-defualt="defualt_1"
                           data-loadd="loadd_1"
                         >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                             <span className="minus">
                               <img
                                 className="asyncicon"
@@ -1737,10 +1567,7 @@ function Landing(props: { handleNextPage:any }) {
                             </span>
                           </span>
                         </a>
-                        <h5
-                          id="quantity_1"
-                          className="Typography_h5__MRrA0 quantity_1"
-                        >
+                        <h5 id="quantity_1" className="Typography_h5__MRrA0 quantity_1">
                           0
                         </h5>
                         <a
@@ -1751,10 +1578,7 @@ function Landing(props: { handleNextPage:any }) {
                           data-defualt="defualt_1"
                           data-loadd="loadd_1"
                         >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                             <span className="minus">
                               <img
                                 alt="icon"
@@ -1784,17 +1608,17 @@ function Landing(props: { handleNextPage:any }) {
                   <div className="CardProductImage_imageWrapper__0rzrL ProductCardHorizontal_image__soYek">
                     <span
                       style={{
-                        boxSizing: 'border-box',
-                        display: 'block',
-                        overflow: 'hidden',
-                        width: 'initial',
-                        height: 'initial',
-                        background: 'none',
+                        boxSizing: "border-box",
+                        display: "block",
+                        overflow: "hidden",
+                        width: "initial",
+                        height: "initial",
+                        background: "none",
                         opacity: 1,
                         border: 0,
                         margin: 0,
                         padding: 0,
-                        position: 'absolute',
+                        position: "absolute",
                         top: 0,
                         left: 0,
                         bottom: 0,
@@ -1802,54 +1626,48 @@ function Landing(props: { handleNextPage:any }) {
                       }}
                     >
                       <img
-                        alt="عرض كل الكويت"
-                        src="/turkish-sea-bass.jpg"
+                        alt="عرض اليوم"
+                        src="https://ozostore.net/wp-content/uploads/2024/09/1000150127.jpg"
                         decoding="async"
                         data-nimg="fill"
                         style={{
-                          position: 'absolute',
+                          position: "absolute",
                           top: 0,
                           left: 0,
                           bottom: 0,
                           right: 0,
-                          boxSizing: 'border-box',
+                          boxSizing: "border-box",
                           padding: 0,
-                          border: 'none',
-                          margin: 'auto',
-                          display: 'block',
+                          border: "none",
+                          margin: "auto",
+                          display: "block",
                           width: 0,
                           height: 0,
-                          minWidth: '100%',
-                          maxWidth: '100%',
-                          minHeight: '100%',
-                          maxHeight: '100%',
-                          objectFit: 'cover',
+                          minWidth: "100%",
+                          maxWidth: "100%",
+                          minHeight: "100%",
+                          maxHeight: "100%",
+                          objectFit: "cover",
                         }}
                       />
                     </span>
                   </div>
                   <div className="ProductCardHorizontal_info__FEa7G">
                     <div>
-                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">
-                      عرض اليوم
-                      </h5>
+                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">كرتون لحم بقري</h5>
                       <p className="Typography_p8 ProductCardHorizontal_description__YSUl2">
-                      كرتون سيباس تركي
-
-</p>
+                        كرتون لحم بقري أسترالي ممتاز
+                      </p>
                     </div>
-                    <div
-                      className="ProductCardHorizontal_priceWrapper__3OYMk"
-                      data-id="turkish-sea-bass.jpg"
-                    >
-                      <h5 className="Typography_h5__MRrA0">42.50 د.ب</h5>
+                    <div className="ProductCardHorizontal_priceWrapper__3OYMk" data-id="australian-beef-box">
+                      <h5 className="Typography_h5__MRrA0">4.50 د.ب</h5>
                       <div className="a_pluss_1">
                         <a
                           type="button"
                           className="Button_button Button_secondary ProductButton_addButton__y5b_u ProductButton_secondary__qDYDR ProductButton_normal__jOR_t cd-add-to-cart js-cd-add-to-cart "
                           data-product-id="product_1"
-                          data-product-image="/turkish-sea-bass.jpg"
-                          data-product-name="10 كيلو روبيان كويتي جامبو طازج"
+                          data-product-image="https://ozostore.net/wp-content/uploads/2024/09/1000150127.jpg"
+                          data-product-name="كرتون لحم بقري أسترالي ممتاز"
                           data-product-price={42.5}
                           data-class-add="btn_add_1"
                           data-class-remove="btn_remove_1"
@@ -1860,15 +1678,13 @@ function Landing(props: { handleNextPage:any }) {
                           onClick={() => {
                             handleAddtoCart({
                               id: 0,
-                              name: '10 كيلو روبيان كويتي جامبو طازج',
-                              price: '42.50',
-                              img: '/turkish-sea-bass.jpg',
-                            });
+                              name: "كرتون لحم بقري أسترالي ممتاز",
+                              price: "4.50",
+                              img: "/placeholder.svg?height=200&width=200",
+                            })
                           }}
                         >
-                          <span className="Button_content btn_add_1">
-                            إضافة
-                          </span>
+                          <span className="Button_content btn_add_1">إضافة</span>
                           <div className="Loader_loader__4A5f1 Button_loader__I8AK4 btn_remove_1 d-none" />
                         </a>
                       </div>
@@ -1881,10 +1697,7 @@ function Landing(props: { handleNextPage:any }) {
                           data-defualt="defualt_1"
                           data-loadd="loadd_1"
                         >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                             <span className="minus">
                               <img
                                 className="asyncicon"
@@ -1896,10 +1709,7 @@ function Landing(props: { handleNextPage:any }) {
                             </span>
                           </span>
                         </a>
-                        <h5
-                          id="quantity_1"
-                          className="Typography_h5__MRrA0 quantity_1"
-                        >
+                        <h5 id="quantity_1" className="Typography_h5__MRrA0 quantity_1">
                           0
                         </h5>
                         <a
@@ -1910,10 +1720,7 @@ function Landing(props: { handleNextPage:any }) {
                           data-defualt="defualt_1"
                           data-loadd="loadd_1"
                         >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                             <span className="minus">
                               <img
                                 alt="icon"
@@ -1934,7 +1741,6 @@ function Landing(props: { handleNextPage:any }) {
                     </div>
                   </div>
                 </div>
-
                 <div
                   data-analytic-label="productCard"
                   data-test-id="cardOfProduct"
@@ -1944,17 +1750,17 @@ function Landing(props: { handleNextPage:any }) {
                   <div className="CardProductImage_imageWrapper__0rzrL ProductCardHorizontal_image__soYek">
                     <span
                       style={{
-                        boxSizing: 'border-box',
-                        display: 'block',
-                        overflow: 'hidden',
-                        width: 'initial',
-                        height: 'initial',
-                        background: 'none',
+                        boxSizing: "border-box",
+                        display: "block",
+                        overflow: "hidden",
+                        width: "initial",
+                        height: "initial",
+                        background: "none",
                         opacity: 1,
                         border: 0,
                         margin: 0,
                         padding: 0,
-                        position: 'absolute',
+                        position: "absolute",
                         top: 0,
                         left: 0,
                         bottom: 0,
@@ -1962,56 +1768,49 @@ function Landing(props: { handleNextPage:any }) {
                       }}
                     >
                       <img
-                        alt="عرض كل الكويت"
-                        src="/grouper-fish.jpg"
+                        alt="هامور بحريني"
+                        src="https://aloolahma.com/2023/02/20/63f365c64eaaf.png"
                         decoding="async"
                         data-nimg="fill"
                         style={{
-                          position: 'absolute',
+                          position: "absolute",
                           top: 0,
                           left: 0,
                           bottom: 0,
                           right: 0,
-                          boxSizing: 'border-box',
+                          boxSizing: "border-box",
                           padding: 0,
-                          border: 'none',
-                          margin: 'auto',
-                          display: 'block',
+                          border: "none",
+                          margin: "auto",
+                          display: "block",
                           width: 0,
                           height: 0,
-                          minWidth: '100%',
-                          maxWidth: '100%',
-                          minHeight: '100%',
-                          maxHeight: '100%',
-                          objectFit: 'cover',
+                          minWidth: "100%",
+                          maxWidth: "100%",
+                          minHeight: "100%",
+                          maxHeight: "100%",
+                          objectFit: "cover",
                         }}
                       />
                     </span>
                   </div>
                   <div className="ProductCardHorizontal_info__FEa7G">
                     <div>
-                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">
-                      هامور بحريني
-                      </h5>
+                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">لحم غنم بحريني</h5>
                       <p className="Typography_p8 ProductCardHorizontal_description__YSUl2">
-                      1 كيلو هامور بحريني.
-
-
-</p>
+                        1 كيلو لحم غنم بحريني طازج.
+                      </p>
                     </div>
-                    <div
-                      className="ProductCardHorizontal_priceWrapper__3OYMk"
-                      data-id="kuwaiti-jumbo-robian-10kg"
-                    >
+                    <div className="ProductCardHorizontal_priceWrapper__3OYMk" data-id="bahraini-lamb-1kg">
                       <h5 className="Typography_h5__MRrA0">2.00 د.ب</h5>
                       <div className="a_pluss_1">
                         <a
                           type="button"
                           className="Button_button Button_secondary ProductButton_addButton__y5b_u ProductButton_secondary__qDYDR ProductButton_normal__jOR_t cd-add-to-cart js-cd-add-to-cart "
                           data-product-id="product_1"
-                          data-product-image="/kuwaiti-jumbo-robian-10kg.jpg"
-                          data-product-name="10 كيلو روبيان كويتي جامبو طازج"
-                          data-product-price={2.00}
+                          data-product-image="/placeholder.svg?height=200&width=200"
+                          data-product-name="1 كيلو لحم غنم بحريني طازج"
+                          data-product-price={2.0}
                           data-class-add="btn_add_1"
                           data-class-remove="btn_remove_1"
                           data-class-pluss="btn_pluss_1"
@@ -2021,15 +1820,13 @@ function Landing(props: { handleNextPage:any }) {
                           onClick={() => {
                             handleAddtoCart({
                               id: 0,
-                              name: '10 كيلو روبيان كويتي جامبو طازج',
-                              price: '2.00',
-                              img: '/kuwaiti-jumbo-robian-10kg.jpg',
-                            });
+                              name: "1 كيلو لحم غنم بحريني طازج",
+                              price: "2.00",
+                              img: "/placeholder.svg?height=200&width=200",
+                            })
                           }}
                         >
-                          <span className="Button_content btn_add_1">
-                            إضافة
-                          </span>
+                          <span className="Button_content btn_add_1">إضافة</span>
                           <div className="Loader_loader__4A5f1 Button_loader__I8AK4 btn_remove_1 d-none" />
                         </a>
                       </div>
@@ -2042,10 +1839,7 @@ function Landing(props: { handleNextPage:any }) {
                           data-defualt="defualt_1"
                           data-loadd="loadd_1"
                         >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                             <span className="minus">
                               <img
                                 className="asyncicon"
@@ -2057,10 +1851,7 @@ function Landing(props: { handleNextPage:any }) {
                             </span>
                           </span>
                         </a>
-                        <h5
-                          id="quantity_1"
-                          className="Typography_h5__MRrA0 quantity_1"
-                        >
+                        <h5 id="quantity_1" className="Typography_h5__MRrA0 quantity_1">
                           0
                         </h5>
                         <a
@@ -2071,10 +1862,7 @@ function Landing(props: { handleNextPage:any }) {
                           data-defualt="defualt_1"
                           data-loadd="loadd_1"
                         >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                             <span className="minus">
                               <img
                                 alt="icon"
@@ -2094,7 +1882,6 @@ function Landing(props: { handleNextPage:any }) {
                       </div>
                     </div>
                   </div>
-
                 </div>
                 <div
                   data-analytic-label="productCard"
@@ -2105,17 +1892,17 @@ function Landing(props: { handleNextPage:any }) {
                   <div className="CardProductImage_imageWrapper__0rzrL ProductCardHorizontal_image__soYek">
                     <span
                       style={{
-                        boxSizing: 'border-box',
-                        display: 'block',
-                        overflow: 'hidden',
-                        width: 'initial',
-                        height: 'initial',
-                        background: 'none',
+                        boxSizing: "border-box",
+                        display: "block",
+                        overflow: "hidden",
+                        width: "initial",
+                        height: "initial",
+                        background: "none",
                         opacity: 1,
                         border: 0,
                         margin: 0,
                         padding: 0,
-                        position: 'absolute',
+                        position: "absolute",
                         top: 0,
                         left: 0,
                         bottom: 0,
@@ -2123,57 +1910,49 @@ function Landing(props: { handleNextPage:any }) {
                       }}
                     >
                       <img
-                        alt="عرض كل الكويت"
-                        src="/crab.jpg"
+                        alt="دجاج كامل"
+                        src="https://cdn.salla.sa/alpwW/p4PWkDMkUUU4bAZLAY04Zr7LJJIu1fg0V14J9TIg.png"
                         decoding="async"
                         data-nimg="fill"
                         style={{
-                          position: 'absolute',
+                          position: "absolute",
                           top: 0,
                           left: 0,
                           bottom: 0,
                           right: 0,
-                          boxSizing: 'border-box',
+                          boxSizing: "border-box",
                           padding: 0,
-                          border: 'none',
-                          margin: 'auto',
-                          display: 'block',
+                          border: "none",
+                          margin: "auto",
+                          display: "block",
                           width: 0,
                           height: 0,
-                          minWidth: '100%',
-                          maxWidth: '100%',
-                          minHeight: '100%',
-                          maxHeight: '100%',
-                          objectFit: 'cover',
+                          minWidth: "100%",
+                          maxWidth: "100%",
+                          minHeight: "100%",
+                          maxHeight: "100%",
+                          objectFit: "cover",
                         }}
                       />
                     </span>
                   </div>
                   <div className="ProductCardHorizontal_info__FEa7G">
                     <div>
-                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">
-                      قباقب طازج
-                      </h5>
+                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">دجاج كامل طازج</h5>
                       <p className="Typography_p8 ProductCardHorizontal_description__YSUl2">
-                      1 كيلو قباقب - كراب طازج.
-
-
-
-</p>
+                        دجاج كامل طازج - 1.5 كيلو.
+                      </p>
                     </div>
-                    <div
-                      className="ProductCardHorizontal_priceWrapper__3OYMk"
-                      data-id="kuwaiti-jumbo-robian-10kg"
-                    >
+                    <div className="ProductCardHorizontal_priceWrapper__3OYMk" data-id="whole-chicken-1.5kg">
                       <h5 className="Typography_h5__MRrA0">5.70 د.ب</h5>
                       <div className="a_pluss_1">
                         <a
                           type="button"
                           className="Button_button Button_secondary ProductButton_addButton__y5b_u ProductButton_secondary__qDYDR ProductButton_normal__jOR_t cd-add-to-cart js-cd-add-to-cart "
                           data-product-id="product_1"
-                          data-product-image="/kuwaiti-jumbo-robian-10kg.jpg"
-                          data-product-name="10 كيلو روبيان كويتي جامبو طازج"
-                          data-product-price={2.00}
+                          data-product-image="/placeholder.svg?height=200&width=200"
+                          data-product-name="دجاج كامل طازج - 1.5 كيلو"
+                          data-product-price={5.7}
                           data-class-add="btn_add_1"
                           data-class-remove="btn_remove_1"
                           data-class-pluss="btn_pluss_1"
@@ -2183,15 +1962,13 @@ function Landing(props: { handleNextPage:any }) {
                           onClick={() => {
                             handleAddtoCart({
                               id: 0,
-                              name: '10 كيلو روبيان كويتي جامبو طازج',
-                              price: '2.00',
-                              img: '/kuwaiti-jumbo-robian-10kg.jpg',
-                            });
+                              name: "دجاج كامل طازج - 1.5 كيلو",
+                              price: "5.70",
+                              img: "/placeholder.svg?height=200&width=200",
+                            })
                           }}
                         >
-                          <span className="Button_content btn_add_1">
-                            إضافة
-                          </span>
+                          <span className="Button_content btn_add_1">إضافة</span>
                           <div className="Loader_loader__4A5f1 Button_loader__I8AK4 btn_remove_1 d-none" />
                         </a>
                       </div>
@@ -2204,10 +1981,7 @@ function Landing(props: { handleNextPage:any }) {
                           data-defualt="defualt_1"
                           data-loadd="loadd_1"
                         >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                             <span className="minus">
                               <img
                                 className="asyncicon"
@@ -2219,10 +1993,7 @@ function Landing(props: { handleNextPage:any }) {
                             </span>
                           </span>
                         </a>
-                        <h5
-                          id="quantity_1"
-                          className="Typography_h5__MRrA0 quantity_1"
-                        >
+                        <h5 id="quantity_1" className="Typography_h5__MRrA0 quantity_1">
                           0
                         </h5>
                         <a
@@ -2233,10 +2004,7 @@ function Landing(props: { handleNextPage:any }) {
                           data-defualt="defualt_1"
                           data-loadd="loadd_1"
                         >
-                          <span
-                            data-test-id=""
-                            className="Icon_icon ProductButton_icon__XyfwX"
-                          >
+                          <span data-test-id="" className="Icon_icon ProductButton_icon__XyfwX">
                             <span className="minus">
                               <img
                                 alt="icon"
@@ -2256,23 +2024,19 @@ function Landing(props: { handleNextPage:any }) {
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-          className="MerchantCard_wrapper__ATC0P"
-          style={{ display: 'none', marginTop: 35 }}
-        >
+        <div className="MerchantCard_wrapper__ATC0P" style={{ display: "none", marginTop: 35 }}>
           <div className="MerchantCard_imageWrapper" style={{ height: 424 }}>
             <span className="minus">
               <img
                 decoding="async"
                 data-nimg="fill"
                 className="asyncicon"
-                src="/459307463_1044724404108266_4808211461608369674_n.jpg"
+                src="/placeholder.svg?height=424&width=600"
                 alt="تنويه"
               />
             </span>
@@ -2300,29 +2064,21 @@ function Landing(props: { handleNextPage:any }) {
           <div id="open_cart" className="CartButtonMob_wrapper">
             <div className="CartButtonMob_goToCart__50kKk">
               <div id="total" className="CartButtonMob_sum__7e1nq">
-                <span
-                  className="CartButtonMob_count__NyKX4"
-                  style={{ background: 'white' }}
-                >
-                  <p className="Typography_p5  ">
-                    {cartItems.length === 0 ? 0 : (cartItems.length as number)}
-                  </p>
+                <span className="CartButtonMob_count__NyKX4" style={{ background: "white" }}>
+                  <p className="Typography_p5  ">{cartItems.length === 0 ? 0 : (cartItems.length as number)}</p>
                 </span>
                 <h5 className="Typography_h5__MRrA0">
                   <span>{total.toFixed(2)} د.ب</span>
                 </h5>
               </div>
               <div
-              onClick={()=>props.handleNextPage()}
+                onClick={() => props.handleNextPage()}
                 className="CartButtonMob_goToCheckout__WILRU"
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
               >
-                <a style={{ display: 'flex', gap: 5, zIndex: 9999999999 }}>
+                <a style={{ display: "flex", gap: 5, zIndex: 9999999999 }}>
                   <h5 className="Typography_h5__MRrA0">اذهب الى السلة</h5>
-                  <span
-                    data-test-id=""
-                    className="Icon_icon CartButtonMob_icon__fwWfH"
-                  >
+                  <span data-test-id="" className="Icon_icon CartButtonMob_icon__fwWfH">
                     <span className="minus">
                       <img
                         alt="icon"
@@ -2342,10 +2098,10 @@ function Landing(props: { handleNextPage:any }) {
         <div
           id="cartWrapper"
           style={{
-            background: '#f6f6f6',
-            padding: '20px 0',
+            background: "#f6f6f6",
+            padding: "20px 0",
             marginBottom: 20,
-            display: 'none',
+            display: "none",
           }}
         ></div>
         <footer>
@@ -2358,30 +2114,24 @@ function Landing(props: { handleNextPage:any }) {
                 <a href="#">الشروط والأحكام</a>
                 <a href="#">سياسة الخصوصية</a>
               </div>
-              <p className="Footer_copyright__zeUcK">
-                © 2024 الشركة دلمون للاسماك
-              </p>
+              <p className="Footer_copyright__zeUcK">© 2024 الشركة دلمون للحوم</p>
             </div>
             <div className="Footer_socialLinks__Znatd">
               <div className="Footer_link__J_xuo">
-                <span
-                  data-test-id=""
-                  className="Icon_icon"
-                  style={{ width: 18, height: 18 }}
-                >
+                <span data-test-id="" className="Icon_icon" style={{ width: 18, height: 18 }}>
                   <span
                     style={{
-                      boxSizing: 'border-box',
-                      display: 'block',
-                      overflow: 'hidden',
-                      width: 'initial',
-                      height: 'initial',
-                      background: 'none',
+                      boxSizing: "border-box",
+                      display: "block",
+                      overflow: "hidden",
+                      width: "initial",
+                      height: "initial",
+                      background: "none",
                       opacity: 1,
                       border: 0,
                       margin: 0,
                       padding: 0,
-                      position: 'absolute',
+                      position: "absolute",
                       top: 0,
                       left: 0,
                       bottom: 0,
@@ -2394,23 +2144,23 @@ function Landing(props: { handleNextPage:any }) {
                       decoding="async"
                       data-nimg="fill"
                       style={{
-                        position: 'absolute',
+                        position: "absolute",
                         top: 0,
                         left: 0,
                         bottom: 0,
                         right: 0,
-                        boxSizing: 'border-box',
+                        boxSizing: "border-box",
                         padding: 0,
-                        border: 'none',
-                        margin: 'auto',
-                        display: 'block',
+                        border: "none",
+                        margin: "auto",
+                        display: "block",
                         width: 0,
                         height: 0,
-                        minWidth: '100%',
-                        maxWidth: '100%',
-                        minHeight: '100%',
-                        maxHeight: '100%',
-                        objectFit: 'contain',
+                        minWidth: "100%",
+                        maxWidth: "100%",
+                        minHeight: "100%",
+                        maxHeight: "100%",
+                        objectFit: "contain",
                       }}
                     />
                   </span>
@@ -2420,10 +2170,9 @@ function Landing(props: { handleNextPage:any }) {
           </div>
         </footer>
         {/* Shoping Card Model */}
-
       </div>
     </>
-  );
+  )
 }
 
-export default Landing;
+export default Landing

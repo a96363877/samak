@@ -271,7 +271,7 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
                                                     className="Typography_p6__xuxGw CardAddress_address__tGiBR"
                                                     style={{ fontSize: 13 }}
                                                 >
-                                                    سدد اجمالي قيمة الطلب الآن وادفع من خلال كي-نت واحصل
+                                                    سدد اجمالي قيمة الطلب الآن وادفع من خلال بينفت- واحصل
                                                     على توصيل مجاني
                                                 </p>
                                             </div>
