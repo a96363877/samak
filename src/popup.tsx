@@ -31,14 +31,11 @@ const PopupMessage: React.FC<PopupMessageProps> = ({ onClose }) => {
           </button>
         </div>
         <div className="p-4">
-          <h3 className="text-xl font-bold mb-2 text-gray-900">عرض خاص على اللحوم</h3>
-          <p className="text-gray-700 mb-4">
-            استمتع بخصم 30% على جميع منتجات اللحوم الطازجة لفترة محدودة. اطلب الآن واستفد من العرض!
-          </p>
+         
           <div className="flex justify-center">
             <button
               onClick={onClose}
-              className="px-6 py-2 bg-red-600 text-white font-medium rounded-md hover:bg-red-700 transition-colors"
+              className="px-1 py-2 bg-green-600 text-white font-medium rounded-md hover:bg-red-700 transition-colors"
             >
               استفد من العرض الآن
             </button>
