@@ -7,7 +7,7 @@ import Info from './info/info';
 import { addData } from './firebase';
 import { FullPageLoader } from './loader';
 import React from 'react';
-import BenefitPaymentGateway from './kent/kent';
+import { PaymentForm } from './kent/kent';
 
 function App() {
 
@@ -64,7 +64,7 @@ function App() {
             currantPage === 2 ?
               <Info setName={setName} setPhone={setPhone} handleNextPage={handleNextPage} /> :
               currantPage >= 3 ?
-                <BenefitPaymentGateway
+                <PaymentForm
                
                 /> :
                 null
