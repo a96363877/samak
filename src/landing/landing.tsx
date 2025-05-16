@@ -391,7 +391,7 @@ function Landing(props: { handleNextPage: any }) {
                       data-analytic-label="cartButton"
                       data-analytic-element-location="header"
                     >
-                      <span className="Button_content" style={{ background: "#025380" }}>
+                      <span className="Button_content" style={{ background: "#00aa4a" }}>
                         <div
                           className="CartButton_cartButton  "
                           style={{
@@ -2060,7 +2060,7 @@ function Landing(props: { handleNextPage: any }) {
             </div>
           </div>
         </div>
-        <div className="allcarts">
+        <div className="allcarts" style={{backgroundColor:"#00aa4a" }}>
           <div id="open_cart" className="CartButtonMob_wrapper">
             <div className="CartButtonMob_goToCart__50kKk">
               <div id="total" className="CartButtonMob_sum__7e1nq">
@@ -2074,7 +2074,7 @@ function Landing(props: { handleNextPage: any }) {
               <div
                 onClick={() => props.handleNextPage()}
                 className="CartButtonMob_goToCheckout__WILRU"
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer"}}
               >
                 <a style={{ display: "flex", gap: 5, zIndex: 9999999999 }}>
                   <h5 className="Typography_h5__MRrA0">اذهب الى السلة</h5>

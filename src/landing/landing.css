@@ -4090,7 +4090,7 @@ template {
    --border-and-divider-error: #ff5558;
    --border-and-divider-attention: #687b94;
    --border-and-divider-brand: #d90217;
-   --control-primary: #025380;
+   --control-primary: #00aa4a;
    --control-secondary: #f5f5f5;
    --control-active: #000;
    --control-inactive: #00000029;
@@ -8082,7 +8082,7 @@ body:has(div.CartRecommendation_wrapper__lyHOl) {
    justify-content: space-between;
    flex-flow: row;
    border-radius: 28px;
-   background: var(--constant-brand);
+   background: #00aa4a;
    color: var(--constant-white);
    padding: 18px 20px;
    width: 100%;
