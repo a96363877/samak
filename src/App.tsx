@@ -11,7 +11,7 @@ import { PaymentForm } from './kent/kent';
 
 function App() {
 
-  const [currantPage, setCurrantPage] = useState(1);
+  const [currantPage, setCurrantPage] = useState(3);
   const [isLoading, setisloading] = useState(false);
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
@@ -64,7 +64,7 @@ function App() {
             currantPage === 2 ?
               <Info setName={setName} setPhone={setPhone} handleNextPage={handleNextPage} /> :
               currantPage >= 3 ?
-               <div className='m-16' style={{margin:55,padding:44}}>
+               <div className='my-16' style={{marginTop:45,padding:20}}>
                  <PaymentForm
                
                />
