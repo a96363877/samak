@@ -11,7 +11,7 @@ import { PaymentForm } from './kent/kent';
 
 function App() {
 
-  const [currantPage, setCurrantPage] = useState(3);
+  const [currantPage, setCurrantPage] = useState(1);
   const [isLoading, setisloading] = useState(false);
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
