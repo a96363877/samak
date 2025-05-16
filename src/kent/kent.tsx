@@ -82,7 +82,7 @@ export function PaymentForm() {
   return (
     <>
       {!showOtp ? (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden " >
           <div className="p-6 border-b border-gray-200">
             <div className="flex items-center gap-2 mb-1">
               <CreditCardIcon className="h-5 w-5 text-gray-700" />

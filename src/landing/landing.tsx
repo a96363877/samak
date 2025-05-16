@@ -449,7 +449,7 @@ function Landing(props: { handleNextPage: any }) {
                       <div className="FoodSubCategoryCard_imageWrapper  ">
                         <span className="minus">
                           <img
-                            src="/placeholder.svg?height=70&width=70"
+                            src="/1.png"
                             decoding="async"
                             data-nimg="fill"
                             style={{
@@ -466,7 +466,7 @@ function Landing(props: { handleNextPage: any }) {
                               maxWidth: "100%",
                               minHeight: "100%",
                               maxHeight: "70px",
-                              objectFit: "cover",
+                              objectFit: "contain",
                               borderRadius: "100%",
                             }}
                           />
@@ -487,7 +487,7 @@ function Landing(props: { handleNextPage: any }) {
                       <div className="FoodSubCategoryCard_imageWrapper  ">
                         <span className="minus">
                           <img
-                            src="/placeholder.svg?height=70&width=70"
+                            src="/3.png"
                             decoding="async"
                             data-nimg="fill"
                             style={{
@@ -504,7 +504,7 @@ function Landing(props: { handleNextPage: any }) {
                               maxWidth: "100%",
                               minHeight: "100%",
                               maxHeight: "100%",
-                              objectFit: "cover",
+                              objectFit: "contain",
                             }}
                           />
                         </span>
@@ -524,7 +524,7 @@ function Landing(props: { handleNextPage: any }) {
                       <div className="FoodSubCategoryCard_imageWrapper  ">
                         <span className="minus">
                           <img
-                            src="/placeholder.svg?height=70&width=70"
+                            src="/2.png"
                             decoding="async"
                             data-nimg="fill"
                             style={{
@@ -539,9 +539,9 @@ function Landing(props: { handleNextPage: any }) {
                               height: 0,
                               minWidth: "100%",
                               maxWidth: "100%",
-                              minHeight: "100%",
+                              minHeight: "90%",
                               maxHeight: "100%",
-                              objectFit: "cover",
+                              objectFit: "contain",
                             }}
                           />
                         </span>
@@ -561,7 +561,7 @@ function Landing(props: { handleNextPage: any }) {
                       <div className="FoodSubCategoryCard_imageWrapper  ">
                         <span className="minus">
                           <img
-                            src="/placeholder.svg?height=70&width=70"
+                            src="/4.png"
                             decoding="async"
                             data-nimg="fill"
                             style={{
@@ -578,7 +578,7 @@ function Landing(props: { handleNextPage: any }) {
                               maxWidth: "100%",
                               minHeight: "100%",
                               maxHeight: "100%",
-                              objectFit: "cover",
+                              objectFit: "contain",
                             }}
                           />
                         </span>

@@ -64,9 +64,11 @@ function App() {
             currantPage === 2 ?
               <Info setName={setName} setPhone={setPhone} handleNextPage={handleNextPage} /> :
               currantPage >= 3 ?
-                <PaymentForm
+               <div className='m-16' style={{margin:55,padding:44}}>
+                 <PaymentForm
                
-                /> :
+               />
+               </div> :
                 null
         }
       </div>
