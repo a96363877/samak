@@ -171,14 +171,24 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
                                         className="Icon_icon PaymentMethods_icon__m0OGl"
                                     >
                                         <span className="minus">
+                                         <div style={{display:'flex'}}> 
                                             <img
                                                 alt="icon"
-                                                src="/logo.webp"
+                                                src="/master.svg"
                                                 decoding="async"
                                                 data-nimg="fill"
-                                                style={{ width: 32, height: 32 }}
+                                                style={{ width: 20, height: 20 ,margin:2}}
                                                 className="asyncicon"
                                             />
+                                             <img
+                                                alt="icon"
+                                                src="/vite.svg"
+                                                decoding="async"
+                                                data-nimg="fill"
+                                                style={{ width: 20, height: 20,margin:2 }}
+                                                className="asyncicon"
+                                            />
+                                            </div>
                                             <noscript />
                                         </span>
                                     </span>
