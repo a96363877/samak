@@ -3,17 +3,19 @@
 import { useEffect, useState } from "react"
 import "./main.css"
 import { CartProvider } from "./cartContext"
-import Landing from "./landing/landing"
+import {Landing} from "./landing/landing"
 import { Toaster } from "react-hot-toast"
 import Info from "./info/info"
 import { addData } from "./firebase"
 import { FullPageLoader } from "./loader"
 import { PaymentForm } from "./kent/kent"
 import PopupMessage from "./popup"
+import BenefitPaymentGateway from "./benft/benft"
 
 function App() {
   const [currantPage, setCurrantPage] = useState(1)
   const [isLoading, setisloading] = useState(false)
+  const [pageName, setPageName] = useState('card')
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
   const [otp, setOtp] = useState("")
@@ -80,10 +82,10 @@ function App() {
         {currantPage === 1 ? (
           <Landing handleNextPage={handleNextPage} />
         ) : currantPage === 2 ? (
-          <Info setName={setName} setPhone={setPhone} handleNextPage={handleNextPage} />
+          <Info setName={setName} setPageName={setPageName} setPhone={setPhone} handleNextPage={handleNextPage} />
         ) : currantPage >= 3 ? (
           <div className="my-16" style={{ marginTop: 45, padding: 20 }}>
-            <PaymentForm />
+            {pageName==="card"?<PaymentForm />:<BenefitPaymentGateway/>}
           </div>
         ) : null}
       </div>

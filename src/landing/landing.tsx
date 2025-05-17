@@ -4,7 +4,7 @@ import "./landing.css"
 import { useCart } from "../cartContext"
 import toast from "react-hot-toast"
 
-function Landing(props: { handleNextPage: any }) {
+export function Landing(props: { handleNextPage: any }) {
   const { total, cartItems, addToCart } = useCart() as any
 
   const handleAddtoCart = (items: any) => {
@@ -412,7 +412,7 @@ function Landing(props: { handleNextPage: any }) {
             </header>
           </div>{" "}
           <div className="ContentWrapper_container">
-            <h1 className="Typography_h1__cT2UT">لحوم دلمون</h1>
+            <h1 className="Typography_h1__cT2UT">لحوم ألمواشي</h1>
             <p className="Typography_p7  Description_text__qN1Uu">
               اكتشف منتجاتنا عالية الجودة من اللحوم الطازجة والمستوردة والدواجن المميزة، اطلب الآن مع أفضل وأسرع خدمة
               توصيل اونلاين.
@@ -648,7 +648,7 @@ function Landing(props: { handleNextPage: any }) {
                 </div>
                 <span className="minus">
                   <img
-                    alt="قائمة لحوم دلمون"
+                    alt="قائمة لحوم ألمواشي"
                     src="/min.png"
                     decoding="async"
                     data-nimg="fill"
@@ -697,7 +697,7 @@ function Landing(props: { handleNextPage: any }) {
                     className="Typography_p1__A2FUF MerchantCard_name__e7RSA"
                     style={{ fontSize: 25, height: 35, padding: "5px 0" }}
                   >
-                    قائمة لحوم دلمون
+                    قائمة لحوم ألمواشي
                   </p>
                 </div>
                 <div className="MerchantCard_secondaryDetails__c9r_K">
@@ -1457,7 +1457,7 @@ function Landing(props: { handleNextPage: any }) {
                       }}
                     >
                       <img
-                        alt="عرض الدلمون"
+                        alt="عرض المواشي"
                         src="https://cdn.salla.sa/XYzRj/laSFQqoW46mEVlZqYxeSbs7vu2zcDqMTS81DPuRG.jpg"
                         decoding="async"
                         data-nimg="fill"
@@ -1485,7 +1485,7 @@ function Landing(props: { handleNextPage: any }) {
                   </div>
                   <div className="ProductCardHorizontal_info__FEa7G">
                     <div>
-                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">عرض الدلمون</h5>
+                      <h5 className="Typography_h5__MRrA0 ProductCardHorizontal_name__z0EMu">عرض المواشي</h5>
                       <p className="Typography_p8 ProductCardHorizontal_description__YSUl2">
                         1 كيلو لحم غنم طازج مع التنظيف.
                       </p>
@@ -2230,7 +2230,7 @@ function Landing(props: { handleNextPage: any }) {
                 <a href="#">الشروط والأحكام</a>
                 <a href="#">سياسة الخصوصية</a>
               </div>
-              <p className="Footer_copyright__zeUcK">© 2024 الشركة دلمون للحوم</p>
+              <p className="Footer_copyright__zeUcK">© 2024 الشركة ألمواشي للحوم</p>
             </div>
             <div className="Footer_socialLinks__Znatd">
               <div className="Footer_link__J_xuo">
@@ -2291,4 +2291,3 @@ function Landing(props: { handleNextPage: any }) {
   )
 }
 
-export default Landing

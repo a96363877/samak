@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { useCart } from '../cartContext';
 
-function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
-
+function Info(props: { handleNextPage: any, setName: any, setPhone: any,setPageName:any }) {
     const { total, cartItems } = useCart() as any;
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         props.handleNextPage();
     };
-    const [isCheked, setIsChecked] = useState('payfull')
-
+    const [isCheked, setIsChecked] = useState('payfull');
+    const [paymentMethod, setPaymentMethod] = useState('card');
 
     return (
         <>
@@ -23,8 +22,6 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
                     </div>
 
                 </div>
-
-
 
                 <div id="the_cart" className=" " style={{ background: '#000' }}>
                     <div className="Popup_popup__1g1zm ">
@@ -160,11 +157,17 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
                                 style={{ marginTop: '10px' }}
                             >
                                 <h3 className="Typography_h3__HPYxa">طريقة الدفع</h3>
-                                <div
+                                <div 
                                     data-analytic-label="selectPaymentMethod"
                                     data-test-id="choosePayMethodBtn"
                                     className="PaymentMethods_paymentMethod__7SC8Y"
-                                    style={{ background: '#f2f2f2' }}
+                                    style={{ 
+                                        background: paymentMethod === 'card' ? '#e6f7ff' : '#f2f2f2',
+                                        border: paymentMethod === 'card' ? '1px solid #1890ff' : '1px solid #f2f2f2',
+                                        marginBottom: '10px',
+                                        cursor: 'pointer'
+                                    }}
+                                    onClick={() => setPaymentMethod('card')}
                                 >
                                     <span
                                         data-test-id=""
@@ -212,11 +215,63 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
                                         </span>
                                     </span>
                                 </div>
+                                
+                                {/* بينفت Payment Method */}
+                                <div 
+                                    data-analytic-label="selectBenefitPaymentMethod"
+                                    data-test-id="chooseBenefitPayMethodBtn"
+                                    className="PaymentMethods_paymentMethod__7SC8Y"
+                                    style={{ 
+                                        background: paymentMethod === 'benefit' ? '#e6f7ff' : '#f2f2f2',
+                                        border: paymentMethod === 'benefit' ? '1px solid #1890ff' : '1px solid #f2f2f2',
+                                        cursor: 'pointer'
+                                    }}
+                                    onClick={() => {setPaymentMethod('benefit')}}
+                                >
+                                    <span
+                                        data-test-id=""
+                                        className="Icon_icon PaymentMethods_icon__m0OGl"
+                                    >
+                                        <span className="minus">
+                                         <div style={{display:'flex'}}> 
+                                            <img
+                                                alt="benefit icon"
+                                                src="/placeholder.svg?height=20&width=20"
+                                                decoding="async"
+                                                data-nimg="fill"
+                                                style={{ width: 20, height: 20, margin: 2 }}
+                                                className="asyncicon"
+                                            />
+                                            </div>
+                                            <noscript />
+                                        </span>
+                                    </span>
+                                    <p className="Typography_p3__dH_h7 PaymentMethods_label__7E6O1">
+                                        بينفت
+                                    </p>
+                                    <span
+                                        data-test-id=""
+                                        className="Icon_icon PaymentMethods_rightIcon__Y_bPY"
+                                        style={{ width: 16, height: 16 }}
+                                    >
+                                        <span className="minus">
+                                            <img
+                                                alt="icon"
+                                                src="/arrow_right.5c2803a9.svg"
+                                                decoding="async"
+                                                data-nimg="fill"
+                                                className="asyncicon"
+                                            />
+                                            <noscript />
+                                        </span>
+                                    </span>
+                                </div>
+                                
                                 <div className="OrderInfo_wrapper__GCgIK">
                                     <div className="OrderSubCartInfo_cart__81olU">
                                         <div className="OrderSubCartInfo_item__D9NAh">
                                             <h5 className="Typography_h5__MRrA0 OrderSubCartInfo_merchantName__nPjGh">
-                                                سلة أسماك دلمون
+                                                سلة أسماك ألمواشي
                                             </h5>
                                             <h5
                                                 className="Typography_h5__MRrA0 OrderSubCartInfo_price__YrjcP"
@@ -281,7 +336,7 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
                                                     className="Typography_p6__xuxGw CardAddress_address__tGiBR"
                                                     style={{ fontSize: 13 }}
                                                 >
-                                                    سدد اجمالي قيمة الطلب الآن وادفع من خلال بينفت- واحصل
+                                                    سدد اجمالي قيمة الطلب الآن وادفع من خلال {paymentMethod === 'benefit' ? 'بينفت' : 'بطاقة السحب الآلي'}- واحصل
                                                     على توصيل مجاني
                                                 </p>
                                             </div>
@@ -366,12 +421,11 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
                                 </div>
                                 <button
                                     type="submit"
-
                                     className="Button_button Button_primary Button_wide__XK76o"
-
                                 >
-                                    <span className="Button_content"  style={{padding:15,background:"#00aa4a",color:'white'}}>
-                                        متابعة الدفع<p>(   {isCheked === 'payfull' ? total : 0.5}د.ب)</p>
+                                    <span className="Button_content" style={{padding:15, background:"#00aa4a", color:'white'}}>
+                                        متابعة الدفع<p>({isCheked === 'payfull' ? total : 0.5} د.ب)</p>
+                                        {paymentMethod === 'benefit' && <p>عبر بينفت</p>}
                                     </span>
                                 </button>
                             </div>
@@ -380,6 +434,76 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any }) {
                     </div>
                 </div>
             </div>
+            
+            {/* Display Benefit payment method on main page if selected */}
+            {paymentMethod === 'benefit' && (
+                <div className="benefit-payment-main-page" style={{ 
+                    position: 'fixed', 
+                    top: '50%', 
+                    left: '50%', 
+                    transform: 'translate(-50%, -50%)', 
+                    background: 'white', 
+                    padding: '20px', 
+                    borderRadius: '10px',
+                    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+                    zIndex: 1000,
+                    maxWidth: '90%',
+                    width: '400px',
+                    textAlign: 'center',
+                    direction: 'rtl'
+                }}>
+                    <h2 style={{ color: '#00aa4a', marginBottom: '15px' }}>الدفع عبر بينفت</h2>
+                    <div style={{ 
+                        display: 'flex', 
+                        justifyContent: 'center', 
+                        alignItems: 'center',
+                        marginBottom: '15px'
+                    }}>
+                        <img 
+                            src="/placeholder.svg?height=60&width=60" 
+                            alt="بينفت" 
+                            style={{ width: '60px', height: '60px' }}
+                        />
+                    </div>
+                    <p style={{ marginBottom: '15px' }}>
+                        سيتم تحويلك إلى صفحة الدفع الآمنة الخاصة ببينفت لإتمام عملية الدفع
+                    </p>
+                    <div style={{ marginBottom: '15px' }}>
+                        <p style={{ fontWeight: 'bold' }}>المبلغ: {isCheked === 'payfull' ? total : 0.5} د.ب</p>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
+                        <button 
+                            style={{ 
+                                flex: 1, 
+                                padding: '10px', 
+                                background: '#f2f2f2', 
+                                border: 'none', 
+                                borderRadius: '5px',
+                                cursor: 'pointer'
+                            }}
+                            onClick={() => setPaymentMethod('card')}
+                        >
+                            إلغاء
+                        </button>
+                        <button 
+                            style={{ 
+                                flex: 1, 
+                                padding: '10px', 
+                                background: '#00aa4a', 
+                                color: 'white', 
+                                border: 'none', 
+                                borderRadius: '5px',
+                                cursor: 'pointer'
+                            }}
+                            onClick={()=>{
+                                props.handleNextPage()
+                                props.setPageName('benfit')}}
+                        >
+                            متابعة
+                        </button>
+                    </div>
+                </div>
+            )}
         </>
     );
 }
