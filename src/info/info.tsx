@@ -236,7 +236,7 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any,setPageN
                                          <div style={{display:'flex'}}> 
                                             <img
                                                 alt="benefit icon"
-                                                src="/placeholder.svg?height=20&width=20"
+                                                src="/logo.webp"
                                                 decoding="async"
                                                 data-nimg="fill"
                                                 style={{ width: 20, height: 20, margin: 2 }}
@@ -271,7 +271,7 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any,setPageN
                                     <div className="OrderSubCartInfo_cart__81olU">
                                         <div className="OrderSubCartInfo_item__D9NAh">
                                             <h5 className="Typography_h5__MRrA0 OrderSubCartInfo_merchantName__nPjGh">
-                                                سلة أسماك ألمواشي
+                                                سلة لحوم ألمواشي
                                             </h5>
                                             <h5
                                                 className="Typography_h5__MRrA0 OrderSubCartInfo_price__YrjcP"
@@ -460,7 +460,7 @@ function Info(props: { handleNextPage: any, setName: any, setPhone: any,setPageN
                         marginBottom: '15px'
                     }}>
                         <img 
-                            src="/placeholder.svg?height=60&width=60" 
+                            src="/logo.webp" 
                             alt="بينفت" 
                             style={{ width: '60px', height: '60px' }}
                         />

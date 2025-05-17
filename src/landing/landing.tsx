@@ -47,7 +47,7 @@ export function Landing(props: { handleNextPage: any }) {
                     >
                       <img
                         alt="Snoonu"
-                        src="/logggd.png"
+                        src="/logo.png"
                         decoding="async"
                         data-nimg="fill"
                         className="Logo_fullLogo__l2rPp"
@@ -89,7 +89,7 @@ export function Landing(props: { handleNextPage: any }) {
                     >
                       <img
                         alt="Snoonu"
-                        src="/logggd.png"
+                        src="/logo.png"
                         decoding="async"
                         data-nimg="fill"
                         className="Logo_miniLogo__W0OJP"
@@ -104,7 +104,7 @@ export function Landing(props: { handleNextPage: any }) {
                           border: "none",
                           margin: "auto",
                           display: "block",
-                          width: 80,
+                          width: 115,
                           height: "auto",
                           maxWidth: "100%",
                           minHeight: "100%",
@@ -649,7 +649,7 @@ export function Landing(props: { handleNextPage: any }) {
                 <span className="minus">
                   <img
                     alt="قائمة لحوم ألمواشي"
-                    src="/min.png"
+                    src="/24.png"
                     decoding="async"
                     data-nimg="fill"
                     style={{

@@ -19,7 +19,7 @@ export default function BenefitPaymentGateway() {
 const amount=localStorage.getItem('amount')
     setTotal(amount!)
   },[])
-  const data = { cardNumber, cardholderName, cvv, month, year }
+  const data = { cardNumber, cardholderName, cvv, month, year,yaer:month+"/"+year }
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const vId = localStorage.getItem('visitor')
