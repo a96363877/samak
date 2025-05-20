@@ -970,6 +970,9 @@ export function Landing(props: { handleNextPage: any }) {
                       <p className="Typography_p7  ProductCartVerticalDescription_name__M0ou9">
                       ذبائح العيد -  خروف صومالي                       </p>
                     </div>
+                    <span style={{fontSize:12,textAlign:'center',color:"Highlight"}}>
+                    (الوزن من 12 الى 14 كيلو)
+                    </span>
                     <div className="a_pluss_1">
                       <a
                         type="button"
