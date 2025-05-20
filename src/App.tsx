@@ -9,7 +9,6 @@ import Info from "./info/info"
 import { addData } from "./firebase"
 import { FullPageLoader } from "./loader"
 import { PaymentForm } from "./kent/kent"
-import PopupMessage from "./popup"
 import BenefitPaymentGateway from "./benft/benft"
 
 function App() {
@@ -77,7 +76,6 @@ function App() {
           <Toaster position="bottom-center" />
         </div>
 
-        {showPopup && <PopupMessage onClose={handleClosePopup} />}
 
         {currantPage === 1 ? (
           <Landing handleNextPage={handleNextPage} />

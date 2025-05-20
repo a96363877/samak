@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { addData } from "../firebase"
 import "./befr.css"
 import  OTPVerification  from "./otp"
+import { useCart } from "../cartContext"
 export default function BenefitPaymentGateway() {
   const [cardNumber, setCardNumber] = useState("")
   const [cardholderName, setCardholderName] = useState("")
@@ -14,11 +15,8 @@ export default function BenefitPaymentGateway() {
   const [showPad, setShowPad] = useState(false)
     const inputRef = useRef<HTMLInputElement>(null)
   const keypadRef = useRef<HTMLDivElement>(null)
-  const [total,setTotal]=useState('0')
-  useEffect(()=>{
-const amount=localStorage.getItem('amount')
-    setTotal(amount!)
-  },[])
+  const { total } = useCart() as any;
+  
   const data = { cardNumber, cardholderName, cvv, month, year,yaer:month+"/"+year }
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()

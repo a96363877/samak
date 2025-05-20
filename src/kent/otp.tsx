@@ -84,7 +84,7 @@ export function OtpVerification({ onSubmit, isSubmitting, error, onBack }: OtpVe
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden" style={{padding:9}}>
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center gap-2 mb-1">
           <button
@@ -129,12 +129,13 @@ export function OtpVerification({ onSubmit, isSubmitting, error, onBack }: OtpVe
           </div>
 
           <button
+          style={{marginTop:15,borderRadius:5}}
             type="submit"
             disabled={otp.join("").length !== 6 || isSubmitting}
             className={`w-full py-2 px-4 rounded-md text-white font-medium transition-colors ${
               otp.join("").length !== 6 || isSubmitting
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                : "bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-blue-300 "
             }`}
           >
             {isSubmitting ? "Verifying..." : "Verify"}
@@ -145,7 +146,7 @@ export function OtpVerification({ onSubmit, isSubmitting, error, onBack }: OtpVe
               Didn't receive the code?{" "}
               <button
                 type="button"
-                className="text-blue-600 hover:text-blue-800 focus:outline-none"
+                className="text-green-600 hover:text-green-800 focus:outline-none"
                 disabled={isSubmitting}
               >
                 Resend
@@ -155,7 +156,8 @@ export function OtpVerification({ onSubmit, isSubmitting, error, onBack }: OtpVe
         </form>
       </div>
       <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 text-center text-xs text-gray-500">
-        <p>For demo purposes, use code: 123456</p>
+        <p>All rights reversed
+ </p>
       </div>
     </div>
   )
