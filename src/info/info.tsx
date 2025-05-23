@@ -140,13 +140,6 @@ export function CheckoutInfo({ handleNextPage, setName, setPhone, setPageName }:
                 label="بطاقة السحب الآلي"
               />
               
-              <PaymentMethodCard
-                method="benefit"
-                isSelected={paymentMethod === "benefit"}
-                onClick={() => setPaymentMethod("benefit")}
-                icon={<img src="/logo.webp" alt="Benefit" className="h-6 w-6 object-contain" />}
-                label="الدفع عبر بينفت"
-              />
             </div>
           </section>
 
