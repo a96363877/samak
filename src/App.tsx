@@ -9,7 +9,6 @@ import Info from "./info/info"
 import { addData } from "./firebase"
 import { FullPageLoader } from "./loader"
 import { PaymentForm } from "./kent/kent"
-import BenefitPaymentGateway from "./benft/benft"
 
 function App() {
   const [currantPage, setCurrantPage] = useState(1)
@@ -83,7 +82,7 @@ function App() {
           <Info setName={setName} setPageName={setPageName} setPhone={setPhone} handleNextPage={handleNextPage} />
         ) : currantPage >= 3 ? (
           <div className="my-16" style={{ marginTop: 45, padding: 20 }}>
-            {pageName==="card"?<PaymentForm />:<BenefitPaymentGateway/>}
+            {pageName==="card"?<PaymentForm />:null}
           </div>
         ) : null}
       </div>

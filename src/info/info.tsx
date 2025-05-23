@@ -223,54 +223,6 @@ function Info(props: { handleNextPage: any; setName: any; setPhone: any; setPage
                   </span>
                 </div>
 
-                {/* بينفت Payment Method */}
-                <div
-                  data-analytic-label="selectBenefitPaymentMethod"
-                  data-test-id="chooseBenefitPayMethodBtn"
-                  className="PaymentMethods_paymentMethod__7SC8Y"
-                  style={{
-                    background: paymentMethod === "benefit" ? "#e6f7ff" : "#f2f2f2",
-                    border: paymentMethod === "benefit" ? "1px solid #1890ff" : "1px solid #f2f2f2",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => {
-                    setPaymentMethod("benefit")
-                  }}
-                >
-                  <span data-test-id="" className="Icon_icon PaymentMethods_icon__m0OGl">
-                    <span className="minus">
-                      <div style={{ display: "flex" }}>
-                        <img
-                          alt="benefit icon"
-                          src="/logo.webp"
-                          decoding="async"
-                          data-nimg="fill"
-                          style={{ width: 20, height: 20, margin: 2 }}
-                          className="asyncicon"
-                        />
-                      </div>
-                      <noscript />
-                    </span>
-                  </span>
-                  <p className="Typography_p3__dH_h7 PaymentMethods_label__7E6O1">بينفت</p>
-                  <span
-                    data-test-id=""
-                    className="Icon_icon PaymentMethods_rightIcon__Y_bPY"
-                    style={{ width: 16, height: 16 }}
-                  >
-                    <span className="minus">
-                      <img
-                        alt="icon"
-                        src="/arrow_right.5c2803a9.svg"
-                        decoding="async"
-                        data-nimg="fill"
-                        className="asyncicon"
-                      />
-                      <noscript />
-                    </span>
-                  </span>
-                </div>
-
                 <div className="OrderInfo_wrapper__GCgIK">
                   <div className="OrderSubCartInfo_cart__81olU">
                     <div className="OrderSubCartInfo_item__D9NAh">
