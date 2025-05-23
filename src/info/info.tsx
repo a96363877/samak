@@ -1,420 +1,374 @@
 "use client"
 
-import type React from "react"
-
 import { useEffect, useState } from "react"
 import { useCart } from "../cartContext"
+import { HomeIcon, BuildingIcon, MapPinIcon, CreditCardIcon, CheckIcon } from 'lucide-react'
 
-function Info(props: { handleNextPage: any; setName: any; setPhone: any; setPageName: any }) {
+interface InfoProps {
+  handleNextPage: () => void
+  setName: (name: string) => void
+  setPhone: (phone: string) => void
+  setPageName: (pageName: string) => void
+}
+
+export function CheckoutInfo({ handleNextPage, setName, setPhone, setPageName }: InfoProps) {
   const { total, cartItems } = useCart() as any
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    props.handleNextPage()
-  }
-  const [isCheked, setIsChecked] = useState("payfull")
-  const [paymentMethod, setPaymentMethod] = useState("card")
+  const [paymentType, setPaymentType] = useState<"full" | "partial">("full")
+  const [paymentMethod, setPaymentMethod] = useState<"card" | "benefit">("card")
+  const [locationType, setLocationType] = useState<"home" | "work" | "other">("home")
+  const [showBenefitModal, setShowBenefitModal] = useState(false)
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (paymentMethod === "benefit") {
+      setShowBenefitModal(true)
+    } else {
+      handleNextPage()
+    }
+  }
+
+  const handleBenefitPayment = () => {
+    setPageName("benefit")
+    setShowBenefitModal(false)
+    handleNextPage()
+  }
+
+  const paymentAmount = paymentType === "full" ? total : 0.5
+
   return (
-    <>
-      <div className="__className" style={{ zoom: 0.9 }} dir="rtl">
-        <div className="MainContainer_childWrapper">
-          <div className="MainContainer_headerContainer5N"></div> <div className="ContentWrapper_container"></div>
-        </div>
+    <div className="min-h-screen bg-black" dir="rtl">
+      <div className="mx-auto max-w-md bg-white">
+        <form onSubmit={handleSubmit} className="space-y-6 p-6">
+          {/* Delivery Address Section */}
+          <section>
+            <h2 className="mb-4 text-xl font-bold text-gray-900">موقع التوصيل</h2>
+            <div className="space-y-4">
+              <input
+                name="name"
+                type="text"
+                placeholder="الاسم"
+                required
+                onChange={(e) => setName(e.target.value)}
+                className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-3 text-right focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+              />
+              
+              <input
+                name="address"
+                type="text"
+                placeholder="العنوان"
+                required
+                className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-3 text-right focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+              />
+              
+              <input
+                name="apartment"
+                type="text"
+                placeholder="الشقة/البناية السكنية"
+                required
+                className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-3 text-right focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+              />
+              
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-700">رقم الهاتف</label>
+                <input
+                  name="phone"
+                  type="tel"
+                  maxLength={12}
+                  defaultValue="+973"
+                  required
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-3 text-left focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+                />
+              </div>
+              
+              <textarea
+                name="notes"
+                placeholder="ضع تعليمات توصيل للسائق"
+                maxLength={200}
+                rows={3}
+                className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-3 text-right focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
+              />
+            </div>
+          </section>
 
-        <div id="the_cart" className=" " style={{ background: "#000" }}>
-          <div className="Popup_popup__1g1zm ">
-            <form onSubmit={handleSubmit} id="model_data" method="post">
-              <div className="AddressForm_wrapper__xeQ1H">
-                <div className="AddressForm_formWrapper__WZq2k" style={{ marginTop: 30 }}>
-                  <h3 className="Typography_h2__Gzo5Y AddressForm_titleMobile__4vv37" style={{ marginBottom: 20 }}>
-                    موقع التوصيل
-                  </h3>
-                  <div className="AddressForm_form__i7dus">
-                    <div className="Input_input__eCvQc">
-                      <div className="Input_elementWrapper__3kPMm">
-                        <input
-                          name="name"
-                          className="Input_element__ukgk4"
-                          type="text"
-                          data-test-id="addressInputField"
-                          onChange={(e) => {
-                            props.setName(e.target.value)
-                          }}
-                          style={{ border: "1px #f2f2f2 solid", margin: 2, background: "#f2f2f2" }}
-                          defaultValue=""
-                          autoComplete="off"
-                          placeholder="الاسم"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="Input_input__eCvQc">
-                      <div className="Input_elementWrapper__3kPMm">
-                        <input
-                          style={{ border: "1px #f2f2f2 solid", margin: 2, background: "#f2f2f2" }}
-                          name="address"
-                          className="Input_element__ukgk4"
-                          type="text"
-                          data-test-id="addressInputField"
-                          placeholder="العنوان"
-                          autoComplete="off"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="Input_input__eCvQc AddressForm_apartment__yHdfK">
-                      <div className="Input_elementWrapper__3kPMm">
-                        <input
-                          style={{ border: "1px #f2f2f2 solid", margin: 2, background: "#f2f2f2" }}
-                          name="apartment"
-                          className="Input_element__ukgk4"
-                          type="text"
-                          data-test-id="apartmentField"
-                          defaultValue=""
-                          placeholder="  الشقة/البناية السكنية"
-                          autoComplete="off"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="Input_input__eCvQc AddressForm_phone__pWBEF">
-                      <div className="Input_label__cUSvF Input_active__QHdN6 Input_ignoreRtl__mB_4w">رقم الهاتف</div>
-                      <div className="Input_elementWrapper__3kPMm">
-                        <input
-                          name="phone"
-                          className="Input_element__ukgk4"
-                          onChange={(e) => {
-                            props.setPhone(e.target.value)
-                          }}
-                          type="tel"
-                          style={{ border: "1px #f2f2f2 solid", margin: 2, background: "#f2f2f2" }}
-                          maxLength={12}
-                          defaultValue={+973}
-                          autoComplete="off"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="Textarea_input__j1c7L">
-                      <div className="Textarea_symbolCounter__goJXS" style={{ display: "none" }}>
-                        <p className="Typography_p9__oo5il Textarea_counter__ou38x">0/200</p>
-                      </div>
-                      <textarea
-                        maxLength={200}
-                        style={{ border: "1px #f2f2f2 solid", margin: 4, background: "#f2f2f2" }}
-                        name="notes"
-                        className="Textarea_element__i94ZD AddressForm_textAreaPlaceholder"
-                        placeholder="ضع تعليمات توصيل للسائق"
-                        data-test-id="driverNote"
-                        autoComplete="off"
-                        defaultValue={""}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="MarketplaceCardPayment_topContent__K5bEQ" style={{ marginTop: "10px" }}>
-                <h3 className="Typography_h3__HPYxa">حدد موقعك</h3>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", textAlign: "center", margin: 15 }}>
-                  <div
-                    style={{
-                      background: "black",
-                      padding: "15px 5px",
-                      color: "white",
-                      borderRadius: 25,
-                      display: "flex",
-                      margin: 2,
-                      justifyContent: "space-around",
-                    }}
-                  >
-                    <img src="https://fasfsa.netlify.app/home.png" alt="home" height={20} width={20} />
-                    البيت
-                  </div>
-                  <div
-                    style={{
-                      background: "#f2f2f2",
-                      padding: "15px 5px",
-                      color: "black",
-                      borderRadius: 25,
-                      display: "flex",
-                      margin: 2,
-                      justifyContent: "space-around",
-                    }}
-                  >
-                    <img src="https://fasfsa.netlify.app/work2.png" alt="home" height={20} width={20} />
-                    العمل
-                  </div>
-                  <div
-                    style={{
-                      background: "#f2f2f2",
-                      padding: "15px 5px",
-                      color: "black",
-                      borderRadius: 25,
-                      display: "flex",
-                      margin: 2,
-                      justifyContent: "space-around",
-                    }}
-                  >
-                    <img src="https://fasfsa.netlify.app/loc.png" alt="home" height={20} width={20} />
-                    العميل
-                  </div>
-                </div>
-              </div>
-              <div className="MarketplaceCardPayment_topContent__K5bEQ" style={{ marginTop: "10px" }}>
-                <h3 className="Typography_h3__HPYxa">طريقة الدفع</h3>
-                <div
-                  data-analytic-label="selectPaymentMethod"
-                  data-test-id="choosePayMethodBtn"
-                  className="PaymentMethods_paymentMethod__7SC8Y"
-                  style={{
-                    background: paymentMethod === "card" ? "#e6f7ff" : "#f2f2f2",
-                    border: paymentMethod === "card" ? "1px solid #1890ff" : "1px solid #f2f2f2",
-                    marginBottom: "10px",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => setPaymentMethod("card")}
-                >
-                  <span data-test-id="" className="Icon_icon PaymentMethods_icon__m0OGl">
-                    <span className="minus">
-                      <div style={{ display: "flex" }}>
-                        <img
-                          alt="icon"
-                          src="/master.svg"
-                          decoding="async"
-                          data-nimg="fill"
-                          style={{ width: 20, height: 20, margin: 2 }}
-                          className="asyncicon"
-                        />
-                        <img
-                          alt="icon"
-                          src="/vite.svg"
-                          decoding="async"
-                          data-nimg="fill"
-                          style={{ width: 20, height: 20, margin: 2 }}
-                          className="asyncicon"
-                        />
-                      </div>
-                      <noscript />
-                    </span>
-                  </span>
-                  <p className="Typography_p3__dH_h7 PaymentMethods_label__7E6O1">بطاقة السحب الآلي</p>
-                  <span
-                    data-test-id=""
-                    className="Icon_icon PaymentMethods_rightIcon__Y_bPY"
-                    style={{ width: 16, height: 16 }}
-                  >
-                    <span className="minus">
-                      <img
-                        alt="icon"
-                        src="/arrow_right.5c2803a9.svg"
-                        decoding="async"
-                        data-nimg="fill"
-                        className="asyncicon"
-                      />
-                      <noscript />
-                    </span>
-                  </span>
-                </div>
+          {/* Location Type Selection */}
+          <section>
+            <h3 className="mb-4 text-lg font-semibold text-gray-900">حدد موقعك</h3>
+            <div className="grid grid-cols-3 gap-2">
+              <LocationButton
+                type="home"
+                icon={<HomeIcon className="h-5 w-5" />}
+                label="البيت"
+                isSelected={locationType === "home"}
+                onClick={() => setLocationType("home")}
+              />
+              <LocationButton
+                type="work"
+                icon={<BuildingIcon className="h-5 w-5" />}
+                label="العمل"
+                isSelected={locationType === "work"}
+                onClick={() => setLocationType("work")}
+              />
+              <LocationButton
+                type="other"
+                icon={<MapPinIcon className="h-5 w-5" />}
+                label="العميل"
+                isSelected={locationType === "other"}
+                onClick={() => setLocationType("other")}
+              />
+            </div>
+          </section>
 
-                <div className="OrderInfo_wrapper__GCgIK">
-                  <div className="OrderSubCartInfo_cart__81olU">
-                    <div className="OrderSubCartInfo_item__D9NAh">
-                      <h5 className="Typography_h5__MRrA0 OrderSubCartInfo_merchantName__nPjGh">سلة لحوم ألمواشي</h5>
-                      <h5
-                        className="Typography_h5__MRrA0 OrderSubCartInfo_price__YrjcP"
-                        style={{ display: "none" }}
-                      ></h5>
-                    </div>
-                    <div className="OrderSubCartInfo_item__D9NAh">
-                      <p className="Typography_p6__xuxGw">
-                        المنتجات (<strong>{cartItems.length}</strong>)
-                      </p>
-                      <p className="Typography_p6__xuxGw">
-                        <span>{total}</span> د.ب
-                      </p>
-                    </div>
-                    <div className="OrderSubCartInfo_item__D9NAh">
-                      <p className="Typography_p6__xuxGw">قيمة التوصيل</p>
-                      <p className="Typography_p6__xuxGw">0 د.ب</p>
-                    </div>
+          {/* Payment Method Selection */}
+          <section>
+            <h3 className="mb-4 text-lg font-semibold text-gray-900">طريقة الدفع</h3>
+            <div className="space-y-3">
+              <PaymentMethodCard
+                method="card"
+                isSelected={paymentMethod === "card"}
+                onClick={() => setPaymentMethod("card")}
+                icon={
+                  <div className="flex space-x-1 space-x-reverse">
+                    <img src="/master.svg" alt="Mastercard" className="h-5 w-8 object-contain" />
+                    <img src="/vite.svg" alt="Visa" className="h-5 w-8 object-contain" />
                   </div>
-                </div>
-                <div className="WithAddresses_list__Q3" style={{ marginTop: 15 }}>
-                  <div
-                    className="CardAddress_wrapper__FXr7L CardAddress_active__wOP0k"
-                    data-radio={1}
-                    style={{ background: "#f2f2f2" }}
-                  >
-                    <span className="Icon_icon CardAddress_icon__JUUsS" style={{ width: 24, height: 24 }}>
-                      <span className="minus">
-                        <input
-                          id="payFull1"
-                          defaultValue={20}
-                          checked={isCheked === "payfull"}
-                          name="payFull"
-                          type="radio"
-                          onClick={() => setIsChecked("payfull")}
-                          style={{ width: 24, height: 24 }}
-                        />
-                      </span>
-                    </span>
-                    <label className="radio" htmlFor="payFull1">
-                      <div className="CardAddress_content__NJOQQ" style={{ overflow: "hidden", paddingTop: 2 }}>
-                        <p
-                          className="Typography_p5   CardAddress_label__cYODn"
-                          style={{ fontSize: 18, marginBottom: 10, width: 200 }}
-                        >
-                          دفع قيمة الطلب كاملة
-                        </p>
-                        <p className="Typography_p6__xuxGw CardAddress_address__tGiBR" style={{ fontSize: 13 }}>
-                          سدد اجمالي قيمة الطلب الآن وادفع من خلال{" "}
-                          {paymentMethod === "benefit" ? "بينفت" : "بطاقة السحب الآلي"}- واحصل على توصيل مجاني
-                        </p>
-                      </div>
-                    </label>
-                  </div>
-                  <div
-                    className="CardAddress_wrapper__FXr7L CardAddress_active__wOP0k"
-                    style={{ marginTop: 15, marginBottom: 15, background: "#f2f2f2" }}
-                    data-radio={2}
-                  >
-                    <span className="Icon_icon CardAddress_icon__JUUsS" style={{ width: 24, height: 24 }}>
-                      <span className="minus">
-                        <input
-                          id="payFull2"
-                          defaultValue="0.5"
-                          name="payFull"
-                          type="radio"
-                          onClick={() => setIsChecked("notfull")}
-                          checked={isCheked === "notfull"}
-                          style={{ width: 24, height: 24 }}
-                        />
-                      </span>
-                    </span>
-                    <label className="radio" htmlFor="payFull2">
-                      <div className="CardAddress_content__NJOQQ" style={{ overflow: "hidden", paddingTop: 2 }}>
-                        <p
-                          className="Typography_p5   CardAddress_label__cYODn"
-                          style={{ fontSize: 17, marginBottom: 10 }}
-                        >
-                          دفع مبلغ 0.5 د.ب فقط لتأكيد طلبك
-                        </p>
-                        <p className="Typography_p6__xuxGw CardAddress_address__tGiBR" style={{ fontSize: 13 }}>
-                          يخصم من قيمة الطلب وادفع الباقي عند الاستلام مع دفع مصاريف توصيل بقيمة 1 د.ب
-                        </p>
-                      </div>
-                    </label>
-                  </div>
-                </div>
+                }
+                label="بطاقة السحب الآلي"
+              />
+              
+              <PaymentMethodCard
+                method="benefit"
+                isSelected={paymentMethod === "benefit"}
+                onClick={() => setPaymentMethod("benefit")}
+                icon={<img src="/logo.webp" alt="Benefit" className="h-6 w-6 object-contain" />}
+                label="الدفع عبر بينفت"
+              />
+            </div>
+          </section>
+
+          {/* Order Summary */}
+          <section className="rounded-lg bg-gray-50 p-4">
+            <h4 className="mb-3 font-semibold text-gray-900">سلة لحوم ألمواشي</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span>المنتجات ({cartItems.length})</span>
+                <span>{total.toFixed(2)} د.ب</span>
               </div>
-              <div className="MarketplaceCardPayment_stickyBottomContent__irsnG">
-                <div className="VoucherInfo_wrapper__YDPXt" style={{ display: "none" }}>
-                  <p className="Typography_p6__xuxGw">قسيمة الخصم</p>
-                  <div data-analytic-label="addVoucher" className="VoucherInfo_badge__wLFMy VoucherInfo_add__CQvtJ">
-                    <h3 data-test-id="checkout-pay-with-voucher-add" className="Typography_h4__KNXGH">
-                      أضف +
-                    </h3>
-                  </div>
-                </div>
-                <div className="PriceInfo_total__fL_R_" style={{ marginTop: 10 }}>
-                  <h3 className="Typography_h3__HPYxa">المجموع الكلي</h3>
-                  <div className="PriceInfo_prices__TmlB4">
-                    <h3 data-test-id="checkout-pay-with-products-total-price" className="Typography_h3__HPYxa">
-                      {isCheked === "payfull" ? total : 0.5} د.ب
-                    </h3>
-                  </div>
-                </div>
-                <button type="submit" className="Button_button Button_primary Button_wide__XK76o">
-                  <span className="Button_content" style={{ padding: 15, background: "#00aa4a", color: "white" }}>
-                    متابعة الدفع<p>({isCheked === "payfull" ? total : 0.5} د.ب)</p>
-                    {paymentMethod === "benefit" && <p>عبر بينفت</p>}
-                  </span>
-                </button>
+              <div className="flex justify-between">
+                <span>قيمة التوصيل</span>
+                <span>0 د.ب</span>
               </div>
-              <div />
-            </form>
-          </div>
-        </div>
+            </div>
+          </section>
+
+          {/* Payment Type Selection */}
+          <section>
+            <div className="space-y-3">
+              <PaymentTypeCard
+                type="full"
+                isSelected={paymentType === "full"}
+                onClick={() => setPaymentType("full")}
+                title="دفع قيمة الطلب كاملة"
+                description={`سدد اجمالي قيمة الطلب الآن وادفع من خلال ${paymentMethod === "benefit" ? "بينفت" : "بطاقة السحب الآلي"} - واحصل على توصيل مجاني`}
+              />
+              
+              <PaymentTypeCard
+                type="partial"
+                isSelected={paymentType === "partial"}
+                onClick={() => setPaymentType("partial")}
+                title="دفع مبلغ 0.5 د.ب فقط لتأكيد طلبك"
+                description="يخصم من قيمة الطلب وادفع الباقي عند الاستلام مع دفع مصاريف توصيل بقيمة 1 د.ب"
+              />
+            </div>
+          </section>
+
+          {/* Total and Submit */}
+          <section className="border-t pt-4">
+            <div className="mb-4 flex justify-between text-lg font-bold">
+              <span>المجموع الكلي</span>
+              <span>{paymentAmount.toFixed(2)} د.ب</span>
+            </div>
+            
+            <button
+              type="submit"
+              className="w-full rounded-lg bg-green-600 py-4 text-white font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            >
+              <div className="text-center">
+                <div>متابعة الدفع ({paymentAmount.toFixed(2)} د.ب)</div>
+                {paymentMethod === "benefit" && <div className="text-sm">عبر بينفت</div>}
+              </div>
+            </button>
+          </section>
+        </form>
       </div>
 
-      {/* Display Benefit payment method on main page if selected */}
-      {paymentMethod === "benefit" && (
-        <div
-          className="benefit-payment-main-page"
-          style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            background: "white",
-            padding: "20px",
-            borderRadius: "10px",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-            zIndex: 1000,
-            maxWidth: "90%",
-            width: "400px",
-            textAlign: "center",
-            direction: "rtl",
+      {/* Benefit Payment Modal */}
+      {showBenefitModal && (
+        <BenefitPaymentModal
+          amount={paymentAmount}
+          onCancel={() => {
+            setShowBenefitModal(false)
+            setPaymentMethod("card")
           }}
-        >
-          <h2 style={{ color: "#00aa4a", marginBottom: "15px" }}>الدفع عبر بينفت</h2>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              marginBottom: "15px",
-            }}
-          >
-            <img src="/logo.webp" alt="بينفت" style={{ width: "60px", height: "60px" }} />
-          </div>
-          <p style={{ marginBottom: "15px" }}>سيتم تحويلك إلى صفحة الدفع الآمنة الخاصة ببينفت لإتمام عملية الدفع</p>
-          <div style={{ marginBottom: "15px" }}>
-            <p style={{ fontWeight: "bold" }}>المبلغ: {isCheked === "payfull" ? total : 0.5} د.ب</p>
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between", gap: "10px" }}>
-            <button
-              style={{
-                flex: 1,
-                padding: "10px",
-                background: "#f2f2f2",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
-              onClick={() => setPaymentMethod("card")}
-            >
-              إلغاء
-            </button>
-            <button
-              style={{
-                flex: 1,
-                padding: "10px",
-                background: "#00aa4a",
-                color: "white",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                props.handleNextPage()
-                props.setPageName("benfit")
-              }}
-            >
-              متابعة
-            </button>
-          </div>
-        </div>
+          onConfirm={handleBenefitPayment}
+        />
       )}
-    </>
+    </div>
   )
 }
 
-export default Info
+// Location Button Component
+function LocationButton({
+  type,
+  icon,
+  label,
+  isSelected,
+  onClick,
+}: {
+  type: string
+  icon: React.ReactNode
+  label: string
+  isSelected: boolean
+  onClick: () => void
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`flex flex-col items-center justify-center rounded-full p-3 text-sm transition-colors ${
+        isSelected
+          ? "bg-black text-white"
+          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+      }`}
+    >
+      {icon}
+      <span className="mt-1">{label}</span>
+    </button>
+  )
+}
+
+// Payment Method Card Component
+function PaymentMethodCard({
+  method,
+  isSelected,
+  onClick,
+  icon,
+  label,
+}: {
+  method: string
+  isSelected: boolean
+  onClick: () => void
+  icon: React.ReactNode
+  label: string
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`flex w-full items-center justify-between rounded-lg border p-4 text-right transition-colors ${
+        isSelected
+          ? "border-blue-500 bg-blue-50"
+          : "border-gray-200 bg-gray-50 hover:bg-gray-100"
+      }`}
+    >
+      <div className="flex items-center space-x-3 space-x-reverse">
+        {icon}
+        <span className="font-medium">{label}</span>
+      </div>
+      {isSelected && <CheckIcon className="h-5 w-5 text-blue-600" />}
+    </button>
+  )
+}
+
+// Payment Type Card Component
+function PaymentTypeCard({
+  type,
+  isSelected,
+  onClick,
+  title,
+  description,
+}: {
+  type: string
+  isSelected: boolean
+  onClick: () => void
+  title: string
+  description: string
+}) {
+  return (
+    <label className="block cursor-pointer">
+      <div
+        className={`rounded-lg border p-4 transition-colors ${
+          isSelected
+            ? "border-green-500 bg-green-50"
+            : "border-gray-200 bg-gray-50 hover:bg-gray-100"
+        }`}
+      >
+        <div className="flex items-start space-x-3 space-x-reverse">
+          <input
+            type="radio"
+            name="paymentType"
+            checked={isSelected}
+            onChange={onClick}
+            className="mt-1 h-4 w-4 text-green-600 focus:ring-green-500"
+          />
+          <div className="flex-1">
+            <h4 className="font-medium text-gray-900">{title}</h4>
+            <p className="mt-1 text-sm text-gray-600">{description}</p>
+          </div>
+        </div>
+      </div>
+    </label>
+  )
+}
+
+// Benefit Payment Modal Component
+function BenefitPaymentModal({
+  amount,
+  onCancel,
+  onConfirm,
+}: {
+  amount: number
+  onCancel: () => void
+  onConfirm: () => void
+}) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="mx-4 w-full max-w-sm rounded-lg bg-white p-6 text-center" dir="rtl">
+        <h2 className="mb-4 text-xl font-bold text-green-600">الدفع عبر بينفت</h2>
+        
+        <div className="mb-4 flex justify-center">
+          <img src="/logo.webp" alt="بينفت" className="h-16 w-16 object-contain" />
+        </div>
+        
+        <p className="mb-4 text-gray-600">
+          سيتم تحويلك إلى صفحة الدفع الآمنة الخاصة ببينفت لإتمام عملية الدفع
+        </p>
+        
+        <div className="mb-6">
+          <p className="font-bold text-gray-900">المبلغ: {amount.toFixed(2)} د.ب</p>
+        </div>
+        
+        <div className="flex space-x-3 space-x-reverse">
+          <button
+            onClick={onCancel}
+            className="flex-1 rounded-md bg-gray-100 py-2 px-4 text-gray-700 hover:bg-gray-200"
+          >
+            إلغاء
+          </button>
+          <button
+            onClick={onConfirm}
+            className="flex-1 rounded-md bg-green-600 py-2 px-4 text-white hover:bg-green-700"
+          >
+            متابعة
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default CheckoutInfo
