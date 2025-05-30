@@ -23,10 +23,7 @@ export function Landing(props: { handleNextPage: any }) {
               <a href="#" className="relative h-10 w-32">
                 <img src="/logo.png" alt="لحوم ألمواشي" className="h-full w-auto object-contain" />
               </a>
-              <button className="flex items-center rounded-md bg-gray-100 px-3 py-2 text-sm">
-                <MenuIcon className="ml-2 h-4 w-4" />
-                <span>القائمة</span>
-              </button>
+             
             </div>
 
             <div className="relative mx-4 hidden flex-1 md:block">
@@ -63,6 +60,40 @@ export function Landing(props: { handleNextPage: any }) {
             توصيل اونلاين.
           </p>
 
+
+        </section>
+<section className="mb-6 flex flex-wrap gap-2">
+    <ProductCard
+              id="eid-sheep-naimi"
+              image="/ais.jpg"
+              description="(الوزن من 12 الى 14 كيلو)"
+              name="ذبائح العيد - خاروف نعيمي"
+              price="45.00"
+              onAddToCart={() =>
+                handleAddtoCart({
+                  id: 1,
+                  name: "ذبائح العيد - خاروف نعيمي",
+                  price: "45.00",
+                  img: "/ais.jpg",
+                })
+              }
+            />
+
+            <ProductCard
+              id="eid-sheep-somali"
+              image="/5859495368377616247.jpg"
+              name="ذبائح العيد - خروف صومالي"
+              price="30.00"
+              description="(الوزن من 12 الى 14 كيلو)"
+              onAddToCart={() =>
+                handleAddtoCart({
+                  id: 2,
+                  name: "ذبائح العيد - خروف صومالي",
+                  price: "30.00",
+                  img: "/5859495368377616247.jpg",
+                })
+              }
+            />
           {/* Categories */}
           <div className="mb-6 overflow-x-auto">
             <div className="flex space-x-4 space-x-reverse">
@@ -79,8 +110,7 @@ export function Landing(props: { handleNextPage: any }) {
             <FilterBadge text="خلال 40 دقيقة" />
             <FilterBadge text="نقل مخصص" />
           </div>
-        </section>
-
+</section>
         {/* Store Info */}
         <section className="mb-6 overflow-hidden rounded-t-3xl bg-white shadow">
           <div className="relative h-48">
@@ -138,38 +168,7 @@ export function Landing(props: { handleNextPage: any }) {
         <section id="cart" className="mb-6">
           <h2 className="mb-4 text-2xl font-bold">عروض اليوم</h2>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <ProductCard
-              id="eid-sheep-naimi"
-              image="/ais.jpg"
-              description="(الوزن من 12 الى 14 كيلو)"
-              name="ذبائح العيد - خاروف نعيمي"
-              price="45.00"
-              onAddToCart={() =>
-                handleAddtoCart({
-                  id: 1,
-                  name: "ذبائح العيد - خاروف نعيمي",
-                  price: "45.00",
-                  img: "/ais.jpg",
-                })
-              }
-            />
-
-            <ProductCard
-              id="eid-sheep-somali"
-              image="/5859495368377616247.jpg"
-              name="ذبائح العيد - خروف صومالي"
-              price="30.00"
-              description="(الوزن من 12 الى 14 كيلو)"
-              onAddToCart={() =>
-                handleAddtoCart({
-                  id: 2,
-                  name: "ذبائح العيد - خروف صومالي",
-                  price: "30.00",
-                  img: "/5859495368377616247.jpg",
-                })
-              }
-            />
-
+          
             <ProductCard
               id="beef-premium-10kg"
               image="https://cdn.salla.sa/XYzRj/xiyM7mdnGrPa1OsDrg7qSR1HDxHN3pLBD56YBeJI.png"
