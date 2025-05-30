@@ -10,6 +10,7 @@ export function Landing(props: { handleNextPage: any }) {
   const handleAddtoCart = (item: any) => {
     addToCart(item)
     toast.success("تم اضافة المنتج")
+    props.handleNextPage()
   }
 
   return (

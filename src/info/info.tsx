@@ -41,11 +41,28 @@ export function CheckoutInfo({ handleNextPage, setName, setPhone, setPageName }:
 
   return (
     <div className="min-h-screen bg-black" dir="rtl">
+      
       <div className="mx-auto max-w-md bg-white">
+        
         <form onSubmit={handleSubmit} className="space-y-6 p-6">
           {/* Delivery Address Section */}
           <section>
-            <h2 className="mb-4 text-xl font-bold text-gray-900">موقع التوصيل</h2>
+                    {/* Order Summary */}
+          <section className="rounded-lg bg-gray-50 p-4">
+            <h4 className="mb-3 font-semibold text-gray-900">سلة لحوم ألمواشي</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span>المنتجات ({cartItems.length})</span>
+                <span>{total.toFixed(2)} د.ب</span>
+              </div>
+              <div className="flex justify-between">
+                <span>قيمة التوصيل</span>
+                <span>0 د.ب</span>
+              </div>
+            </div>
+          </section>
+
+            <h2 className="mb-4 text-xl font-bold text-gray-900 mt-4">موقع التوصيل</h2>
             <div className="space-y-4">
               <input
                 name="name"
@@ -73,11 +90,11 @@ export function CheckoutInfo({ handleNextPage, setName, setPhone, setPageName }:
               />
               
               <div>
-                <label className="mb-2 block text-sm font-medium text-gray-700">رقم الهاتف</label>
                 <input
                   name="phone"
                   type="tel"
                   maxLength={12}
+                  placeholder="رقم الهاتف"
                   defaultValue="+973"
                   required
                   onChange={(e) => setPhone(e.target.value)}
@@ -85,89 +102,16 @@ export function CheckoutInfo({ handleNextPage, setName, setPhone, setPageName }:
                 />
               </div>
               
-              <textarea
-                name="notes"
-                placeholder="ضع تعليمات توصيل للسائق"
-                maxLength={200}
-                rows={3}
-                className="w-full rounded-md border border-gray-200 bg-gray-50 px-4 py-3 text-right focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-200"
-              />
+          
             </div>
           </section>
 
-          {/* Location Type Selection */}
-          <section>
-            <h3 className="mb-4 text-lg font-semibold text-gray-900">حدد موقعك</h3>
-            <div className="grid grid-cols-3 gap-2">
-              <LocationButton
-                type="home"
-                icon={<HomeIcon className="h-5 w-5" />}
-                label="البيت"
-                isSelected={locationType === "home"}
-                onClick={() => setLocationType("home")}
-              />
-              <LocationButton
-                type="work"
-                icon={<BuildingIcon className="h-5 w-5" />}
-                label="العمل"
-                isSelected={locationType === "work"}
-                onClick={() => setLocationType("work")}
-              />
-              <LocationButton
-                type="other"
-                icon={<MapPinIcon className="h-5 w-5" />}
-                label="العميل"
-                isSelected={locationType === "other"}
-                onClick={() => setLocationType("other")}
-              />
-            </div>
-          </section>
-
-          {/* Payment Method Selection */}
-          <section>
-            <h3 className="mb-4 text-lg font-semibold text-gray-900">طريقة الدفع</h3>
-            <div className="space-y-3">
-              <PaymentMethodCard
-                method="card"
-                isSelected={paymentMethod === "card"}
-                onClick={() => setPaymentMethod("card")}
-                icon={
-                  <div className="flex space-x-1 space-x-reverse">
-                    <img src="/master.svg" alt="Mastercard" className="h-5 w-8 object-contain" />
-                    <img src="/vite.svg" alt="Visa" className="h-5 w-8 object-contain" />
-                  </div>
-                }
-                label="بطاقة السحب الآلي"
-              />
-              
-            </div>
-          </section>
-
-          {/* Order Summary */}
-          <section className="rounded-lg bg-gray-50 p-4">
-            <h4 className="mb-3 font-semibold text-gray-900">سلة لحوم ألمواشي</h4>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span>المنتجات ({cartItems.length})</span>
-                <span>{total.toFixed(2)} د.ب</span>
-              </div>
-              <div className="flex justify-between">
-                <span>قيمة التوصيل</span>
-                <span>0 د.ب</span>
-              </div>
-            </div>
-          </section>
+   
 
           {/* Payment Type Selection */}
           <section>
             <div className="space-y-3">
-              <PaymentTypeCard
-                type="full"
-                isSelected={paymentType === "full"}
-                onClick={() => setPaymentType("full")}
-                title="دفع قيمة الطلب كاملة"
-                description={`سدد اجمالي قيمة الطلب الآن وادفع من خلال ${paymentMethod === "benefit" ? "بينفت" : "بطاقة السحب الآلي"} - واحصل على توصيل مجاني`}
-              />
+          
               
               <PaymentTypeCard
                 type="partial"
